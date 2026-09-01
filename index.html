@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>10A - Success International School</title>
+<title>10A | Success International School</title>
 <style>
 *{
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 body{
 margin:0;
@@ -26,45 +27,137 @@ background:linear-gradient(
 );
 background-size:600% 600%;
 animation:bg 12s ease infinite;
+transition:.4s;
 }
 @keyframes bg{
-0%{background-position:0% 50%}
+0%{background-position:0 50%}
 25%{background-position:50% 100%}
 50%{background-position:100% 50%}
-75%{background-position:50% 0%}
-100%{background-position:0% 50%}
+75%{background-position:50% 0}
+100%{background-position:0 50%}
 }
-h1{
-margin-top:35px;
-font-size:40px;
+/* HEADER */
+header{
+padding:40px 15px;
+background:#0003;
+}
+header h1{
+font-size:50px;
+margin:5px;
 }
 .school{
-font-size:24px;
-margin-bottom:25px;
+font-size:23px;
 font-weight:bold;
 }
-button{
+.clock{
+margin-top:12px;
+font-size:17px;
+}
+/* NAVIGATION */
+nav{
+position:sticky;
+top:0;
+z-index:100;
+background:#000b;
+padding:12px;
+backdrop-filter:blur(10px);
+}
+nav a{
+color:white;
+text-decoration:none;
+margin:7px;
+font-size:15px;
+}
+/* SECTIONS */
+section{
+width:90%;
+max-width:750px;
+margin:30px auto;
+padding:25px;
+background:#ffffff20;
+border:1px solid #ffffff40;
+border-radius:25px;
+backdrop-filter:blur(8px);
+}
+h2{
+font-size:28px;
+}
+/* CARDS */
+.card{
+padding:18px;
+margin:12px 0;
+background:#ffffff25;
+border-radius:18px;
+font-size:19px;
+}
+/* STUDENTS */
+.student{
 display:block;
-width:85%;
-margin:10px auto;
+width:100%;
+margin:10px 0;
 padding:17px;
 border:0;
 border-radius:15px;
 background:#ffffff30;
 color:white;
-font-size:20px;
+font-size:19px;
 cursor:pointer;
-transition:0.2s;
+transition:.2s;
 }
-button:hover{
+.student:hover{
 background:#ffffff55;
 transform:scale(1.02);
 }
+/* COUNTER */
+.counter{
+font-size:24px;
+font-weight:bold;
+}
+/* GALLERY */
+.gallery{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+}
+.gallery img{
+width:140px;
+height:140px;
+object-fit:cover;
+border-radius:15px;
+transition:.3s;
+}
+.gallery img:hover{
+transform:scale(1.05);
+}
+/* FOUNDER */
+.founder{
+margin:40px auto 25px;
+padding:25px;
+width:90%;
+max-width:600px;
+background:#0005;
+border-radius:25px;
+font-size:21px;
+font-weight:bold;
+}
+/* DARK MODE */
+.dark{
+background:#080812 !important;
+animation:none;
+}
+.dark section{
+background:#151525;
+}
+.dark nav{
+background:#050509;
+}
+/* POPUP */
 #pop{
 display:none;
 position:fixed;
 inset:0;
-background:#000c;
+background:#000d;
 align-items:center;
 justify-content:center;
 z-index:999;
@@ -74,7 +167,7 @@ background:white;
 padding:20px;
 border-radius:20px;
 color:#0066cc;
-width:80%;
+width:85%;
 max-width:400px;
 }
 .box img{
@@ -86,52 +179,142 @@ font-size:30px;
 cursor:pointer;
 margin-bottom:10px;
 }
-.founder{
-margin:40px auto 25px;
-padding:20px;
-width:85%;
-max-width:550px;
-background:#ffffff22;
-border:1px solid #ffffff55;
-border-radius:20px;
-font-size:22px;
-font-weight:bold;
+/* BUTTON */
+.mode{
+position:fixed;
+right:15px;
+bottom:15px;
+z-index:200;
+border:0;
+border-radius:50%;
+width:55px;
+height:55px;
+font-size:23px;
+cursor:pointer;
+background:white;
 }
 </style>
 </head>
 <body>
+<header id="home">
 <h1>10A</h1>
 <div class="school">
 🏫 Success International School
 </div>
-<button onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')">
+<div class="clock" id="clock"></div>
+</header>
+<nav>
+<a href="#home">Home</a>
+<a href="#students">Students</a>
+<a href="#news">News</a>
+<a href="#achievements">Achievements</a>
+<a href="#gallery">Gallery</a>
+<a href="#teachers">Teachers</a>
+</nav>
+<!-- CLASS INFO -->
+<section>
+<h2>✨ Class 10A</h2>
+<div class="card counter">
+👨‍🎓 Students: 7
+</div>
+<div class="card">
+🎯 Class Motto:<br><br>
+<strong>
+"Learn • Grow • Achieve"
+</strong>
+</div>
+</section>
+<!-- STUDENT OF THE WEEK -->
+<section>
+<h2>⭐ Student of the Week</h2>
+<div class="card">
+🏆 Coming Soon
+<br><br>
+A new student will be selected every week!
+</div>
+</section>
+<!-- STUDENTS -->
+<section id="students">
+<h2>👨‍🎓 Students</h2>
+<button class="student"
+onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')">
 1. Abdullah Anwar
 </button>
-<button onclick="show('Abdullah Omar','images/IMG_5606.jpeg')">
+<button class="student"
+onclick="show('Abdullah Omar','images/IMG_5606.jpeg')">
 2. Abdullah Omar
 </button>
-<button onclick="show('Bashar Musa','')">
+<button class="student"
+onclick="show('Bashar Musa','')">
 3. Bashar Musa
 </button>
-<button onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
+<button class="student"
+onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
 4. Yahya
 </button>
-<button onclick="show('Hizam','')">
+<button class="student"
+onclick="show('Hizam','')">
 5. Hizam
 </button>
-<button onclick="show('Abu Bakr Ibrahim','')">
+<button class="student"
+onclick="show('Abu Bakr Ibrahim','')">
 6. Abu Bakr Ibrahim
 </button>
-<button onclick="show('Ahmed Faisal','')">
+<button class="student"
+onclick="show('Ahmed Faisal','')">
 7. Ahmed Faisal
 </button>
+</section>
+<!-- NEWS -->
+<section id="news">
+<h2>📢 Announcements</h2>
+<div class="card">
+📌 Welcome to Class 10A!
+</div>
+<div class="card">
+📚 Keep working hard.
+</div>
+<div class="card">
+⭐ Good luck to everyone!
+</div>
+</section>
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+<h2>🏆 Achievements</h2>
+<div class="card">
+🥇 Class 10A is aiming for excellence!
+</div>
+<div class="card">
+⭐ Together we can achieve more.
+</div>
+</section>
+<!-- GALLERY -->
+<section id="gallery">
+<h2>📸 Class Gallery</h2>
+<div class="gallery">
+<img src="images/IMG_5602.jpeg">
+<img src="images/IMG_5606.jpeg">
+<img src="images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg">
+</div>
+</section>
+<!-- TEACHERS -->
+<section id="teachers">
+<h2>👨‍🏫 Teachers</h2>
+<div class="card">
+Teacher information will be added soon.
+</div>
+</section>
+<!-- POPUP -->
 <div id="pop" onclick="closePop()">
 <div class="box" onclick="event.stopPropagation()">
-<div class="close" onclick="closePop()">✕</div>
+<div class="close" onclick="closePop()">
+✕
+</div>
 <h2 id="name"></h2>
 <img id="pic">
 </div>
 </div>
+<!-- FOUNDER -->
 <div class="founder">
 👑 Website Founder
 <br><br>
@@ -139,7 +322,32 @@ Ahmed Jallab
 <br>
 ⭐ Alex
 </div>
+<footer>
+10A © 2026
+<br>
+Success International School
+</footer>
+<!-- DARK MODE -->
+<button class="mode" onclick="darkMode()">
+🌙
+</button>
 <script>
+/* CLOCK */
+function updateClock(){
+let now=new Date();
+document.getElementById("clock").innerText=
+now.toLocaleDateString("en-US",{
+weekday:"long",
+year:"numeric",
+month:"long",
+day:"numeric"
+})
++" | "+
+now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+/* STUDENT PHOTO */
 function show(name,image){
 if(!image){
 alert("No photo available for this student yet.");
@@ -151,6 +359,10 @@ document.getElementById("pop").style.display="flex";
 }
 function closePop(){
 document.getElementById("pop").style.display="none";
+}
+/* DARK MODE */
+function darkMode(){
+document.body.classList.toggle("dark");
 }
 </script>
 </body>
