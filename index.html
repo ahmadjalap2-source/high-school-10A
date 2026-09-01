@@ -13,7 +13,7 @@
 
 body{
   margin:0;
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   background:linear-gradient(135deg,#ffffff,#eeeeee,#f7f7f7);
   color:#222;
 }
@@ -214,6 +214,47 @@ section h2{
   margin-bottom:15px;
 }
 
+/* Achievements */
+.achievement{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,.07);
+  text-align:center;
+}
+
+/* Quotes */
+.quotes-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+}
+
+.quote-card{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
+  text-align:center;
+  transition:.2s;
+}
+
+.quote-card:hover{
+  transform:translateY(-4px);
+}
+
+.quote-number{
+  font-size:14px;
+  color:#888;
+  margin-bottom:12px;
+}
+
+.quote-text{
+  font-size:18px;
+  line-height:1.5;
+  font-weight:bold;
+}
+
 /* Gallery */
 .gallery{
   display:grid;
@@ -302,6 +343,8 @@ footer{
 .dark .teacher-card,
 .dark .news,
 .dark .coming-soon,
+.dark .achievement,
+.dark .quote-card,
 .dark .founder,
 .dark .popup-box{
   background:#1e1e1e;
@@ -310,7 +353,8 @@ footer{
 
 .dark header h2,
 .dark .subject,
-.dark .coming-soon p{
+.dark .coming-soon p,
+.dark .quote-number{
   color:#aaa;
 }
 
@@ -326,6 +370,7 @@ footer{
 
 /* Mobile */
 @media(max-width:600px){
+
   .welcome-box h1{
     font-size:45px;
   }
@@ -337,6 +382,7 @@ footer{
   section{
     padding:18px;
   }
+
 }
 </style>
 </head>
@@ -348,6 +394,7 @@ footer{
   <div class="welcome-box">
     <h1>10A</h1>
     <h2>Success International School</h2>
+
     <button class="enter-btn" onclick="enterSite()">
       Enter Website 🚀
     </button>
@@ -369,15 +416,18 @@ footer{
   <a href="#exams">Exams</a>
   <a href="#news">News</a>
   <a href="#achievements">Achievements</a>
+  <a href="#quotes">Quotes</a>
   <a href="#gallery">Gallery</a>
   <a href="#founder">Founder</a>
 </nav>
 
 <!-- Home -->
 <section id="home">
+
   <h2>🏫 Welcome to Class 10A</h2>
 
   <div class="card">
+
     <p>
       Welcome to the official website of Class 10A at
       <strong>Success International School</strong>.
@@ -387,6 +437,7 @@ footer{
       This website contains class information, students,
       teachers, announcements, exams, achievements and memories.
     </p>
+
   </div>
 
   <div class="info-grid">
@@ -407,21 +458,31 @@ footer{
     </div>
 
   </div>
+
 </section>
 
 <!-- Student of the Month -->
 <section>
+
   <h2>🏆 Student of the Month</h2>
 
   <div class="coming-soon">
+
     <div class="icon">⭐</div>
+
     <h3>Coming Soon</h3>
-    <p>The Student of the Month will be announced soon.</p>
+
+    <p>
+      The Student of the Month will be announced soon.
+    </p>
+
   </div>
+
 </section>
 
 <!-- Students -->
 <section id="students">
+
   <h2>👨‍🎓 Our Students</h2>
 
   <input
@@ -470,10 +531,12 @@ footer{
     </button>
 
   </div>
+
 </section>
 
 <!-- Teachers -->
 <section id="teachers">
+
   <h2>👨‍🏫 Our Teachers</h2>
 
   <div class="teacher-card">
@@ -505,19 +568,26 @@ footer{
 
 <!-- Exams -->
 <section id="exams">
+
   <h2>📝 Exam Schedule</h2>
 
   <div class="coming-soon">
+
     <div class="icon">📚</div>
+
     <h3>Coming Soon 🚀</h3>
+
     <p>
       Exam dates and times will be announced here soon.
     </p>
+
   </div>
+
 </section>
 
 <!-- News -->
 <section id="news">
+
   <h2>📢 Announcements</h2>
 
   <div class="news">
@@ -534,17 +604,114 @@ footer{
 
 <!-- Achievements -->
 <section id="achievements">
+
   <h2>🏆 Achievements</h2>
 
-  <div class="coming-soon">
-    <div class="icon">🏆</div>
+  <div class="achievement">
+
+    <div style="font-size:55px;">🏆</div>
+
     <h3>Coming Soon</h3>
-    <p>Class achievements will appear here.</p>
+
+    <p>
+      Class achievements will appear here.
+    </p>
+
   </div>
+
+</section>
+
+<!-- Quotes -->
+<section id="quotes">
+
+  <h2>💬 Class Quotes</h2>
+
+  <div class="quotes-grid">
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 01</div>
+      <div class="quote-text">
+        “Small steps every day lead to big achievements.” 🚀
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 02</div>
+      <div class="quote-text">
+        “High school is not just about grades, it’s about building your future.” 🎓
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 03</div>
+      <div class="quote-text">
+        “Dream big, work hard, and never give up.” 💪
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 04</div>
+      <div class="quote-text">
+        “The best memories are made with the people who make school special.” ❤️
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 05</div>
+      <div class="quote-text">
+        “Every challenge is another chance to grow.” 🌟
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 06</div>
+      <div class="quote-text">
+        “Believe in yourself and keep moving forward.” 🔥
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 07</div>
+      <div class="quote-text">
+        “One class, one team, many dreams.” 🤝
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 08</div>
+      <div class="quote-text">
+        “Today’s effort is tomorrow’s success.” 🏆
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 09</div>
+      <div class="quote-text">
+        “Make your school years something worth remembering.” 📸
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 10</div>
+      <div class="quote-text">
+        “Learn together, laugh together, succeed together.” 😎
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-number">Quote 11</div>
+      <div class="quote-text">
+        “The journey through high school is just the beginning.” 🚀
+      </div>
+    </div>
+
+  </div>
+
 </section>
 
 <!-- Gallery -->
 <section id="gallery">
+
   <h2>📸 Class Gallery</h2>
 
   <div class="gallery">
@@ -565,35 +732,55 @@ footer{
     >
 
   </div>
+
 </section>
 
 <!-- Founder -->
 <section id="founder">
+
   <h2>👑 Website Founder</h2>
 
   <div class="founder">
+
     <h3>Ahmed Jallab</h3>
+
     <p>Alex</p>
-    <p>Founder of the 10A Website 🚀</p>
+
+    <p>
+      Founder of the 10A Website 🚀
+    </p>
+
   </div>
+
 </section>
 
 <!-- Dark Mode -->
 <section>
+
   <div class="card" style="text-align:center;">
+
     <button class="enter-btn" onclick="darkMode()">
       🌙 Dark Mode
     </button>
+
   </div>
+
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>© 2026 10A | Success International School</p>
-  <p>Made by Ahmed Jallab — Alex 🚀</p>
+
+  <p>
+    © 2026 10A | Success International School
+  </p>
+
+  <p>
+    Made by Ahmed Jallab — Alex 🚀
+  </p>
+
 </footer>
 
-<!-- Popup -->
+<!-- Student Popup -->
 <div id="popup" onclick="closePopup()">
 
   <div class="popup-box" onclick="event.stopPropagation()">
@@ -612,9 +799,11 @@ footer{
 
 <script>
 
-/* Welcome */
+/* Welcome Screen */
 function enterSite(){
+
   document.getElementById("welcome").style.display="none";
+
 }
 
 /* Clock */
@@ -630,6 +819,7 @@ function updateClock(){
 }
 
 setInterval(updateClock,1000);
+
 updateClock();
 
 /* Student Search */
@@ -643,10 +833,18 @@ function searchStudents(){
 
   students.forEach(student => {
 
-    if(student.innerText.toLowerCase().includes(input)){
+    if(
+      student.innerText
+      .toLowerCase()
+      .includes(input)
+    ){
+
       student.style.display="block";
+
     }else{
+
       student.style.display="none";
+
     }
 
   });
@@ -669,12 +867,15 @@ function show(name,image){
   if(image){
 
     img.src=image;
+
     img.style.display="block";
+
     noPhoto.innerText="";
 
   }else{
 
     img.style.display="none";
+
     noPhoto.innerText=
       "No photo available for this student yet.";
 
