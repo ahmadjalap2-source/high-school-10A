@@ -4,20 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>10A | Success International School</title>
-
 <style>
 *{
   box-sizing:border-box;
   scroll-behavior:smooth;
 }
-
 body{
   margin:0;
   font-family:Arial,sans-serif;
   background:linear-gradient(135deg,#ffffff,#eeeeee,#f7f7f7);
   color:#222;
 }
-
 /* Welcome */
 #welcome{
   position:fixed;
@@ -29,21 +26,17 @@ body{
   text-align:center;
   z-index:9999;
 }
-
 .welcome-box{
   padding:35px;
 }
-
 .welcome-box h1{
   font-size:60px;
   margin:0;
 }
-
 .welcome-box h2{
   margin:10px 0 30px;
   color:#555;
 }
-
 .enter-btn{
   border:none;
   padding:15px 30px;
@@ -53,7 +46,6 @@ body{
   font-size:18px;
   cursor:pointer;
 }
-
 /* Header */
 header{
   text-align:center;
@@ -61,22 +53,18 @@ header{
   background:white;
   box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
-
 header h1{
   margin:0;
   font-size:45px;
 }
-
 header h2{
   margin:8px 0;
   color:#555;
 }
-
 #clock{
   font-size:14px;
   color:#777;
 }
-
 /* Navigation */
 nav{
   position:sticky;
@@ -89,7 +77,6 @@ nav{
   padding:12px;
   background:#222;
 }
-
 nav a{
   color:white;
   text-decoration:none;
@@ -97,23 +84,19 @@ nav a{
   border-radius:20px;
   transition:.2s;
 }
-
 nav a:hover{
   background:#555;
 }
-
 /* Sections */
 section{
   max-width:1000px;
   margin:35px auto;
   padding:25px;
 }
-
 section h2{
   text-align:center;
   margin-bottom:25px;
 }
-
 /* Cards */
 .card{
   background:white;
@@ -122,13 +105,11 @@ section h2{
   box-shadow:0 5px 20px rgba(0,0,0,.08);
   margin-bottom:20px;
 }
-
 .info-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:15px;
 }
-
 .info-card{
   background:white;
   padding:20px;
@@ -136,7 +117,6 @@ section h2{
   text-align:center;
   box-shadow:0 5px 15px rgba(0,0,0,.07);
 }
-
 /* Coming Soon */
 .coming-soon{
   text-align:center;
@@ -145,21 +125,17 @@ section h2{
   border-radius:22px;
   box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
-
 .coming-soon .icon{
   font-size:55px;
 }
-
 .coming-soon h3{
   font-size:28px;
   margin:10px 0;
 }
-
 .coming-soon p{
   color:#777;
   font-size:18px;
 }
-
 /* Students */
 .search{
   width:100%;
@@ -169,13 +145,11 @@ section h2{
   margin-bottom:15px;
   font-size:16px;
 }
-
 .student-list{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:12px;
 }
-
 .student{
   border:none;
   padding:16px;
@@ -185,11 +159,9 @@ section h2{
   cursor:pointer;
   font-size:16px;
 }
-
 .student:hover{
   transform:translateY(-2px);
 }
-
 /* Teachers */
 .teacher-card{
   background:white;
@@ -199,12 +171,10 @@ section h2{
   box-shadow:0 4px 15px rgba(0,0,0,.07);
   font-size:18px;
 }
-
 .subject{
   color:#666;
   margin-top:7px;
 }
-
 /* News */
 .news{
   background:white;
@@ -213,7 +183,6 @@ section h2{
   box-shadow:0 4px 15px rgba(0,0,0,.07);
   margin-bottom:15px;
 }
-
 /* Achievements */
 .achievement{
   background:white;
@@ -222,14 +191,12 @@ section h2{
   box-shadow:0 5px 15px rgba(0,0,0,.07);
   text-align:center;
 }
-
 /* Quotes */
 .quotes-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:15px;
 }
-
 .quote-card{
   background:white;
   padding:25px;
@@ -238,30 +205,25 @@ section h2{
   text-align:center;
   transition:.2s;
 }
-
 .quote-card:hover{
   transform:translateY(-4px);
 }
-
 .quote-number{
   font-size:14px;
   color:#888;
   margin-bottom:12px;
 }
-
 .quote-text{
   font-size:18px;
   line-height:1.5;
   font-weight:bold;
 }
-
 /* Gallery */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:15px;
 }
-
 .gallery img{
   width:100%;
   height:220px;
@@ -270,7 +232,46 @@ section h2{
   cursor:pointer;
   box-shadow:0 4px 15px rgba(0,0,0,.1);
 }
-
+/* Social Media */
+.social-section{
+  text-align:center;
+}
+.social-title{
+  font-size:30px;
+  margin-bottom:8px;
+}
+.social-subtitle{
+  color:#777;
+  margin-bottom:25px;
+}
+.social-icons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:18px;
+}
+.social-link{
+  width:68px;
+  height:68px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:20px;
+  background:white;
+  text-decoration:none;
+  font-size:34px;
+  box-shadow:0 5px 18px rgba(0,0,0,.1);
+  transition:.25s;
+}
+.social-link:hover{
+  transform:translateY(-6px) scale(1.05);
+}
+.social-name{
+  margin-top:18px;
+  font-size:14px;
+  color:#777;
+}
 /* Founder */
 .founder{
   text-align:center;
@@ -279,12 +280,10 @@ section h2{
   border-radius:22px;
   box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
-
 .founder h3{
   font-size:28px;
   margin:8px;
 }
-
 /* Footer */
 footer{
   text-align:center;
@@ -293,7 +292,6 @@ footer{
   color:white;
   margin-top:40px;
 }
-
 /* Popup */
 #popup{
   display:none;
@@ -305,7 +303,6 @@ footer{
   z-index:10000;
   padding:20px;
 }
-
 .popup-box{
   background:white;
   padding:20px;
@@ -315,13 +312,11 @@ footer{
   text-align:center;
   position:relative;
 }
-
 .popup-box img{
   max-width:100%;
   max-height:65vh;
   border-radius:15px;
 }
-
 .close{
   position:absolute;
   right:15px;
@@ -329,13 +324,11 @@ footer{
   font-size:28px;
   cursor:pointer;
 }
-
 /* Dark Mode */
 .dark{
   background:#121212;
   color:#eee;
 }
-
 .dark header,
 .dark .card,
 .dark .info-card,
@@ -345,69 +338,64 @@ footer{
 .dark .coming-soon,
 .dark .achievement,
 .dark .quote-card,
+.dark .social-link,
 .dark .founder,
 .dark .popup-box{
   background:#1e1e1e;
   color:#eee;
 }
-
 .dark header h2,
 .dark .subject,
 .dark .coming-soon p,
-.dark .quote-number{
+.dark .quote-number,
+.dark .social-subtitle,
+.dark .social-name{
   color:#aaa;
 }
-
 .dark #welcome{
   background:#121212;
   color:white;
 }
-
 .dark .enter-btn{
   background:white;
   color:#111;
 }
-
 /* Mobile */
 @media(max-width:600px){
-
   .welcome-box h1{
     font-size:45px;
   }
-
   header h1{
     font-size:35px;
   }
-
   section{
     padding:18px;
   }
-
+  .social-link{
+    width:60px;
+    height:60px;
+    font-size:30px;
+  }
 }
 </style>
 </head>
-
 <body>
-
 <!-- Welcome Screen -->
 <div id="welcome">
   <div class="welcome-box">
     <h1>10A</h1>
     <h2>Success International School</h2>
-
     <button class="enter-btn" onclick="enterSite()">
       Enter Website 🚀
     </button>
   </div>
 </div>
-
 <!-- Header -->
 <header>
   <h1>10A</h1>
   <h2>Success International School</h2>
   <div id="clock"></div>
 </header>
-
 <!-- Navigation -->
 <nav>
   <a href="#home">Home</a>
@@ -420,71 +408,48 @@ footer{
   <a href="#gallery">Gallery</a>
   <a href="#founder">Founder</a>
 </nav>
-
 <!-- Home -->
 <section id="home">
-
   <h2>🏫 Welcome to Class 10A</h2>
-
   <div class="card">
-
     <p>
       Welcome to the official website of Class 10A at
       <strong>Success International School</strong>.
     </p>
-
     <p>
       This website contains class information, students,
       teachers, announcements, exams, achievements and memories.
     </p>
-
   </div>
-
   <div class="info-grid">
-
     <div class="info-card">
       <h3>🎓 Class</h3>
       <p>10A</p>
     </div>
-
     <div class="info-card">
       <h3>🏫 School</h3>
       <p>Success International School</p>
     </div>
-
     <div class="info-card">
       <h3>👨‍🎓 Students</h3>
       <p>7 Students</p>
     </div>
-
   </div>
-
 </section>
-
 <!-- Student of the Month -->
 <section>
-
   <h2>🏆 Student of the Month</h2>
-
   <div class="coming-soon">
-
     <div class="icon">⭐</div>
-
     <h3>Coming Soon</h3>
-
     <p>
       The Student of the Month will be announced soon.
     </p>
-
   </div>
-
 </section>
-
 <!-- Students -->
 <section id="students">
-
   <h2>👨‍🎓 Our Students</h2>
-
   <input
     type="text"
     id="search"
@@ -492,412 +457,351 @@ footer{
     placeholder="Search for a student..."
     onkeyup="searchStudents()"
   >
-
-  <div class="student-list" id="studentList">
-
+  <div class="student-list">
     <button class="student"
       onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')">
       1. Abdullah Anwar
     </button>
-
     <button class="student"
       onclick="show('Abdullah Omar','images/IMG_5606.jpeg')">
       2. Abdullah Omar
     </button>
-
     <button class="student"
       onclick="show('Bashar Musa','')">
       3. Bashar Musa
     </button>
-
     <button class="student"
       onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
       4. Yahya
     </button>
-
     <button class="student"
       onclick="show('Hizam','')">
       5. Hizam
     </button>
-
     <button class="student"
       onclick="show('Abu Bakr Ibrahim','')">
       6. Abu Bakr Ibrahim
     </button>
-
     <button class="student"
       onclick="show('Ahmed Faisal','')">
       7. Ahmed Faisal
     </button>
-
   </div>
-
 </section>
-
 <!-- Teachers -->
 <section id="teachers">
-
   <h2>👨‍🏫 Our Teachers</h2>
-
   <div class="teacher-card">
     ⚛️ <strong>Physics</strong>
     <div class="subject">Mr. Mohammad Elhijazi</div>
   </div>
-
   <div class="teacher-card">
     📐 <strong>Mathematics</strong>
     <div class="subject">Mr. Rafaqat Ali</div>
   </div>
-
   <div class="teacher-card">
     🧬 <strong>Biology</strong>
     <div class="subject">Mr. Fayyaz Jddin</div>
   </div>
-
   <div class="teacher-card">
     🇬🇧 <strong>English</strong>
     <div class="subject">Mr. Abdul Jaleel</div>
   </div>
-
   <div class="teacher-card">
     ⚗️ <strong>Chemistry</strong>
     <div class="subject">Mr. Nauman Ahmad</div>
   </div>
-
 </section>
-
 <!-- Exams -->
 <section id="exams">
-
   <h2>📝 Exam Schedule</h2>
-
   <div class="coming-soon">
-
     <div class="icon">📚</div>
-
     <h3>Coming Soon 🚀</h3>
-
     <p>
       Exam dates and times will be announced here soon.
     </p>
-
   </div>
-
 </section>
-
 <!-- News -->
 <section id="news">
-
   <h2>📢 Announcements</h2>
-
   <div class="news">
     <strong>📌 Class News</strong>
     <p>Coming Soon...</p>
   </div>
-
   <div class="news">
     <strong>📌 Important Announcements</strong>
     <p>Coming Soon...</p>
   </div>
-
 </section>
-
 <!-- Achievements -->
 <section id="achievements">
-
   <h2>🏆 Achievements</h2>
-
   <div class="achievement">
-
     <div style="font-size:55px;">🏆</div>
-
     <h3>Coming Soon</h3>
-
     <p>
       Class achievements will appear here.
     </p>
-
   </div>
-
 </section>
-
 <!-- Quotes -->
 <section id="quotes">
-
   <h2>💬 Class Quotes</h2>
-
   <div class="quotes-grid">
-
     <div class="quote-card">
       <div class="quote-number">Quote 01</div>
       <div class="quote-text">
         “Small steps every day lead to big achievements.” 🚀
       </div>
     </div>
-
     <div class="quote-card">
       <div class="quote-number">Quote 02</div>
       <div class="quote-text">
         “High school is not just about grades, it’s about building your future.” 🎓
       </div>
     </div>
-
     <div class="quote-card">
       <div class="quote-number">Quote 03</div>
       <div class="quote-text">
         “Dream big, work hard, and never give up.” 💪
       </div>
     </div>
-
     <div class="quote-card">
       <div class="quote-number">Quote 04</div>
       <div class="quote-text">
         “The best memories are made with the people who make school special.” ❤️
       </div>
     </div>
-
     <div class="quote-card">
       <div class="quote-number">Quote 05</div>
       <div class="quote-text">
         “Every challenge is another chance to grow.” 🌟
       </div>
     </div>
-
     <div class="quote-card">
       <div class="quote-number">Quote 06</div>
       <div class="quote-text">
         “Believe in yourself and keep moving forward.” 🔥
       </div>
     </div>
-
     <div class="quote-card">
       <div class="quote-number">Quote 07</div>
       <div class="quote-text">
         “One class, one team, many dreams.” 🤝
       </div>
     </div>
-
     <div class="quote-card">
       <div class="quote-number">Quote 08</div>
       <div class="quote-text">
         “Today’s effort is tomorrow’s success.” 🏆
       </div>
     </div>
-
     <div class="quote-card">
       <div class="quote-number">Quote 09</div>
       <div class="quote-text">
         “Make your school years something worth remembering.” 📸
       </div>
     </div>
-
     <div class="quote-card">
       <div class="quote-number">Quote 10</div>
       <div class="quote-text">
         “Learn together, laugh together, succeed together.” 😎
       </div>
     </div>
-
     <div class="quote-card">
       <div class="quote-number">Quote 11</div>
       <div class="quote-text">
         “The journey through high school is just the beginning.” 🚀
       </div>
     </div>
-
   </div>
-
 </section>
-
 <!-- Gallery -->
 <section id="gallery">
-
   <h2>📸 Class Gallery</h2>
-
   <div class="gallery">
-
     <img
       src="images/IMG_5602.jpeg"
       onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')"
     >
-
     <img
       src="images/IMG_5606.jpeg"
       onclick="show('Abdullah Omar','images/IMG_5606.jpeg')"
     >
-
     <img
       src="images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg"
       onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')"
     >
-
   </div>
-
 </section>
-
 <!-- Founder -->
 <section id="founder">
-
   <h2>👑 Website Founder</h2>
-
   <div class="founder">
-
     <h3>Ahmed Jallab</h3>
-
     <p>Alex</p>
-
     <p>
       Founder of the 10A Website 🚀
     </p>
-
   </div>
-
 </section>
-
+<!-- School Social Media -->
+<section class="social-section">
+  <div class="card">
+    <div class="social-title">
+      🏫 Success International School
+    </div>
+    <div class="social-subtitle">
+      School Social Media & Platforms
+    </div>
+    <div class="social-icons">
+      <!-- Classlight -->
+      <a
+        class="social-link"
+        href="https://www.classlight.com/"
+        target="_blank"
+        title="Classlight"
+      >
+        🌐
+      </a>
+      <!-- TikTok -->
+      <a
+        class="social-link"
+        href="https://www.tiktok.com/@sischls?_r=1&_t=ZS-99NWSo2HCV6"
+        target="_blank"
+        title="TikTok"
+      >
+        🎵
+      </a>
+      <!-- Instagram -->
+      <a
+        class="social-link"
+        href="https://www.instagram.com/sischls?igsi=dm0zc2s4MHpuMjhi"
+        target="_blank"
+        title="Instagram"
+      >
+        📸
+      </a>
+      <!-- Facebook -->
+      <a
+        class="social-link"
+        href="https://www.facebook.com/share/1EqhkVcozU/?mibextid=wwXIfr"
+        target="_blank"
+        title="Facebook"
+      >
+        📘
+      </a>
+      <!-- YouTube -->
+      <a
+        class="social-link"
+        href="https://youtube.com/@sischls?si=3M0HkZMbFMBErEw_"
+        target="_blank"
+        title="YouTube"
+      >
+        ▶️
+      </a>
+      <!-- Snapchat -->
+      <a
+        class="social-link"
+        href="https://www.snapchat.com/add/sischls"
+        target="_blank"
+        title="Snapchat"
+      >
+        👻
+      </a>
+    </div>
+    <div class="social-name">
+      @sischls
+    </div>
+  </div>
+</section>
 <!-- Dark Mode -->
 <section>
-
   <div class="card" style="text-align:center;">
-
     <button class="enter-btn" onclick="darkMode()">
       🌙 Dark Mode
     </button>
-
   </div>
-
 </section>
-
 <!-- Footer -->
 <footer>
-
   <p>
     © 2026 10A | Success International School
   </p>
-
   <p>
     Made by Ahmed Jallab — Alex 🚀
   </p>
-
 </footer>
-
 <!-- Student Popup -->
 <div id="popup" onclick="closePopup()">
-
   <div class="popup-box" onclick="event.stopPropagation()">
-
     <span class="close" onclick="closePopup()">×</span>
-
     <h2 id="popupName"></h2>
-
     <img id="popupImage" src="" alt="Student Photo">
-
     <p id="noPhoto"></p>
-
   </div>
-
 </div>
-
 <script>
-
 /* Welcome Screen */
 function enterSite(){
-
   document.getElementById("welcome").style.display="none";
-
 }
-
 /* Clock */
 function updateClock(){
-
   const now = new Date();
-
   document.getElementById("clock").innerText =
     now.toLocaleDateString("en-US") +
     " • " +
     now.toLocaleTimeString("en-US");
-
 }
-
 setInterval(updateClock,1000);
-
 updateClock();
-
 /* Student Search */
 function searchStudents(){
-
   const input =
     document.getElementById("search").value.toLowerCase();
-
   const students =
     document.querySelectorAll(".student");
-
   students.forEach(student => {
-
     if(
       student.innerText
       .toLowerCase()
       .includes(input)
     ){
-
       student.style.display="block";
-
     }else{
-
       student.style.display="none";
-
     }
-
   });
-
 }
-
 /* Student Popup */
 function show(name,image){
-
   document.getElementById("popup").style.display="flex";
-
   document.getElementById("popupName").innerText=name;
-
   const img =
     document.getElementById("popupImage");
-
   const noPhoto =
     document.getElementById("noPhoto");
-
   if(image){
-
     img.src=image;
-
     img.style.display="block";
-
     noPhoto.innerText="";
-
   }else{
-
     img.style.display="none";
-
     noPhoto.innerText=
       "No photo available for this student yet.";
-
   }
-
 }
-
 /* Close Popup */
 function closePopup(){
-
   document.getElementById("popup").style.display="none";
-
 }
-
 /* Dark Mode */
 function darkMode(){
-
   document.body.classList.toggle("dark");
-
 }
-
 </script>
-
 </body>
 </html>
