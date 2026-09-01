@@ -16,24 +16,19 @@ text-align:center;
 color:white;
 background:linear-gradient(
 120deg,
-#001aff,
-#00c6ff,
-#7b00ff,
-#ff00c8,
-#ff0066,
-#ff8a00,
-#00ffcc,
-#0066ff
+#000000,
+#222222,
+#ffffff,
+#555555,
+#000000
 );
-background-size:600% 600%;
-animation:bg 12s ease infinite;
+background-size:500% 500%;
+animation:bg 10s ease infinite;
 }
 @keyframes bg{
-0%{background-position:0 50%}
-25%{background-position:50% 100%}
+0%{background-position:0% 50%}
 50%{background-position:100% 50%}
-75%{background-position:50% 0}
-100%{background-position:0 50%}
+100%{background-position:0% 50%}
 }
 /* WELCOME */
 #welcome{
@@ -44,20 +39,21 @@ display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-background:linear-gradient(135deg,#001aff,#7b00ff,#ff00c8);
+background:linear-gradient(
+135deg,
+#000,
+#333,
+#fff
+);
+color:white;
 transition:1s;
 }
 #welcome h1{
-font-size:55px;
+font-size:60px;
 margin:10px;
-animation:pop 1s ease;
 }
 #welcome p{
 font-size:22px;
-}
-@keyframes pop{
-from{transform:scale(.5);opacity:0}
-to{transform:scale(1);opacity:1}
 }
 .enter{
 padding:15px 35px;
@@ -69,14 +65,14 @@ cursor:pointer;
 /* HEADER */
 header{
 padding:40px 15px;
-background:#0003;
+background:#0006;
 }
 header h1{
-font-size:50px;
+font-size:55px;
 margin:5px;
 }
 .school{
-font-size:23px;
+font-size:25px;
 font-weight:bold;
 }
 .clock{
@@ -88,7 +84,7 @@ nav{
 position:sticky;
 top:0;
 z-index:100;
-background:#000b;
+background:#000c;
 padding:12px;
 backdrop-filter:blur(10px);
 }
@@ -127,7 +123,6 @@ padding:15px;
 border:0;
 border-radius:15px;
 font-size:18px;
-margin-bottom:15px;
 outline:none;
 }
 /* STUDENTS */
@@ -147,7 +142,7 @@ transition:.3s;
 .student:hover{
 background:#ffffff55;
 transform:translateY(-4px) scale(1.02);
-box-shadow:0 8px 20px #0004;
+box-shadow:0 8px 20px #0007;
 }
 /* GALLERY */
 .gallery{
@@ -164,7 +159,7 @@ cursor:pointer;
 transition:.3s;
 }
 .gallery img:hover{
-transform:scale(1.04);
+transform:scale(1.05);
 }
 /* FOUNDER */
 .founder{
@@ -172,7 +167,7 @@ margin:40px auto 25px;
 padding:25px;
 width:90%;
 max-width:600px;
-background:#0005;
+background:#0008;
 border-radius:25px;
 font-size:21px;
 font-weight:bold;
@@ -182,7 +177,7 @@ font-weight:bold;
 display:none;
 position:fixed;
 inset:0;
-background:#000d;
+background:#000e;
 align-items:center;
 justify-content:center;
 z-index:999;
@@ -192,7 +187,7 @@ padding:20px;
 background:white;
 padding:20px;
 border-radius:20px;
-color:#0066cc;
+color:#111;
 width:90%;
 max-width:420px;
 }
@@ -205,17 +200,18 @@ border-radius:15px;
 .close{
 font-size:30px;
 cursor:pointer;
+margin-bottom:10px;
 }
 /* DARK MODE */
 .dark{
-background:#080812 !important;
+background:#000 !important;
 animation:none;
 }
 .dark section{
-background:#151525;
+background:#111;
 }
 .dark nav{
-background:#050509;
+background:#000;
 }
 /* MODE BUTTON */
 .mode{
@@ -234,15 +230,15 @@ background:white;
 /* FOOTER */
 footer{
 padding:25px;
-background:#0005;
+background:#0008;
 }
 </style>
 </head>
 <body>
-<!-- WELCOME SCREEN -->
+<!-- WELCOME -->
 <div id="welcome">
 <h1>10A</h1>
-<p>Welcome to Success International School</p>
+<p>Success International School</p>
 <button class="enter" onclick="enterSite()">
 Enter Website 🚀
 </button>
@@ -251,7 +247,7 @@ Enter Website 🚀
 <header id="home">
 <h1>10A</h1>
 <div class="school">
-🏫 Success International School
+Success International School
 </div>
 <div class="clock" id="clock"></div>
 </header>
@@ -297,31 +293,52 @@ placeholder="🔍 Search student..."
 onkeyup="searchStudents()"
 >
 <button class="student"
-onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')">
+onclick="show(
+'Abdullah Anwar',
+'images/IMG_5602.jpeg'
+)">
 1. Abdullah Anwar
 </button>
 <button class="student"
-onclick="show('Abdullah Omar','images/IMG_5606.jpeg')">
+onclick="show(
+'Abdullah Omar',
+'images/IMG_5606.jpeg'
+)">
 2. Abdullah Omar
 </button>
 <button class="student"
-onclick="show('Bashar Musa','')">
+onclick="show(
+'Bashar Musa',
+''
+)">
 3. Bashar Musa
 </button>
 <button class="student"
-onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
+onclick="show(
+'Yahya',
+'images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg'
+)">
 4. Yahya
 </button>
 <button class="student"
-onclick="show('Hizam','')">
+onclick="show(
+'Hizam',
+''
+)">
 5. Hizam
 </button>
 <button class="student"
-onclick="show('Abu Bakr Ibrahim','')">
+onclick="show(
+'Abu Bakr Ibrahim',
+''
+)">
 6. Abu Bakr Ibrahim
 </button>
 <button class="student"
-onclick="show('Ahmed Faisal','')">
+onclick="show(
+'Ahmed Faisal',
+''
+)">
 7. Ahmed Faisal
 </button>
 </section>
@@ -354,16 +371,22 @@ onclick="show('Ahmed Faisal','')">
 <div class="gallery">
 <img
 src="images/IMG_5602.jpeg"
-onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')"
->
+onclick="show(
+'Abdullah Anwar',
+'images/IMG_5602.jpeg'
+)">
 <img
 src="images/IMG_5606.jpeg"
-onclick="show('Abdullah Omar','images/IMG_5606.jpeg')"
->
+onclick="show(
+'Abdullah Omar',
+'images/IMG_5606.jpeg'
+)">
 <img
 src="images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg"
-onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')"
->
+onclick="show(
+'Yahya',
+'images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg'
+)">
 </div>
 </section>
 <!-- TEACHERS -->
@@ -375,8 +398,10 @@ Teacher information will be added soon.
 </section>
 <!-- PHOTO POPUP -->
 <div id="pop" onclick="closePop()">
-<div class="box" onclick="event.stopPropagation()">
-<div class="close" onclick="closePop()">
+<div class="box"
+onclick="event.stopPropagation()">
+<div class="close"
+onclick="closePop()">
 ✕
 </div>
 <h2 id="name"></h2>
@@ -426,12 +451,16 @@ updateClock();
 /* SEARCH */
 function searchStudents(){
 let search=
-document.getElementById("search").value.toLowerCase();
+document.getElementById("search")
+.value
+.toLowerCase();
 let students=
 document.querySelectorAll(".student");
 students.forEach(function(student){
 student.style.display=
-student.innerText.toLowerCase().includes(search)
+student.innerText
+.toLowerCase()
+.includes(search)
 ? "block"
 : "none";
 });
@@ -439,19 +468,27 @@ student.innerText.toLowerCase().includes(search)
 /* PHOTO */
 function show(name,image){
 if(!image){
-alert("No photo available for this student yet.");
+alert(
+"No photo available for this student yet."
+);
 return;
 }
-document.getElementById("name").innerText=name;
-document.getElementById("pic").src=image;
-document.getElementById("pop").style.display="flex";
+document.getElementById("name")
+.innerText=name;
+document.getElementById("pic")
+.src=image;
+document.getElementById("pop")
+.style.display="flex";
 }
 function closePop(){
-document.getElementById("pop").style.display="none";
+document.getElementById("pop")
+.style.display="none";
 }
 /* DARK MODE */
 function darkMode(){
-document.body.classList.toggle("dark");
+document.body
+.classList
+.toggle("dark");
 }
 </script>
 </body>
