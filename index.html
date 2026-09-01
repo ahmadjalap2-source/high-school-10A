@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>نافذة النجاح العالمية</title>
-
 <style>
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -16,203 +12,142 @@ body {
     color: white;
     text-align: center;
 }
-
 .header {
-    padding: 30px;
+    padding: 35px 15px;
 }
-
 .school {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: bold;
 }
-
 .alex {
-    background: white;
-    color: #0066cc;
-    width: 80%;
+    width: 85%;
     max-width: 500px;
     margin: 20px auto;
     padding: 20px;
+    background: white;
+    color: #0066cc;
     border-radius: 20px;
-    font-size: 25px;
+    font-size: 26px;
     font-weight: bold;
 }
-
 .students {
     width: 90%;
     max-width: 600px;
     margin: auto;
 }
-
 .student {
     width: 100%;
     padding: 18px;
     margin: 8px 0;
     border: none;
     border-radius: 15px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.18);
     color: white;
-    font-size: 20px;
+    font-size: 21px;
     cursor: pointer;
 }
-
 .student:hover {
-    background: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.02);
 }
-
-/* الصورة */
-
-#photoBox {
+#popup {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(0,0,0,0.8);
     justify-content: center;
     align-items: center;
     z-index: 999;
 }
-
-.photoContent {
+.popup-box {
+    position: relative;
     background: white;
     color: #0066cc;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 25px;
     width: 85%;
     max-width: 400px;
 }
-
-.photoContent img {
+.popup-box img {
     width: 100%;
+    max-height: 450px;
+    object-fit: contain;
     border-radius: 15px;
 }
-
 .close {
-    font-size: 30px;
-    cursor: pointer;
+    position: absolute;
+    left: 15px;
+    top: 5px;
+    font-size: 35px;
     color: black;
+    cursor: pointer;
 }
-
 </style>
 </head>
-
 <body>
-
 <div class="header">
     <div class="school">
         🏫 نافذة النجاح العالمية
     </div>
-
     <p>قائمة الطلاب</p>
 </div>
-
-
 <div class="alex">
     ⭐ Alex : أحمد جلاب ⭐
 </div>
-
-
 <div class="students">
-
     <button class="student"
-    onclick="showPhoto('عبدالله أنور','images/IMG_5602.jpeg')">
-        1. عبدالله أنور
+    onclick="openPhoto('عبدالله أنور','images/IMG_5602.jpeg')">
+        1️⃣ عبدالله أنور
     </button>
-
-
     <button class="student"
-    onclick="showPhoto('عبدالله عمر','images/IMG_5606.jpeg')">
-        2. عبدالله عمر
+    onclick="openPhoto('عبدالله عمر','images/IMG_5606.jpeg')">
+        2️⃣ عبدالله عمر
     </button>
-
-
     <button class="student"
-    onclick="showPhoto('رواد عسكر','images/62978692-40ec-4d90-8d50-f0de86eb948e.jpeg')">
-        3. رواد عسكر
+    onclick="openPhoto('رواد عسكر','images/62978692-40ec-4d90-8d50-f0de86eb948e.jpeg')">
+        3️⃣ رواد عسكر
     </button>
-
-
     <button class="student"
-    onclick="showPhoto('بشار موسى','')">
-        4. بشار موسى
+    onclick="openPhoto('بشار موسى','')">
+        4️⃣ بشار موسى
     </button>
-
-
     <button class="student"
-    onclick="showPhoto('يحيى','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
-        5. يحيى
+    onclick="openPhoto('يحيى','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
+        5️⃣ يحيى
     </button>
-
-
     <button class="student"
-    onclick="showPhoto('حزام','')">
-        6. حزام
+    onclick="openPhoto('حزام','')">
+        6️⃣ حزام
     </button>
-
-
     <button class="student"
-    onclick="showPhoto('محمد فاتح','')">
-        7. محمد فاتح
+    onclick="openPhoto('محمد فاتح','')">
+        7️⃣ محمد فاتح
     </button>
-
-
     <button class="student"
-    onclick="showPhoto('ابو بكر براهيم','')">
-        8. ابو بكر براهيم
+    onclick="openPhoto('ابو بكر براهيم','')">
+        8️⃣ ابو بكر براهيم
     </button>
-
-
     <button class="student"
-    onclick="showPhoto('احمد فيصل','')">
-        9. احمد فيصل
+    onclick="openPhoto('احمد فيصل','')">
+        9️⃣ احمد فيصل
     </button>
-
 </div>
-
-
-<!-- نافذة الصورة -->
-
-<div id="photoBox" onclick="closePhoto()">
-
-    <div class="photoContent" onclick="event.stopPropagation()">
-
+<div id="popup">
+    <div class="popup-box">
         <span class="close" onclick="closePhoto()">×</span>
-
-        <h2 id="name"></h2>
-
-        <img id="photo" src="">
-
+        <h2 id="studentName"></h2>
+        <img id="studentPhoto" src="" alt="صورة الطالب">
     </div>
-
 </div>
-
-
 <script>
-
-function showPhoto(name, image) {
-
-    document.getElementById("name").innerText = name;
-
-    if (image === "") {
-        document.getElementById("photo").style.display = "none";
-    } else {
-        document.getElementById("photo").style.display = "block";
-        document.getElementById("photo").src = image;
-    }
-
-    document.getElementById("photoBox").style.display = "flex";
+function openPhoto(name, image) {
+    document.getElementById("studentName").innerText = name;
+    document.getElementById("studentPhoto").src = image;
+    document.getElementById("popup").style.display = "flex";
 }
-
-
 function closePhoto() {
-
-    document.getElementById("photoBox").style.display = "none";
-
+    document.getElementById("popup").style.display = "none";
 }
-
 </script>
-
 </body>
 </html>
