@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>10A - نافذة النجاح العالمية</title>
+<title>10A - Success International School</title>
 <style>
+*{
+box-sizing:border-box;
+}
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial,sans-serif;
 text-align:center;
 color:white;
 background:linear-gradient(
@@ -33,11 +36,12 @@ animation:bg 12s ease infinite;
 }
 h1{
 margin-top:35px;
-font-size:38px;
+font-size:40px;
 }
 .school{
-font-size:22px;
+font-size:24px;
 margin-bottom:25px;
+font-weight:bold;
 }
 button{
 display:block;
@@ -50,9 +54,11 @@ background:#ffffff30;
 color:white;
 font-size:20px;
 cursor:pointer;
+transition:0.2s;
 }
 button:hover{
 background:#ffffff55;
+transform:scale(1.02);
 }
 #pop{
 display:none;
@@ -61,6 +67,7 @@ inset:0;
 background:#000c;
 align-items:center;
 justify-content:center;
+z-index:999;
 }
 .box{
 background:white;
@@ -77,9 +84,10 @@ border-radius:15px;
 .close{
 font-size:30px;
 cursor:pointer;
+margin-bottom:10px;
 }
 .founder{
-margin:40px auto 20px;
+margin:40px auto 25px;
 padding:20px;
 width:85%;
 max-width:550px;
@@ -94,28 +102,28 @@ font-weight:bold;
 <body>
 <h1>10A</h1>
 <div class="school">
-🏫 نافذة النجاح العالمية
+🏫 Success International School
 </div>
-<button onclick="show('عبدالله أنور','images/IMG_5602.jpeg')">
-1. عبدالله أنور
+<button onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')">
+1. Abdullah Anwar
 </button>
-<button onclick="show('عبدالله عمر','images/IMG_5606.jpeg')">
-2. عبدالله عمر
+<button onclick="show('Abdullah Omar','images/IMG_5606.jpeg')">
+2. Abdullah Omar
 </button>
-<button onclick="show('بشار موسى','')">
-3. بشار موسى
+<button onclick="show('Bashar Musa','')">
+3. Bashar Musa
 </button>
-<button onclick="show('يحيى','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
-4. يحيى
+<button onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
+4. Yahya
 </button>
-<button onclick="show('حزام','')">
-5. حزام
+<button onclick="show('Hizam','')">
+5. Hizam
 </button>
-<button onclick="show('ابو بكر براهيم','')">
-6. ابو بكر براهيم
+<button onclick="show('Abu Bakr Ibrahim','')">
+6. Abu Bakr Ibrahim
 </button>
-<button onclick="show('احمد فيصل','')">
-7. احمد فيصل
+<button onclick="show('Ahmed Faisal','')">
+7. Ahmed Faisal
 </button>
 <div id="pop" onclick="closePop()">
 <div class="box" onclick="event.stopPropagation()">
@@ -125,14 +133,20 @@ font-weight:bold;
 </div>
 </div>
 <div class="founder">
-مؤسس الموقع<br><br>
-👑 أحمد جلاب<br>
+👑 Website Founder
+<br><br>
+Ahmed Jallab
+<br>
 ⭐ Alex
 </div>
 <script>
-function show(n,p){
-document.getElementById("name").innerText=n;
-document.getElementById("pic").src=p;
+function show(name,image){
+if(!image){
+alert("No photo available for this student yet.");
+return;
+}
+document.getElementById("name").innerText=name;
+document.getElementById("pic").src=image;
 document.getElementById("pop").style.display="flex";
 }
 function closePop(){
