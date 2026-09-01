@@ -2,522 +2,701 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>10A | Success International School</title>
+
 <style>
 *{
-box-sizing:border-box;
-scroll-behavior:smooth;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
+
 body{
-margin:0;
-font-family:Arial,sans-serif;
-text-align:center;
-color:#111;
-background:linear-gradient(135deg,#ffffff,#eeeeee,#f7f7f7);
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#ffffff,#eeeeee,#f7f7f7);
+  color:#222;
 }
-/* WELCOME */
+
+/* Welcome */
 #welcome{
-position:fixed;
-inset:0;
-z-index:2000;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-background:linear-gradient(135deg,#ffffff,#eeeeee,#dcdcdc);
-color:#111;
-transition:1s;
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#ffffff,#eeeeee);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  z-index:9999;
 }
-#welcome h1{
-font-size:60px;
-margin:10px;
+
+.welcome-box{
+  padding:35px;
 }
-#welcome p{
-font-size:22px;
+
+.welcome-box h1{
+  font-size:60px;
+  margin:0;
 }
-.enter{
-padding:15px 35px;
-border:0;
-border-radius:30px;
-font-size:19px;
-cursor:pointer;
-background:#111;
-color:white;
+
+.welcome-box h2{
+  margin:10px 0 30px;
+  color:#555;
 }
-/* HEADER */
+
+.enter-btn{
+  border:none;
+  padding:15px 30px;
+  border-radius:30px;
+  background:#222;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* Header */
 header{
-padding:40px 15px;
-background:#ffffffcc;
+  text-align:center;
+  padding:35px 15px;
+  background:white;
+  box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
+
 header h1{
-font-size:55px;
-margin:5px;
+  margin:0;
+  font-size:45px;
 }
-.school{
-font-size:25px;
-font-weight:bold;
+
+header h2{
+  margin:8px 0;
+  color:#555;
 }
-.clock{
-margin-top:12px;
-font-size:17px;
+
+#clock{
+  font-size:14px;
+  color:#777;
 }
-/* NAVIGATION */
+
+/* Navigation */
 nav{
-position:sticky;
-top:0;
-z-index:100;
-background:#ffffffee;
-padding:12px;
-backdrop-filter:blur(10px);
-border-bottom:1px solid #ddd;
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:12px;
+  background:#222;
 }
+
 nav a{
-color:#111;
-text-decoration:none;
-margin:7px;
-font-size:15px;
-font-weight:bold;
+  color:white;
+  text-decoration:none;
+  padding:9px 14px;
+  border-radius:20px;
+  transition:.2s;
 }
-/* SECTIONS */
+
+nav a:hover{
+  background:#555;
+}
+
+/* Sections */
 section{
-width:90%;
-max-width:750px;
-margin:30px auto;
-padding:25px;
-background:#ffffff;
-border:1px solid #dddddd;
-border-radius:25px;
-box-shadow:0 5px 20px #00000012;
+  max-width:1000px;
+  margin:35px auto;
+  padding:25px;
 }
-h2{
-font-size:28px;
+
+section h2{
+  text-align:center;
+  margin-bottom:25px;
 }
-/* CARDS */
+
+/* Cards */
 .card{
-padding:18px;
-margin:12px 0;
-background:#f2f2f2;
-border-radius:18px;
-font-size:19px;
-border:1px solid #e0e0e0;
-transition:.25s;
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  margin-bottom:20px;
 }
-.card:hover{
-transform:translateY(-3px);
-box-shadow:0 6px 15px #00000015;
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
 }
-/* SEARCH */
-#search{
-width:100%;
-padding:15px;
-border:1px solid #ddd;
-border-radius:15px;
-font-size:18px;
-outline:none;
-background:white;
-color:#111;
-margin-bottom:15px;
+
+.info-card{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,.07);
 }
-/* STUDENTS */
+
+/* Coming Soon */
+.coming-soon{
+  text-align:center;
+  padding:35px;
+  background:white;
+  border-radius:22px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.coming-soon .icon{
+  font-size:55px;
+}
+
+.coming-soon h3{
+  font-size:28px;
+  margin:10px 0;
+}
+
+.coming-soon p{
+  color:#777;
+  font-size:18px;
+}
+
+/* Students */
+.search{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:15px;
+  margin-bottom:15px;
+  font-size:16px;
+}
+
+.student-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+}
+
 .student{
-display:block;
-width:100%;
-margin:10px 0;
-padding:17px;
-border:1px solid #ddd;
-border-radius:15px;
-background:#f4f4f4;
-color:#111;
-font-size:19px;
-cursor:pointer;
-transition:.25s;
+  border:none;
+  padding:16px;
+  border-radius:15px;
+  background:white;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  cursor:pointer;
+  font-size:16px;
 }
+
 .student:hover{
-background:#e5e5e5;
-transform:scale(1.02);
-box-shadow:0 5px 15px #00000015;
+  transform:translateY(-2px);
 }
-/* GALLERY */
-.gallery{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-.gallery img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:18px;
-cursor:pointer;
-transition:.3s;
-box-shadow:0 4px 12px #00000020;
-}
-.gallery img:hover{
-transform:scale(1.04);
-}
-/* TEACHERS MENU */
+
+/* Teachers */
 .teacher-card{
-padding:20px;
-margin:12px 0;
-background:#f2f2f2;
-border-radius:18px;
-border:1px solid #ddd;
-font-size:18px;
-transition:.25s;
+  background:white;
+  padding:20px;
+  margin:12px 0;
+  border-radius:18px;
+  box-shadow:0 4px 15px rgba(0,0,0,.07);
+  font-size:18px;
 }
-.teacher-card:hover{
-transform:translateY(-3px);
-box-shadow:0 6px 15px #00000015;
-}
+
 .subject{
-font-size:15px;
-color:#555;
-margin-top:7px;
+  color:#666;
+  margin-top:7px;
 }
-/* FOUNDER */
+
+/* News */
+.news{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 4px 15px rgba(0,0,0,.07);
+  margin-bottom:15px;
+}
+
+/* Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:18px;
+  cursor:pointer;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+
+/* Founder */
 .founder{
-margin:40px auto 25px;
-padding:25px;
-width:90%;
-max-width:600px;
-background:#111;
-color:white;
-border-radius:25px;
-font-size:21px;
-font-weight:bold;
+  text-align:center;
+  background:white;
+  padding:30px;
+  border-radius:22px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
-/* POPUP */
-#pop{
-display:none;
-position:fixed;
-inset:0;
-background:#000000bb;
-align-items:center;
-justify-content:center;
-z-index:999;
-padding:20px;
+
+.founder h3{
+  font-size:28px;
+  margin:8px;
 }
-.box{
-background:white;
-padding:20px;
-border-radius:20px;
-color:#111;
-width:90%;
-max-width:420px;
-}
-.box img{
-width:100%;
-max-height:70vh;
-object-fit:contain;
-border-radius:15px;
-}
-.close{
-font-size:30px;
-cursor:pointer;
-}
-/* DARK MODE */
-.dark{
-background:#111 !important;
-color:white;
-}
-.dark header{
-background:#181818;
-}
-.dark nav{
-background:#111;
-}
-.dark nav a{
-color:white;
-}
-.dark section{
-background:#1b1b1b;
-border-color:#333;
-color:white;
-}
-.dark .card,
-.dark .student,
-.dark .teacher-card{
-background:#252525;
-border-color:#444;
-color:white;
-}
-.dark .subject{
-color:#bbb;
-}
-.dark #search{
-background:#222;
-color:white;
-border-color:#444;
-}
-/* DARK BUTTON */
-.mode{
-position:fixed;
-right:15px;
-bottom:15px;
-z-index:200;
-border:1px solid #ddd;
-border-radius:50%;
-width:55px;
-height:55px;
-font-size:23px;
-cursor:pointer;
-background:white;
-}
-/* FOOTER */
+
+/* Footer */
 footer{
-padding:25px;
-background:#111;
-color:white;
+  text-align:center;
+  padding:30px;
+  background:#222;
+  color:white;
+  margin-top:40px;
+}
+
+/* Popup */
+#popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  justify-content:center;
+  align-items:center;
+  z-index:10000;
+  padding:20px;
+}
+
+.popup-box{
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  max-width:500px;
+  width:100%;
+  text-align:center;
+  position:relative;
+}
+
+.popup-box img{
+  max-width:100%;
+  max-height:65vh;
+  border-radius:15px;
+}
+
+.close{
+  position:absolute;
+  right:15px;
+  top:10px;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* Dark Mode */
+.dark{
+  background:#121212;
+  color:#eee;
+}
+
+.dark header,
+.dark .card,
+.dark .info-card,
+.dark .student,
+.dark .teacher-card,
+.dark .news,
+.dark .coming-soon,
+.dark .founder,
+.dark .popup-box{
+  background:#1e1e1e;
+  color:#eee;
+}
+
+.dark header h2,
+.dark .subject,
+.dark .coming-soon p{
+  color:#aaa;
+}
+
+.dark #welcome{
+  background:#121212;
+  color:white;
+}
+
+.dark .enter-btn{
+  background:white;
+  color:#111;
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .welcome-box h1{
+    font-size:45px;
+  }
+
+  header h1{
+    font-size:35px;
+  }
+
+  section{
+    padding:18px;
+  }
 }
 </style>
 </head>
+
 <body>
-<!-- WELCOME SCREEN -->
+
+<!-- Welcome Screen -->
 <div id="welcome">
-<h1>10A</h1>
-<p>Success International School</p>
-<button class="enter" onclick="enterSite()">
-Enter Website 🚀
-</button>
+  <div class="welcome-box">
+    <h1>10A</h1>
+    <h2>Success International School</h2>
+    <button class="enter-btn" onclick="enterSite()">
+      Enter Website 🚀
+    </button>
+  </div>
 </div>
-<!-- HEADER -->
-<header id="home">
-<h1>10A</h1>
-<div class="school">
-Success International School
-</div>
-<div class="clock" id="clock"></div>
+
+<!-- Header -->
+<header>
+  <h1>10A</h1>
+  <h2>Success International School</h2>
+  <div id="clock"></div>
 </header>
-<!-- NAVIGATION -->
+
+<!-- Navigation -->
 <nav>
-<a href="#home">Home</a>
-<a href="#students">Students</a>
-<a href="#teachers">Teachers</a>
-<a href="#news">News</a>
-<a href="#achievements">Achievements</a>
-<a href="#gallery">Gallery</a>
+  <a href="#home">Home</a>
+  <a href="#students">Students</a>
+  <a href="#teachers">Teachers</a>
+  <a href="#exams">Exams</a>
+  <a href="#news">News</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#founder">Founder</a>
 </nav>
-<!-- CLASS INFO -->
-<section>
-<h2>✨ Class 10A</h2>
-<div class="card">
-👨‍🎓 Students: 7
-</div>
-<div class="card">
-🎯 Class Motto
-<br><br>
-<strong>
-Learn • Grow • Achieve
-</strong>
-</div>
+
+<!-- Home -->
+<section id="home">
+  <h2>🏫 Welcome to Class 10A</h2>
+
+  <div class="card">
+    <p>
+      Welcome to the official website of Class 10A at
+      <strong>Success International School</strong>.
+    </p>
+
+    <p>
+      This website contains class information, students,
+      teachers, announcements, exams, achievements and memories.
+    </p>
+  </div>
+
+  <div class="info-grid">
+
+    <div class="info-card">
+      <h3>🎓 Class</h3>
+      <p>10A</p>
+    </div>
+
+    <div class="info-card">
+      <h3>🏫 School</h3>
+      <p>Success International School</p>
+    </div>
+
+    <div class="info-card">
+      <h3>👨‍🎓 Students</h3>
+      <p>7 Students</p>
+    </div>
+
+  </div>
 </section>
-<!-- STUDENT OF THE MONTH -->
+
+<!-- Student of the Month -->
 <section>
-<h2>⭐ Student of the Month</h2>
-<div class="card">
-🏆 Coming Soon
-<br><br>
-A new student will be selected every month!
-</div>
+  <h2>🏆 Student of the Month</h2>
+
+  <div class="coming-soon">
+    <div class="icon">⭐</div>
+    <h3>Coming Soon</h3>
+    <p>The Student of the Month will be announced soon.</p>
+  </div>
 </section>
-<!-- STUDENTS -->
+
+<!-- Students -->
 <section id="students">
-<h2>👨‍🎓 Students</h2>
-<input
-type="text"
-id="search"
-placeholder="🔍 Search student..."
-onkeyup="searchStudents()"
->
-<button class="student"
-onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')">
-1. Abdullah Anwar
-</button>
-<button class="student"
-onclick="show('Abdullah Omar','images/IMG_5606.jpeg')">
-2. Abdullah Omar
-</button>
-<button class="student"
-onclick="show('Bashar Musa','')">
-3. Bashar Musa
-</button>
-<button class="student"
-onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
-4. Yahya
-</button>
-<button class="student"
-onclick="show('Hizam','')">
-5. Hizam
-</button>
-<button class="student"
-onclick="show('Abu Bakr Ibrahim','')">
-6. Abu Bakr Ibrahim
-</button>
-<button class="student"
-onclick="show('Ahmed Faisal','')">
-7. Ahmed Faisal
-</button>
+  <h2>👨‍🎓 Our Students</h2>
+
+  <input
+    type="text"
+    id="search"
+    class="search"
+    placeholder="Search for a student..."
+    onkeyup="searchStudents()"
+  >
+
+  <div class="student-list" id="studentList">
+
+    <button class="student"
+      onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')">
+      1. Abdullah Anwar
+    </button>
+
+    <button class="student"
+      onclick="show('Abdullah Omar','images/IMG_5606.jpeg')">
+      2. Abdullah Omar
+    </button>
+
+    <button class="student"
+      onclick="show('Bashar Musa','')">
+      3. Bashar Musa
+    </button>
+
+    <button class="student"
+      onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
+      4. Yahya
+    </button>
+
+    <button class="student"
+      onclick="show('Hizam','')">
+      5. Hizam
+    </button>
+
+    <button class="student"
+      onclick="show('Abu Bakr Ibrahim','')">
+      6. Abu Bakr Ibrahim
+    </button>
+
+    <button class="student"
+      onclick="show('Ahmed Faisal','')">
+      7. Ahmed Faisal
+    </button>
+
+  </div>
 </section>
-<!-- TEACHERS -->
+
+<!-- Teachers -->
 <section id="teachers">
-<h2>👨‍🏫 Our Teachers</h2>
-<div class="teacher-card">
-⚛️ <strong>Physics</strong>
-<div class="subject">
-Mr. Mohammad Elhijazi
-</div>
-</div>
-<div class="teacher-card">
-📐 <strong>Mathematics</strong>
-<div class="subject">
-Mr. Rafaqat Ali
-</div>
-</div>
-<div class="teacher-card">
-🧬 <strong>Biology</strong>
-<div class="subject">
-Mr. Fayyaz Jddin
-</div>
-</div>
-<div class="teacher-card">
-🇬🇧 <strong>English</strong>
-<div class="subject">
-Mr. Abdul Jaleel
-</div>
-</div>
-<div class="teacher-card">
-⚗️ <strong>Chemistry</strong>
-<div class="subject">
-Mr. Nauman Ahmad
-</div>
-</div>
+  <h2>👨‍🏫 Our Teachers</h2>
+
+  <div class="teacher-card">
+    ⚛️ <strong>Physics</strong>
+    <div class="subject">Mr. Mohammad Elhijazi</div>
+  </div>
+
+  <div class="teacher-card">
+    📐 <strong>Mathematics</strong>
+    <div class="subject">Mr. Rafaqat Ali</div>
+  </div>
+
+  <div class="teacher-card">
+    🧬 <strong>Biology</strong>
+    <div class="subject">Mr. Fayyaz Jddin</div>
+  </div>
+
+  <div class="teacher-card">
+    🇬🇧 <strong>English</strong>
+    <div class="subject">Mr. Abdul Jaleel</div>
+  </div>
+
+  <div class="teacher-card">
+    ⚗️ <strong>Chemistry</strong>
+    <div class="subject">Mr. Nauman Ahmad</div>
+  </div>
+
 </section>
-<!-- NEWS -->
+
+<!-- Exams -->
+<section id="exams">
+  <h2>📝 Exam Schedule</h2>
+
+  <div class="coming-soon">
+    <div class="icon">📚</div>
+    <h3>Coming Soon 🚀</h3>
+    <p>
+      Exam dates and times will be announced here soon.
+    </p>
+  </div>
+</section>
+
+<!-- News -->
 <section id="news">
-<h2>📢 Announcements</h2>
-<div class="card">
-📌 Welcome to Class 10A!
-</div>
-<div class="card">
-📚 Keep working hard.
-</div>
-<div class="card">
-⭐ Good luck to everyone!
-</div>
+  <h2>📢 Announcements</h2>
+
+  <div class="news">
+    <strong>📌 Class News</strong>
+    <p>Coming Soon...</p>
+  </div>
+
+  <div class="news">
+    <strong>📌 Important Announcements</strong>
+    <p>Coming Soon...</p>
+  </div>
+
 </section>
-<!-- ACHIEVEMENTS -->
+
+<!-- Achievements -->
 <section id="achievements">
-<h2>🏆 Achievements</h2>
-<div class="card">
-🥇 Class 10A is aiming for excellence!
-</div>
-<div class="card">
-⭐ Together we can achieve more.
-</div>
+  <h2>🏆 Achievements</h2>
+
+  <div class="coming-soon">
+    <div class="icon">🏆</div>
+    <h3>Coming Soon</h3>
+    <p>Class achievements will appear here.</p>
+  </div>
 </section>
-<!-- GALLERY -->
+
+<!-- Gallery -->
 <section id="gallery">
-<h2>📸 Class Gallery</h2>
-<div class="gallery">
-<img
-src="images/IMG_5602.jpeg"
-onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')"
->
-<img
-src="images/IMG_5606.jpeg"
-onclick="show('Abdullah Omar','images/IMG_5606.jpeg')"
->
-<img
-src="images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg"
-onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')"
->
-</div>
+  <h2>📸 Class Gallery</h2>
+
+  <div class="gallery">
+
+    <img
+      src="images/IMG_5602.jpeg"
+      onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')"
+    >
+
+    <img
+      src="images/IMG_5606.jpeg"
+      onclick="show('Abdullah Omar','images/IMG_5606.jpeg')"
+    >
+
+    <img
+      src="images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg"
+      onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')"
+    >
+
+  </div>
 </section>
-<!-- PHOTO POPUP -->
-<div id="pop" onclick="closePop()">
-<div class="box" onclick="event.stopPropagation()">
-<div class="close" onclick="closePop()">
-✕
-</div>
-<h2 id="name"></h2>
-<img id="pic">
-</div>
-</div>
-<!-- FOUNDER -->
-<div class="founder">
-👑 Website Founder
-<br><br>
-Ahmed Jallab
-<br>
-⭐ Alex
-</div>
+
+<!-- Founder -->
+<section id="founder">
+  <h2>👑 Website Founder</h2>
+
+  <div class="founder">
+    <h3>Ahmed Jallab</h3>
+    <p>Alex</p>
+    <p>Founder of the 10A Website 🚀</p>
+  </div>
+</section>
+
+<!-- Dark Mode -->
+<section>
+  <div class="card" style="text-align:center;">
+    <button class="enter-btn" onclick="darkMode()">
+      🌙 Dark Mode
+    </button>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
-10A © 2026
-<br>
-Success International School
+  <p>© 2026 10A | Success International School</p>
+  <p>Made by Ahmed Jallab — Alex 🚀</p>
 </footer>
-<!-- DARK MODE -->
-<button class="mode" onclick="darkMode()">
-🌙
-</button>
+
+<!-- Popup -->
+<div id="popup" onclick="closePopup()">
+
+  <div class="popup-box" onclick="event.stopPropagation()">
+
+    <span class="close" onclick="closePopup()">×</span>
+
+    <h2 id="popupName"></h2>
+
+    <img id="popupImage" src="" alt="Student Photo">
+
+    <p id="noPhoto"></p>
+
+  </div>
+
+</div>
+
 <script>
-/* WELCOME */
+
+/* Welcome */
 function enterSite(){
-document.getElementById("welcome").style.opacity="0";
-setTimeout(function(){
-document.getElementById("welcome").style.display="none";
-},1000);
+  document.getElementById("welcome").style.display="none";
 }
-/* CLOCK */
+
+/* Clock */
 function updateClock(){
-let now=new Date();
-document.getElementById("clock").innerText=
-now.toLocaleDateString("en-US",{
-weekday:"long",
-year:"numeric",
-month:"long",
-day:"numeric"
-})
-+" | "+
-now.toLocaleTimeString();
+
+  const now = new Date();
+
+  document.getElementById("clock").innerText =
+    now.toLocaleDateString("en-US") +
+    " • " +
+    now.toLocaleTimeString("en-US");
+
 }
+
 setInterval(updateClock,1000);
 updateClock();
-/* SEARCH */
+
+/* Student Search */
 function searchStudents(){
-let search=
-document.getElementById("search")
-.value
-.toLowerCase();
-let students=
-document.querySelectorAll(".student");
-students.forEach(function(student){
-student.style.display=
-student.innerText
-.toLowerCase()
-.includes(search)
-? "block"
-: "none";
-});
+
+  const input =
+    document.getElementById("search").value.toLowerCase();
+
+  const students =
+    document.querySelectorAll(".student");
+
+  students.forEach(student => {
+
+    if(student.innerText.toLowerCase().includes(input)){
+      student.style.display="block";
+    }else{
+      student.style.display="none";
+    }
+
+  });
+
 }
-/* PHOTO POPUP */
+
+/* Student Popup */
 function show(name,image){
-if(!image){
-alert("No photo available for this student yet.");
-return;
+
+  document.getElementById("popup").style.display="flex";
+
+  document.getElementById("popupName").innerText=name;
+
+  const img =
+    document.getElementById("popupImage");
+
+  const noPhoto =
+    document.getElementById("noPhoto");
+
+  if(image){
+
+    img.src=image;
+    img.style.display="block";
+    noPhoto.innerText="";
+
+  }else{
+
+    img.style.display="none";
+    noPhoto.innerText=
+      "No photo available for this student yet.";
+
+  }
+
 }
-document.getElementById("name").innerText=name;
-document.getElementById("pic").src=image;
-document.getElementById("pop").style.display="flex";
+
+/* Close Popup */
+function closePopup(){
+
+  document.getElementById("popup").style.display="none";
+
 }
-function closePop(){
-document.getElementById("pop").style.display="none";
-}
-/* DARK MODE */
+
+/* Dark Mode */
 function darkMode(){
-document.body.classList.toggle("dark");
+
+  document.body.classList.toggle("dark");
+
 }
+
 </script>
+
 </body>
 </html>
