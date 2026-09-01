@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>نافذة النجاح العالمية</title>
+
     <style>
         * {
             box-sizing: border-box;
         }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -16,40 +20,44 @@
             text-align: center;
             min-height: 100vh;
         }
+
         .header {
             padding: 35px 15px;
-            background: rgba(0, 0, 0, 0.20);
+            background: rgba(0, 0, 0, 0.2);
         }
-        .school {
-            font-size: 30px;
+
+        .school-name {
+            font-size: 32px;
             font-weight: bold;
-            margin-bottom: 10px;
         }
+
         .subtitle {
+            margin-top: 10px;
             font-size: 18px;
         }
-        /* اسم أحمد */
+
         .alex {
-            margin: 25px auto;
-            padding: 20px;
             width: 90%;
             max-width: 550px;
+            margin: 25px auto;
+            padding: 20px;
             background: white;
             color: #0066cc;
-            border-radius: 20px;
-            font-size: 25px;
+            border-radius: 22px;
+            font-size: 26px;
             font-weight: bold;
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
+
         .students {
             width: 90%;
             max-width: 650px;
             margin: 25px auto;
         }
-        /* أسماء الطلاب */
+
         .student {
             width: 100%;
-            margin: 12px 0;
+            margin: 10px 0;
             padding: 18px;
             border: none;
             border-radius: 16px;
@@ -58,68 +66,63 @@
             font-size: 21px;
             cursor: pointer;
             transition: 0.25s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
+
         .student:hover {
             transform: scale(1.03);
-            background: rgba(255,255,255,0.28);
+            background: rgba(255,255,255,0.30);
         }
+
         .number {
             font-weight: bold;
             margin-left: 8px;
         }
-        /* النافذة */
+
         .popup {
             display: none;
             position: fixed;
-            z-index: 100;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.75);
             justify-content: center;
             align-items: center;
             padding: 20px;
+            z-index: 100;
         }
+
         .popup-content {
-            background: white;
-            color: #005bb5;
-            padding: 20px;
-            border-radius: 25px;
+            position: relative;
             width: 90%;
             max-width: 400px;
-            position: relative;
-            animation: show 0.25s ease;
+            padding: 20px;
+            background: white;
+            color: #005bb5;
+            border-radius: 25px;
         }
+
+        .popup-content h2 {
+            margin-top: 5px;
+        }
+
         .popup-content img {
             width: 100%;
-            max-height: 400px;
-            object-fit: cover;
+            max-height: 450px;
+            object-fit: contain;
             border-radius: 18px;
             margin-top: 10px;
         }
-        .popup-content h2 {
-            margin: 5px;
-        }
+
         .close {
             position: absolute;
             left: 15px;
-            top: 10px;
-            font-size: 30px;
-            cursor: pointer;
+            top: 8px;
+            font-size: 32px;
             color: #333;
+            cursor: pointer;
         }
-        @keyframes show {
-            from {
-                transform: scale(0.7);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
+
         footer {
             margin-top: 35px;
             padding: 20px;
@@ -127,63 +130,172 @@
         }
     </style>
 </head>
+
 <body>
+
     <div class="header">
-        <div class="school">🏫 نافذة النجاح العالمية</div>
-        <div class="subtitle">قائمة الطلاب</div>
-    </div>
-    <div class="alex">
-        ⭐ alex : أحمد جلاب ⭐
-    </div>
-    <div class="students">
-        <button class="student" onclick="showStudent('عبدالله أنور', 'images/1.jpg')">
-            <span class="number">1.</span> عبدالله أنور
-        </button>
-        <button class="student" onclick="showStudent('عبدالله عمر', 'images/2.jpg')">
-            <span class="number">2.</span> عبدالله عمر
-        </button>
-        <button class="student" onclick="showStudent('رواد عسكر', 'images/3.jpg')">
-            <span class="number">3.</span> رواد عسكر
-        </button>
-        <button class="student" onclick="showStudent('بشار موسى', 'images/4.jpg')">
-            <span class="number">4.</span> بشار موسى
-        </button>
-        <button class="student" onclick="showStudent('يحيى', 'images/5.jpg')">
-            <span class="number">5.</span> يحيى
-        </button>
-        <button class="student" onclick="showStudent('حزام', 'images/6.jpg')">
-            <span class="number">6.</span> حزام
-        </button>
-        <button class="student" onclick="showStudent('محمد فاتح', 'images/7.jpg')">
-            <span class="number">7.</span> محمد فاتح
-        </button>
-        <button class="student" onclick="showStudent('ابو بكر براهيم', 'images/8.jpg')">
-            <span class="number">8.</span> ابو بكر براهيم
-        </button>
-        <button class="student" onclick="showStudent('احمد فيصل', 'images/9.jpg')">
-            <span class="number">9.</span> احمد فيصل
-        </button>
-    </div>
-    <!-- نافذة عرض الصورة -->
-    <div id="popup" class="popup" onclick="closePopup()">
-        <div class="popup-content" onclick="event.stopPropagation()">
-            <span class="close" onclick="closePopup()">×</span>
-            <h2 id="studentName"></h2>
-            <img id="studentImage" src="" alt="صورة الطالب">
+        <div class="school-name">
+            🏫 نافذة النجاح العالمية
+        </div>
+
+        <div class="subtitle">
+            قائمة الطلاب
         </div>
     </div>
+
+
+    <div class="alex">
+        ⭐ Alex : أحمد جلاب ⭐
+    </div>
+
+
+    <div class="students">
+
+        <!-- عبدالله أنور -->
+        <button class="student"
+            onclick="showStudent('عبدالله أنور', 'images/IMG_5602.jpeg')">
+
+            <span class="number">1.</span>
+            عبدالله أنور
+
+        </button>
+
+
+        <!-- عبدالله عمر -->
+        <button class="student"
+            onclick="showStudent('عبدالله عمر', 'images/IMG_5606.jpeg')">
+
+            <span class="number">2.</span>
+            عبدالله عمر
+
+        </button>
+
+
+        <!-- رواد عسكر -->
+        <button class="student"
+            onclick="showStudent('رواد عسكر', 'images/62978692-40ec-4d90-8d50-f0de86eb948e.jpeg')">
+
+            <span class="number">3.</span>
+            رواد عسكر
+
+        </button>
+
+
+        <!-- بشار موسى -->
+        <button class="student"
+            onclick="showStudent('بشار موسى', '')">
+
+            <span class="number">4.</span>
+            بشار موسى
+
+        </button>
+
+
+        <!-- يحيى -->
+        <button class="student"
+            onclick="showStudent('يحيى', 'images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
+
+            <span class="number">5.</span>
+            يحيى
+
+        </button>
+
+
+        <!-- حزام -->
+        <button class="student"
+            onclick="showStudent('حزام', '')">
+
+            <span class="number">6.</span>
+            حزام
+
+        </button>
+
+
+        <!-- محمد فاتح -->
+        <button class="student"
+            onclick="showStudent('محمد فاتح', '')">
+
+            <span class="number">7.</span>
+            محمد فاتح
+
+        </button>
+
+
+        <!-- ابو بكر براهيم -->
+        <button class="student"
+            onclick="showStudent('ابو بكر براهيم', '')">
+
+            <span class="number">8.</span>
+            ابو بكر براهيم
+
+        </button>
+
+
+        <!-- احمد فيصل -->
+        <button class="student"
+            onclick="showStudent('احمد فيصل', '')">
+
+            <span class="number">9.</span>
+            احمد فيصل
+
+        </button>
+
+    </div>
+
+
+    <!-- نافذة الصورة -->
+
+    <div id="popup"
+         class="popup"
+         onclick="closePopup()">
+
+        <div class="popup-content"
+             onclick="event.stopPropagation()">
+
+            <span class="close"
+                  onclick="closePopup()">×</span>
+
+            <h2 id="studentName"></h2>
+
+            <img id="studentImage"
+                 src=""
+                 alt="صورة الطالب">
+
+        </div>
+
+    </div>
+
+
     <footer>
         © 2026 نافذة النجاح العالمية
     </footer>
+
+
     <script>
+
         function showStudent(name, image) {
+
             document.getElementById("studentName").textContent = name;
-            document.getElementById("studentImage").src = image;
+
+            if (image !== "") {
+                document.getElementById("studentImage").src = image;
+                document.getElementById("studentImage").style.display = "block";
+            } else {
+                document.getElementById("studentImage").style.display = "none";
+            }
+
             document.getElementById("popup").style.display = "flex";
         }
+
+
         function closePopup() {
+
             document.getElementById("popup").style.display = "none";
+
         }
+
     </script>
+
 </body>
+
 </html>
