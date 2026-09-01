@@ -1,153 +1,370 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>نافذة النجاح العالمية</title>
+
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #008cff, #003b88);
     color: white;
     text-align: center;
+    min-height: 100vh;
 }
+
 .header {
     padding: 35px 15px;
+    background: rgba(0, 0, 0, 0.15);
 }
+
 .school {
     font-size: 32px;
     font-weight: bold;
 }
+
+.subtitle {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
 .alex {
-    width: 85%;
-    max-width: 500px;
-    margin: 20px auto;
+    width: 90%;
+    max-width: 550px;
+    margin: 25px auto;
     padding: 20px;
+
     background: white;
     color: #0066cc;
-    border-radius: 20px;
+
+    border-radius: 22px;
+
     font-size: 26px;
     font-weight: bold;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
+
 .students {
     width: 90%;
-    max-width: 600px;
+    max-width: 650px;
     margin: auto;
 }
+
 .student {
     width: 100%;
     padding: 18px;
     margin: 8px 0;
+
     border: none;
-    border-radius: 15px;
+    border-radius: 16px;
+
     background: rgba(255,255,255,0.18);
+
     color: white;
     font-size: 21px;
+
     cursor: pointer;
+
+    transition: 0.2s;
 }
+
 .student:hover {
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.32);
     transform: scale(1.02);
 }
+
+
+/* نافذة الصورة */
+
 #popup {
     display: none;
+
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.8);
+
+    background: rgba(0,0,0,0.82);
+
     justify-content: center;
     align-items: center;
-    z-index: 999;
+
+    padding: 20px;
+
+    z-index: 9999;
 }
+
 .popup-box {
     position: relative;
+
+    width: 90%;
+    max-width: 420px;
+
     background: white;
     color: #0066cc;
+
     padding: 20px;
+
     border-radius: 25px;
-    width: 85%;
-    max-width: 400px;
 }
+
 .popup-box img {
+    display: block;
+
     width: 100%;
-    max-height: 450px;
+    max-height: 500px;
+
     object-fit: contain;
-    border-radius: 15px;
+
+    border-radius: 18px;
 }
+
 .close {
     position: absolute;
-    left: 15px;
+
+    left: 12px;
     top: 5px;
+
     font-size: 35px;
-    color: black;
+
+    color: #222;
+
     cursor: pointer;
 }
+
+#studentName {
+    margin-top: 5px;
+}
+
+.no-photo {
+    padding: 30px;
+    color: #555;
+}
+
+
+/* أسفل الصفحة */
+
+footer {
+    margin-top: 35px;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,0.2);
+}
 </style>
+
 </head>
+
+
 <body>
+
+
+<!-- اسم المدرسة -->
+
 <div class="header">
+
     <div class="school">
         🏫 نافذة النجاح العالمية
     </div>
-    <p>قائمة الطلاب</p>
+
+    <div class="subtitle">
+        قائمة الطلاب
+    </div>
+
 </div>
+
+
+<!-- اسم أحمد -->
+
 <div class="alex">
     ⭐ Alex : أحمد جلاب ⭐
 </div>
+
+
+<!-- قائمة الطلاب -->
+
 <div class="students">
+
+
+    <!-- عبدالله أنور -->
+
     <button class="student"
-    onclick="openPhoto('عبدالله أنور','images/IMG_5602.jpeg')">
+    onclick="showPhoto(
+        'عبدالله أنور',
+        'images/IMG_5602.jpeg'
+    )">
+
         1️⃣ عبدالله أنور
+
     </button>
+
+
+    <!-- عبدالله عمر -->
+
     <button class="student"
-    onclick="openPhoto('عبدالله عمر','images/IMG_5606.jpeg')">
+    onclick="showPhoto(
+        'عبدالله عمر',
+        'images/IMG_5606.jpeg'
+    )">
+
         2️⃣ عبدالله عمر
+
     </button>
+
+
+    <!-- بشار موسى -->
+
     <button class="student"
-    onclick="openPhoto('رواد عسكر','images/62978692-40ec-4d90-8d50-f0de86eb948e.jpeg')">
-        3️⃣ رواد عسكر
+    onclick="showPhoto(
+        'بشار موسى',
+        ''
+    )">
+
+        3️⃣ بشار موسى
+
     </button>
+
+
+    <!-- يحيى -->
+
     <button class="student"
-    onclick="openPhoto('بشار موسى','')">
-        4️⃣ بشار موسى
+    onclick="showPhoto(
+        'يحيى',
+        'images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg'
+    )">
+
+        4️⃣ يحيى
+
     </button>
+
+
+    <!-- حزام -->
+
     <button class="student"
-    onclick="openPhoto('يحيى','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
-        5️⃣ يحيى
+    onclick="showPhoto(
+        'حزام',
+        ''
+    )">
+
+        5️⃣ حزام
+
     </button>
+
+
+    <!-- ابو بكر براهيم -->
+
     <button class="student"
-    onclick="openPhoto('حزام','')">
-        6️⃣ حزام
+    onclick="showPhoto(
+        'ابو بكر براهيم',
+        ''
+    )">
+
+        6️⃣ ابو بكر براهيم
+
     </button>
+
+
+    <!-- احمد فيصل -->
+
     <button class="student"
-    onclick="openPhoto('محمد فاتح','')">
-        7️⃣ محمد فاتح
+    onclick="showPhoto(
+        'احمد فيصل',
+        ''
+    )">
+
+        7️⃣ احمد فيصل
+
     </button>
-    <button class="student"
-    onclick="openPhoto('ابو بكر براهيم','')">
-        8️⃣ ابو بكر براهيم
-    </button>
-    <button class="student"
-    onclick="openPhoto('احمد فيصل','')">
-        9️⃣ احمد فيصل
-    </button>
+
+
 </div>
-<div id="popup">
-    <div class="popup-box">
-        <span class="close" onclick="closePhoto()">×</span>
+
+
+<!-- نافذة عرض الصور -->
+
+<div id="popup" onclick="closePhoto()">
+
+    <div class="popup-box"
+         onclick="event.stopPropagation()">
+
+        <span class="close"
+              onclick="closePhoto()">×</span>
+
         <h2 id="studentName"></h2>
-        <img id="studentPhoto" src="" alt="صورة الطالب">
+
+        <img id="studentPhoto"
+             src=""
+             alt="صورة الطالب">
+
+        <div id="noPhoto"
+             class="no-photo">
+
+            لا توجد صورة مضافة لهذا الطالب حاليًا.
+
+        </div>
+
     </div>
+
 </div>
+
+
+<footer>
+
+    © 2026 نافذة النجاح العالمية
+
+</footer>
+
+
 <script>
-function openPhoto(name, image) {
-    document.getElementById("studentName").innerText = name;
-    document.getElementById("studentPhoto").src = image;
+
+function showPhoto(name, image) {
+
+    document.getElementById("studentName").textContent = name;
+
+    const photo =
+        document.getElementById("studentPhoto");
+
+    const noPhoto =
+        document.getElementById("noPhoto");
+
+
+    if (image) {
+
+        photo.src = image;
+
+        photo.style.display = "block";
+
+        noPhoto.style.display = "none";
+
+    } else {
+
+        photo.style.display = "none";
+
+        noPhoto.style.display = "block";
+
+    }
+
+
     document.getElementById("popup").style.display = "flex";
 }
+
+
 function closePhoto() {
+
     document.getElementById("popup").style.display = "none";
+
 }
+
 </script>
+
+
 </body>
+
 </html>
