@@ -10,36 +10,55 @@ margin:0;
 font-family:Arial;
 text-align:center;
 color:white;
-background:linear-gradient(45deg,#0066ff,#00c6ff,#003b88);
-background-size:400% 400%;
-animation:bg 8s infinite;
+background:linear-gradient(
+120deg,
+#001aff,
+#00c6ff,
+#7b00ff,
+#ff00c8,
+#ff0066,
+#ff8a00,
+#00ffcc,
+#0066ff
+);
+background-size:600% 600%;
+animation:bg 12s ease infinite;
 }
 @keyframes bg{
-0%{background-position:0 50%}
+0%{background-position:0% 50%}
+25%{background-position:50% 100%}
 50%{background-position:100% 50%}
-100%{background-position:0 50%}
+75%{background-position:50% 0%}
+100%{background-position:0% 50%}
 }
-h1{margin-top:35px}
+h1{
+margin-top:35px;
+}
 .alex{
 background:white;
-color:#06c;
+color:#0066cc;
 padding:18px;
 margin:25px auto;
 width:80%;
 border-radius:20px;
 font-size:24px;
 font-weight:bold;
+box-shadow:0 5px 20px #0005;
 }
 button{
 display:block;
 width:85%;
 margin:10px auto;
-padding:16px;
+padding:17px;
 border:0;
 border-radius:15px;
-background:#ffffff33;
+background:#ffffff30;
 color:white;
 font-size:20px;
+cursor:pointer;
+}
+button:hover{
+background:#ffffff55;
 }
 #pop{
 display:none;
@@ -53,27 +72,49 @@ justify-content:center;
 background:white;
 padding:20px;
 border-radius:20px;
-color:#06c;
+color:#0066cc;
 width:80%;
+max-width:400px;
 }
 .box img{
 width:100%;
 border-radius:15px;
 }
+.close{
+font-size:30px;
+cursor:pointer;
+}
 </style>
 </head>
 <body>
 <h1>🏫 نافذة النجاح العالمية</h1>
-<div class="alex">⭐ Alex : أحمد جلاب ⭐</div>
-<button onclick="show('عبدالله أنور','images/IMG_5602.jpeg')">1. عبدالله أنور</button>
-<button onclick="show('عبدالله عمر','images/IMG_5606.jpeg')">2. عبدالله عمر</button>
-<button onclick="show('بشار موسى','')">3. بشار موسى</button>
-<button onclick="show('يحيى','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">4. يحيى</button>
-<button onclick="show('حزام','')">5. حزام</button>
-<button onclick="show('ابو بكر براهيم','')">6. ابو بكر براهيم</button>
-<button onclick="show('احمد فيصل','')">7. احمد فيصل</button>
-<div id="pop" onclick="this.style.display='none'">
+<div class="alex">
+⭐ Alex : أحمد جلاب ⭐
+</div>
+<button onclick="show('عبدالله أنور','images/IMG_5602.jpeg')">
+1. عبدالله أنور
+</button>
+<button onclick="show('عبدالله عمر','images/IMG_5606.jpeg')">
+2. عبدالله عمر
+</button>
+<button onclick="show('بشار موسى','')">
+3. بشار موسى
+</button>
+<button onclick="show('يحيى','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
+4. يحيى
+</button>
+<button onclick="show('حزام','')">
+5. حزام
+</button>
+<button onclick="show('ابو بكر براهيم','')">
+6. ابو بكر براهيم
+</button>
+<button onclick="show('احمد فيصل','')">
+7. احمد فيصل
+</button>
+<div id="pop" onclick="closePop()">
 <div class="box" onclick="event.stopPropagation()">
+<div class="close" onclick="closePop()">✕</div>
 <h2 id="name"></h2>
 <img id="pic">
 </div>
@@ -83,6 +124,9 @@ function show(n,p){
 document.getElementById("name").innerText=n;
 document.getElementById("pic").src=p;
 document.getElementById("pop").style.display="flex";
+}
+function closePop(){
+document.getElementById("pop").style.display="none";
 }
 </script>
 </body>
