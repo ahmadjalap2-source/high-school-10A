@@ -8,101 +8,164 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
+/* =====================================================
+   RESET
+===================================================== */
 *{
   box-sizing:border-box;
   scroll-behavior:smooth;
 }
 body{
   margin:0;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#ffffff,#eeeeee,#f7f7f7);
-  color:#222;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4f5f7;
+  color:#202124;
+  transition:.3s;
 }
-/* ================= WELCOME ================= */
+/* =====================================================
+   WELCOME SCREEN
+===================================================== */
 #welcome{
   position:fixed;
   inset:0;
-  background:linear-gradient(135deg,#ffffff,#eeeeee);
+  z-index:99999;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
-  z-index:9999;
+  background:
+  radial-gradient(circle at top,#ffffff,#e7e9ed);
+  transition:
+  opacity .7s,
+  visibility .7s;
+}
+#welcome.hide{
+  opacity:0;
+  visibility:hidden;
 }
 .welcome-box{
-  padding:35px;
+  padding:35px 25px;
+  animation:welcomeAppear 1s ease;
+}
+@keyframes welcomeAppear{
+  from{
+    opacity:0;
+    transform:translateY(30px) scale(.95);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+.welcome-logo{
+  width:125px;
+  height:125px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:35px;
+  background:#222;
+  color:white;
+  font-size:45px;
+  font-weight:bold;
+  box-shadow:
+  0 20px 50px rgba(0,0,0,.2);
+  animation:logoFloat 3s ease-in-out infinite;
+}
+@keyframes logoFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
 }
 .welcome-box h1{
-  font-size:60px;
-  margin:0;
+  font-size:64px;
+  margin:25px 0 5px;
 }
 .welcome-box h2{
-  margin:10px 0 30px;
-  color:#555;
+  color:#666;
+  font-weight:normal;
+  margin:0 0 30px;
 }
 .enter-btn{
-  border:none;
-  padding:15px 30px;
+  border:0;
+  padding:16px 32px;
   border-radius:30px;
   background:#222;
   color:white;
-  font-size:18px;
+  font-size:17px;
+  font-weight:bold;
   cursor:pointer;
+  box-shadow:
+  0 10px 25px rgba(0,0,0,.18);
+  transition:.25s;
 }
-/* ================= HEADER ================= */
+.enter-btn:hover{
+  transform:translateY(-3px) scale(1.03);
+}
+/* =====================================================
+   HEADER
+===================================================== */
 header{
-  text-align:center;
-  padding:35px 15px;
-  background:white;
-  box-shadow:0 3px 15px rgba(0,0,0,.08);
   position:relative;
+  text-align:center;
+  padding:45px 20px 35px;
+  background:white;
+  box-shadow:
+  0 4px 20px rgba(0,0,0,.08);
 }
 header h1{
   margin:0;
-  font-size:45px;
+  font-size:48px;
 }
 header h2{
-  margin:8px 0;
-  color:#555;
+  margin:8px 0 12px;
+  color:#666;
+  font-weight:normal;
 }
 #clock{
   font-size:14px;
-  color:#777;
+  color:#888;
 }
-/* ================= MENU BUTTON ================= */
+/* =====================================================
+   MENU BUTTON
+===================================================== */
 .menu-btn{
   position:absolute;
   top:20px;
   left:20px;
-  width:50px;
-  height:50px;
-  border:none;
-  border-radius:15px;
+  width:52px;
+  height:52px;
+  border:0;
+  border-radius:16px;
   background:#222;
   color:white;
-  font-size:25px;
+  font-size:23px;
   cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:2000;
+  z-index:3000;
   transition:.25s;
 }
 .menu-btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.06);
 }
-/* ================= SIDE MENU ================= */
+/* =====================================================
+   SIDE MENU
+===================================================== */
 .side-menu{
   position:fixed;
   top:0;
-  left:-300px;
-  width:280px;
+  left:-310px;
+  width:290px;
   height:100vh;
-  background:white;
-  box-shadow:5px 0 25px rgba(0,0,0,.15);
-  z-index:1500;
   padding:90px 20px 30px;
-  transition:.35s;
+  background:white;
+  box-shadow:
+  8px 0 35px rgba(0,0,0,.18);
+  z-index:2500;
+  transition:.4s;
   overflow-y:auto;
 }
 .side-menu.open{
@@ -110,210 +173,387 @@ header h2{
 }
 .side-menu h3{
   text-align:center;
-  margin-bottom:25px;
-  font-size:22px;
+  margin:0 0 25px;
+  font-size:23px;
 }
 .side-menu a{
-  display:block;
+  display:flex;
+  align-items:center;
+  gap:12px;
   text-decoration:none;
   color:#222;
   padding:15px;
-  margin:8px 0;
-  border-radius:14px;
-  font-size:17px;
+  margin:7px 0;
+  border-radius:15px;
+  font-size:16px;
   transition:.2s;
 }
 .side-menu a:hover{
-  background:#eeeeee;
+  background:#f0f0f0;
   transform:translateX(5px);
 }
-/* Menu icons */
 .side-menu i{
-  width:28px;
-  margin-right:8px;
+  width:25px;
+  text-align:center;
 }
-/* ================= MENU OVERLAY ================= */
+/* =====================================================
+   OVERLAY
+===================================================== */
 .menu-overlay{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.45);
-  z-index:1400;
+  z-index:2400;
   display:none;
 }
 .menu-overlay.show{
   display:block;
 }
-/* ================= SECTIONS ================= */
+/* =====================================================
+   SECTIONS
+===================================================== */
 section{
-  max-width:1000px;
-  margin:35px auto;
-  padding:25px;
+  max-width:1050px;
+  margin:45px auto;
+  padding:25px 20px;
 }
 section h2{
   text-align:center;
-  margin-bottom:25px;
+  font-size:30px;
+  margin-bottom:30px;
 }
-/* ================= CARDS ================= */
+/* =====================================================
+   HERO
+===================================================== */
+.hero{
+  text-align:center;
+  padding:55px 25px;
+  border-radius:30px;
+  background:white;
+  box-shadow:
+  0 10px 35px rgba(0,0,0,.08);
+}
+.hero h2{
+  margin-bottom:15px;
+}
+.hero p{
+  color:#666;
+  font-size:17px;
+  line-height:1.7;
+}
+/* =====================================================
+   CARDS
+===================================================== */
 .card{
   background:white;
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  padding:28px;
+  border-radius:22px;
+  box-shadow:
+  0 7px 25px rgba(0,0,0,.07);
   margin-bottom:20px;
 }
 .info-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
+  grid-template-columns:
+  repeat(auto-fit,minmax(200px,1fr));
+  gap:18px;
 }
 .info-card{
   background:white;
-  padding:20px;
-  border-radius:18px;
+  padding:25px;
+  border-radius:22px;
   text-align:center;
-  box-shadow:0 5px 15px rgba(0,0,0,.07);
+  box-shadow:
+  0 7px 22px rgba(0,0,0,.07);
+  transition:.25s;
 }
-/* ================= COMING SOON ================= */
+.info-card:hover{
+  transform:translateY(-5px);
+}
+/* =====================================================
+   COMING SOON
+===================================================== */
 .coming-soon{
   text-align:center;
-  padding:35px;
+  padding:45px 25px;
   background:white;
-  border-radius:22px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  border-radius:25px;
+  box-shadow:
+  0 7px 25px rgba(0,0,0,.07);
 }
 .coming-soon .icon{
-  font-size:55px;
+  font-size:60px;
 }
 .coming-soon h3{
   font-size:28px;
-  margin:10px 0;
+  margin:12px 0;
 }
 .coming-soon p{
   color:#777;
-  font-size:18px;
+  font-size:17px;
 }
-/* ================= STUDENTS ================= */
+/* =====================================================
+   STUDENTS
+===================================================== */
 .search{
   width:100%;
-  padding:14px;
+  padding:16px;
   border:1px solid #ddd;
-  border-radius:15px;
-  margin-bottom:15px;
+  border-radius:16px;
+  margin-bottom:18px;
   font-size:16px;
+  outline:none;
+}
+.search:focus{
+  border-color:#777;
 }
 .student-list{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:12px;
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
 }
 .student{
-  border:none;
-  padding:16px;
-  border-radius:15px;
+  border:0;
+  padding:18px;
+  border-radius:18px;
   background:white;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  box-shadow:
+  0 6px 18px rgba(0,0,0,.07);
   cursor:pointer;
   font-size:16px;
-  transition:.2s;
+  transition:.25s;
 }
 .student:hover{
-  transform:translateY(-2px);
+  transform:translateY(-4px);
+  box-shadow:
+  0 12px 25px rgba(0,0,0,.12);
 }
-/* ================= TEACHERS ================= */
+/* =====================================================
+   TEACHERS
+===================================================== */
 .teacher-card{
+  display:flex;
+  align-items:center;
+  gap:15px;
   background:white;
-  padding:20px;
-  margin:12px 0;
-  border-radius:18px;
-  box-shadow:0 4px 15px rgba(0,0,0,.07);
+  padding:22px;
+  margin:13px 0;
+  border-radius:20px;
+  box-shadow:
+  0 6px 20px rgba(0,0,0,.07);
+  transition:.25s;
+}
+.teacher-card:hover{
+  transform:translateX(5px);
+}
+.teacher-icon{
+  width:50px;
+  height:50px;
+  border-radius:15px;
+  background:#f0f0f0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+}
+.teacher-info strong{
   font-size:18px;
 }
 .subject{
-  color:#666;
-  margin-top:7px;
+  color:#777;
+  margin-top:5px;
 }
-/* ================= NEWS ================= */
+/* =====================================================
+   NEWS
+===================================================== */
 .news{
   background:white;
-  padding:20px;
-  border-radius:18px;
-  box-shadow:0 4px 15px rgba(0,0,0,.07);
+  padding:23px;
+  border-radius:20px;
+  box-shadow:
+  0 6px 20px rgba(0,0,0,.07);
   margin-bottom:15px;
 }
-/* ================= ACHIEVEMENTS ================= */
+/* =====================================================
+   ACHIEVEMENTS
+===================================================== */
 .achievement{
   background:white;
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 5px 15px rgba(0,0,0,.07);
+  padding:35px;
+  border-radius:23px;
+  box-shadow:
+  0 7px 25px rgba(0,0,0,.07);
   text-align:center;
 }
-/* ================= QUOTES ================= */
+/* =====================================================
+   QUOTES
+===================================================== */
 .quotes-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:15px;
+  grid-template-columns:
+  repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
 }
 .quote-card{
   background:white;
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 5px 18px rgba(0,0,0,.08);
+  padding:28px;
+  border-radius:22px;
+  box-shadow:
+  0 7px 22px rgba(0,0,0,.07);
   text-align:center;
-  transition:.2s;
+  transition:.25s;
 }
 .quote-card:hover{
-  transform:translateY(-4px);
+  transform:translateY(-5px);
 }
 .quote-number{
-  font-size:14px;
-  color:#888;
-  margin-bottom:12px;
+  font-size:13px;
+  color:#999;
+  margin-bottom:14px;
 }
 .quote-text{
   font-size:18px;
-  line-height:1.5;
+  line-height:1.6;
   font-weight:bold;
 }
-/* ================= GALLERY ================= */
+/* =====================================================
+   GALLERY
+===================================================== */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
 }
 .gallery img{
   width:100%;
-  height:220px;
+  height:240px;
   object-fit:cover;
-  border-radius:18px;
+  border-radius:22px;
   cursor:pointer;
-  box-shadow:0 4px 15px rgba(0,0,0,.1);
+  box-shadow:
+  0 7px 22px rgba(0,0,0,.12);
+  transition:.3s;
 }
-/* ================= FOUNDER ================= */
+.gallery img:hover{
+  transform:scale(1.025);
+}
+/* =====================================================
+   FOUNDER
+===================================================== */
 .founder{
   text-align:center;
   background:white;
-  padding:30px;
-  border-radius:22px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  padding:35px;
+  border-radius:25px;
+  box-shadow:
+  0 7px 25px rgba(0,0,0,.08);
 }
 .founder h3{
-  font-size:28px;
+  font-size:30px;
   margin:8px;
 }
-/* ================= SOCIAL MEDIA ================= */
+/* =====================================================
+   VISITORS
+===================================================== */
+.visitor-box{
+  text-align:center;
+  background:white;
+  padding:35px;
+  border-radius:25px;
+  box-shadow:
+  0 7px 25px rgba(0,0,0,.08);
+}
+.visitor-icon{
+  font-size:45px;
+}
+.visitor-number{
+  font-size:55px;
+  font-weight:bold;
+  margin:10px 0;
+}
+.visitor-label{
+  color:#777;
+  font-size:17px;
+}
+/* =====================================================
+   COMMENTS
+===================================================== */
+.comments-box{
+  background:white;
+  padding:30px;
+  border-radius:25px;
+  box-shadow:
+  0 7px 25px rgba(0,0,0,.08);
+}
+.comment-form{
+  display:grid;
+  gap:12px;
+  margin-bottom:30px;
+}
+.comment-input{
+  width:100%;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:15px;
+  font-size:15px;
+  outline:none;
+  resize:vertical;
+}
+.comment-input:focus{
+  border-color:#777;
+}
+.comment-submit{
+  border:0;
+  padding:15px;
+  border-radius:15px;
+  background:#222;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+.comment-submit:hover{
+  transform:translateY(-2px);
+}
+.comment{
+  padding:18px;
+  border-radius:17px;
+  background:#f5f5f5;
+  margin-bottom:12px;
+}
+.comment-name{
+  font-weight:bold;
+  margin-bottom:7px;
+}
+.comment-text{
+  color:#555;
+  line-height:1.5;
+  word-wrap:break-word;
+}
+.comment-time{
+  color:#999;
+  font-size:12px;
+  margin-top:8px;
+}
+.no-comments{
+  text-align:center;
+  color:#888;
+  padding:20px;
+}
+/* =====================================================
+   SOCIAL MEDIA
+===================================================== */
 .social-section{
   text-align:center;
-  max-width:1000px;
-  margin:50px auto 0;
-  padding:30px 20px;
-}
-.social-section h2{
-  margin-bottom:8px;
+  max-width:1050px;
+  margin:50px auto;
+  padding:35px 20px;
 }
 .social-subtitle{
   color:#777;
-  margin-bottom:25px;
+  margin-bottom:28px;
 }
 .social-icons{
   display:flex;
@@ -323,51 +563,74 @@ section h2{
   flex-wrap:wrap;
 }
 .social-link{
-  width:64px;
-  height:64px;
+  width:65px;
+  height:65px;
   display:flex;
-  justify-content:center;
   align-items:center;
-  border-radius:18px;
+  justify-content:center;
+  border-radius:19px;
   background:white;
   color:#222;
   text-decoration:none;
   font-size:30px;
-  box-shadow:0 5px 18px rgba(0,0,0,.10);
+  box-shadow:
+  0 7px 22px rgba(0,0,0,.10);
   transition:.25s;
 }
 .social-link:hover{
-  transform:translateY(-6px) scale(1.08);
+  transform:
+  translateY(-7px)
+  scale(1.08);
 }
 .social-name{
-  color:#777;
-  margin-top:18px;
+  color:#888;
+  margin-top:20px;
   font-size:14px;
 }
-/* ================= FOOTER ================= */
-footer{
+/* =====================================================
+   DARK MODE BUTTON
+===================================================== */
+.dark-button-area{
   text-align:center;
-  padding:30px;
+  margin:30px auto;
+}
+.dark-btn{
+  border:0;
+  padding:14px 22px;
+  border-radius:25px;
   background:#222;
   color:white;
-  margin-top:40px;
+  cursor:pointer;
+  font-size:15px;
 }
-/* ================= POPUP ================= */
+/* =====================================================
+   FOOTER
+===================================================== */
+footer{
+  text-align:center;
+  padding:35px 20px;
+  background:#202124;
+  color:white;
+  margin-top:50px;
+}
+/* =====================================================
+   POPUP
+===================================================== */
 #popup{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.8);
+  background:rgba(0,0,0,.82);
   justify-content:center;
   align-items:center;
-  z-index:10000;
+  z-index:100000;
   padding:20px;
 }
 .popup-box{
   background:white;
-  padding:20px;
-  border-radius:20px;
-  max-width:500px;
+  padding:25px;
+  border-radius:25px;
+  max-width:550px;
   width:100%;
   text-align:center;
   position:relative;
@@ -375,21 +638,24 @@ footer{
 .popup-box img{
   max-width:100%;
   max-height:65vh;
-  border-radius:15px;
+  border-radius:18px;
 }
 .close{
   position:absolute;
-  right:15px;
-  top:10px;
-  font-size:28px;
+  right:18px;
+  top:12px;
+  font-size:30px;
   cursor:pointer;
 }
-/* ================= DARK MODE ================= */
+/* =====================================================
+   DARK MODE
+===================================================== */
 .dark{
-  background:#121212;
+  background:#101114;
   color:#eee;
 }
 .dark header,
+.dark .hero,
 .dark .card,
 .dark .info-card,
 .dark .student,
@@ -398,97 +664,136 @@ footer{
 .dark .coming-soon,
 .dark .achievement,
 .dark .quote-card,
-.dark .social-link,
 .dark .founder,
+.dark .visitor-box,
+.dark .comments-box,
+.dark .social-link,
 .dark .popup-box,
 .dark .side-menu{
-  background:#1e1e1e;
+  background:#1b1d21;
   color:#eee;
 }
 .dark header h2,
 .dark .subject,
 .dark .coming-soon p,
-.dark .quote-number,
 .dark .social-subtitle,
-.dark .social-name{
+.dark .social-name,
+.dark .visitor-label{
   color:#aaa;
 }
+.dark .side-menu a{
+  color:#eee;
+}
+.dark .side-menu a:hover{
+  background:#303238;
+}
+.dark .comment{
+  background:#292c31;
+}
+.dark .comment-text{
+  color:#ccc;
+}
+.dark .comment-input,
+.dark .search{
+  background:#25282d;
+  color:white;
+  border-color:#444;
+}
 .dark #welcome{
-  background:#121212;
+  background:
+  radial-gradient(circle at top,#292c31,#101114 70%);
   color:white;
 }
 .dark .enter-btn{
   background:white;
   color:#111;
 }
-.dark .side-menu a{
-  color:#eee;
-}
-.dark .side-menu a:hover{
-  background:#333;
-}
-/* ================= MOBILE ================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 @media(max-width:600px){
   .welcome-box h1{
-    font-size:45px;
+    font-size:48px;
+  }
+  .welcome-logo{
+    width:105px;
+    height:105px;
+    font-size:40px;
   }
   header h1{
-    font-size:35px;
+    font-size:38px;
+  }
+  header{
+    padding-top:65px;
   }
   section{
     padding:18px;
   }
-  .menu-btn{
-    width:46px;
-    height:46px;
-    top:15px;
-    left:15px;
+  section h2{
+    font-size:26px;
   }
   .side-menu{
-    width:270px;
+    width:275px;
   }
   .social-link{
     width:58px;
     height:58px;
-    font-size:28px;
+    font-size:27px;
   }
 }
 </style>
 </head>
 <body>
-<!-- ================= WELCOME ================= -->
+<!-- =====================================================
+     WELCOME
+===================================================== -->
 <div id="welcome">
   <div class="welcome-box">
-    <h1>10A</h1>
+    <div class="welcome-logo">
+      10A
+    </div>
+    <h1>
+      10A
+    </h1>
     <h2>
       Success International School
     </h2>
-    <button class="enter-btn" onclick="enterSite()">
+    <button
+      class="enter-btn"
+      onclick="enterSite()">
       Enter Website 🚀
     </button>
   </div>
 </div>
-<!-- ================= HEADER ================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 <header>
-  <!-- THREE LINES BUTTON -->
   <button
     class="menu-btn"
-    id="menuBtn"
-    onclick="toggleMenu()">
+    onclick="toggleMenu()"
+    aria-label="Open Menu">
     <i class="fa-solid fa-bars"></i>
   </button>
-  <h1>10A</h1>
+  <h1>
+    10A
+  </h1>
   <h2>
     Success International School
   </h2>
   <div id="clock"></div>
 </header>
-<!-- ================= SIDE MENU ================= -->
+<!-- =====================================================
+     MENU OVERLAY
+===================================================== -->
 <div
   class="menu-overlay"
   id="menuOverlay"
   onclick="closeMenu()">
 </div>
+<!-- =====================================================
+     SIDE MENU
+===================================================== -->
 <div
   class="side-menu"
   id="sideMenu">
@@ -527,44 +832,63 @@ footer{
     <i class="fa-solid fa-images"></i>
     Gallery
   </a>
+  <a href="#visitors" onclick="closeMenu()">
+    <i class="fa-solid fa-earth-americas"></i>
+    Visitors & Comments
+  </a>
   <a href="#founder" onclick="closeMenu()">
     <i class="fa-solid fa-crown"></i>
     Founder
   </a>
 </div>
-<!-- ================= HOME ================= -->
+<!-- =====================================================
+     HOME
+===================================================== -->
 <section id="home">
-  <h2>
-    🏫 Welcome to Class 10A
-  </h2>
-  <div class="card">
+  <div class="hero">
+    <h2>
+      🏫 Welcome to Class 10A
+    </h2>
     <p>
       Welcome to the official website of Class 10A at
       <strong>Success International School</strong>.
     </p>
     <p>
-      This website contains class information, students,
-      teachers, announcements, exams, achievements and memories.
+      A place for our students, teachers, memories,
+      achievements and everything related to Class 10A.
     </p>
   </div>
+  <br>
   <div class="info-grid">
     <div class="info-card">
-      <h3>🎓 Class</h3>
-      <p>10A</p>
+      <h3>
+        🎓 Class
+      </h3>
+      <p>
+        10A
+      </p>
     </div>
     <div class="info-card">
-      <h3>🏫 School</h3>
+      <h3>
+        🏫 School
+      </h3>
       <p>
         Success International School
       </p>
     </div>
     <div class="info-card">
-      <h3>👨‍🎓 Students</h3>
-      <p>7 Students</p>
+      <h3>
+        👨‍🎓 Students
+      </h3>
+      <p>
+        7 Students
+      </p>
     </div>
   </div>
 </section>
-<!-- ================= STUDENT OF THE MONTH ================= -->
+<!-- =====================================================
+     STUDENT OF THE MONTH
+===================================================== -->
 <section>
   <h2>
     🏆 Student of the Month
@@ -581,7 +905,9 @@ footer{
     </p>
   </div>
 </section>
-<!-- ================= STUDENTS ================= -->
+<!-- =====================================================
+     STUDENTS
+===================================================== -->
 <section id="students">
   <h2>
     👨‍🎓 Our Students
@@ -591,8 +917,7 @@ footer{
     id="search"
     class="search"
     placeholder="Search for a student..."
-    onkeyup="searchStudents()"
-  >
+    onkeyup="searchStudents()">
   <div class="student-list">
     <button
       class="student"
@@ -631,43 +956,82 @@ footer{
     </button>
   </div>
 </section>
-<!-- ================= TEACHERS ================= -->
+<!-- =====================================================
+     TEACHERS
+===================================================== -->
 <section id="teachers">
   <h2>
     👨‍🏫 Our Teachers
   </h2>
   <div class="teacher-card">
-    ⚛️ <strong>Physics</strong>
-    <div class="subject">
-      Mr. Mohammad Elhijazi
+    <div class="teacher-icon">
+      ⚛️
+    </div>
+    <div class="teacher-info">
+      <strong>
+        Physics
+      </strong>
+      <div class="subject">
+        Mr. Mohammad Elhijazi
+      </div>
     </div>
   </div>
   <div class="teacher-card">
-    📐 <strong>Mathematics</strong>
-    <div class="subject">
-      Mr. Rafaqat Ali
+    <div class="teacher-icon">
+      📐
+    </div>
+    <div class="teacher-info">
+      <strong>
+        Mathematics
+      </strong>
+      <div class="subject">
+        Mr. Rafaqat Ali
+      </div>
     </div>
   </div>
   <div class="teacher-card">
-    🧬 <strong>Biology</strong>
-    <div class="subject">
-      Mr. Fayyaz Jddin
+    <div class="teacher-icon">
+      🧬
+    </div>
+    <div class="teacher-info">
+      <strong>
+        Biology
+      </strong>
+      <div class="subject">
+        Mr. Fayyaz Jddin
+      </div>
     </div>
   </div>
   <div class="teacher-card">
-    🇬🇧 <strong>English</strong>
-    <div class="subject">
-      Mr. Abdul Jaleel
+    <div class="teacher-icon">
+      🇬🇧
+    </div>
+    <div class="teacher-info">
+      <strong>
+        English
+      </strong>
+      <div class="subject">
+        Mr. Abdul Jaleel
+      </div>
     </div>
   </div>
   <div class="teacher-card">
-    ⚗️ <strong>Chemistry</strong>
-    <div class="subject">
-      Mr. Nauman Ahmad
+    <div class="teacher-icon">
+      ⚗️
+    </div>
+    <div class="teacher-info">
+      <strong>
+        Chemistry
+      </strong>
+      <div class="subject">
+        Mr. Nauman Ahmad
+      </div>
     </div>
   </div>
 </section>
-<!-- ================= EXAMS ================= -->
+<!-- =====================================================
+     EXAMS
+===================================================== -->
 <section id="exams">
   <h2>
     📝 Exam Schedule
@@ -684,7 +1048,9 @@ footer{
     </p>
   </div>
 </section>
-<!-- ================= NEWS ================= -->
+<!-- =====================================================
+     NEWS
+===================================================== -->
 <section id="news">
   <h2>
     📢 Announcements
@@ -706,13 +1072,15 @@ footer{
     </p>
   </div>
 </section>
-<!-- ================= ACHIEVEMENTS ================= -->
+<!-- =====================================================
+     ACHIEVEMENTS
+===================================================== -->
 <section id="achievements">
   <h2>
     🏆 Achievements
   </h2>
   <div class="achievement">
-    <div style="font-size:55px;">
+    <div style="font-size:60px;">
       🏆
     </div>
     <h3>
@@ -723,7 +1091,9 @@ footer{
     </p>
   </div>
 </section>
-<!-- ================= QUOTES ================= -->
+<!-- =====================================================
+     QUOTES
+===================================================== -->
 <section id="quotes">
   <h2>
     💬 Class Quotes
@@ -797,7 +1167,9 @@ footer{
     </div>
   </div>
 </section>
-<!-- ================= GALLERY ================= -->
+<!-- =====================================================
+     GALLERY
+===================================================== -->
 <section id="gallery">
   <h2>
     📸 Class Gallery
@@ -805,19 +1177,78 @@ footer{
   <div class="gallery">
     <img
       src="images/IMG_5602.jpeg"
-      onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')"
-    >
+      alt="Abdullah Anwar"
+      onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')">
     <img
       src="images/IMG_5606.jpeg"
-      onclick="show('Abdullah Omar','images/IMG_5606.jpeg')"
-    >
+      alt="Abdullah Omar"
+      onclick="show('Abdullah Omar','images/IMG_5606.jpeg')">
     <img
       src="images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg"
-      onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')"
-    >
+      alt="Yahya"
+      onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
   </div>
 </section>
-<!-- ================= FOUNDER ================= -->
+<!-- =====================================================
+     VISITORS & COMMENTS
+===================================================== -->
+<section id="visitors">
+  <h2>
+    🌎 Visitors & Comments
+  </h2>
+  <div class="visitor-box">
+    <div class="visitor-icon">
+      👀
+    </div>
+    <div
+      class="visitor-number"
+      id="visitorCount">
+      0
+    </div>
+    <div class="visitor-label">
+      Website Visitors
+    </div>
+  </div>
+  <br>
+  <div class="comments-box">
+    <h3>
+      💬 Leave a Comment
+    </h3>
+    <p style="color:#777;">
+      Tell us what you think about the 10A website!
+    </p>
+    <div class="comment-form">
+      <input
+        id="commentName"
+        class="comment-input"
+        type="text"
+        maxlength="40"
+        placeholder="Your name">
+      <textarea
+        id="commentText"
+        class="comment-input"
+        maxlength="300"
+        rows="4"
+        placeholder="Write your comment..."></textarea>
+      <button
+        class="comment-submit"
+        onclick="addComment()">
+        Post Comment 💬
+      </button>
+    </div>
+    <h3>
+      Recent Comments
+    </h3>
+    <div id="commentsList">
+      <div class="no-comments">
+        Loading comments...
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =====================================================
+     FOUNDER
+===================================================== -->
 <section id="founder">
   <h2>
     👑 Website Founder
@@ -834,7 +1265,9 @@ footer{
     </p>
   </div>
 </section>
-<!-- ================= SOCIAL MEDIA ================= -->
+<!-- =====================================================
+     SOCIAL MEDIA
+===================================================== -->
 <section class="social-section">
   <h2>
     🏫 Success International School
@@ -843,6 +1276,7 @@ footer{
     School Social Media & Platforms
   </p>
   <div class="social-icons">
+    <!-- Classlight -->
     <a
       href="https://www.classlight.com/"
       target="_blank"
@@ -850,6 +1284,7 @@ footer{
       title="Classlight">
       <i class="fa-solid fa-globe"></i>
     </a>
+    <!-- TikTok -->
     <a
       href="https://www.tiktok.com/@sischls?_r=1&_t=ZS-99NWSo2HCV6"
       target="_blank"
@@ -857,6 +1292,7 @@ footer{
       title="TikTok">
       <i class="fa-brands fa-tiktok"></i>
     </a>
+    <!-- Instagram -->
     <a
       href="https://www.instagram.com/sischls?igsi=dm0zc2s4MHpuMjhi"
       target="_blank"
@@ -864,6 +1300,7 @@ footer{
       title="Instagram">
       <i class="fa-brands fa-instagram"></i>
     </a>
+    <!-- Facebook -->
     <a
       href="https://www.facebook.com/share/1EqhkVcozU/?mibextid=wwXIfr"
       target="_blank"
@@ -871,6 +1308,7 @@ footer{
       title="Facebook">
       <i class="fa-brands fa-facebook-f"></i>
     </a>
+    <!-- YouTube -->
     <a
       href="https://youtube.com/@sischls?si=3M0HkZMbFMBErEw_"
       target="_blank"
@@ -878,6 +1316,7 @@ footer{
       title="YouTube">
       <i class="fa-brands fa-youtube"></i>
     </a>
+    <!-- Snapchat -->
     <a
       href="https://www.snapchat.com/add/sischls"
       target="_blank"
@@ -890,15 +1329,19 @@ footer{
     @sischls
   </p>
 </section>
-<!-- ================= DARK MODE ================= -->
-<section>
-  <div class="card" style="text-align:center;">
-    <button class="enter-btn" onclick="darkMode()">
-      🌙 Dark Mode
-    </button>
-  </div>
-</section>
-<!-- ================= FOOTER ================= -->
+<!-- =====================================================
+     DARK MODE
+===================================================== -->
+<div class="dark-button-area">
+  <button
+    class="dark-btn"
+    onclick="darkMode()">
+    🌙 Dark Mode
+  </button>
+</div>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 <footer>
   <p>
     © 2026 10A | Success International School
@@ -907,7 +1350,9 @@ footer{
     Made by Ahmed Jallab — Alex 🚀
   </p>
 </footer>
-<!-- ================= POPUP ================= -->
+<!-- =====================================================
+     STUDENT POPUP
+===================================================== -->
 <div
   id="popup"
   onclick="closePopup()">
@@ -927,65 +1372,392 @@ footer{
     <p id="noPhoto"></p>
   </div>
 </div>
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+<script type="module">
+/*
+==========================================================
+FIREBASE SETUP
+Replace the values below with your Firebase project data.
+==========================================================
+*/
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  orderBy,
+  serverTimestamp,
+  increment,
+  doc,
+  setDoc
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+/* ======================================================
+   FIREBASE CONFIG
+====================================================== */
+const firebaseConfig = {
+  apiKey:
+    "YOUR_API_KEY",
+  authDomain:
+    "YOUR_PROJECT.firebaseapp.com",
+  projectId:
+    "YOUR_PROJECT_ID",
+  storageBucket:
+    "YOUR_PROJECT.firebasestorage.app",
+  messagingSenderId:
+    "YOUR_MESSAGING_SENDER_ID",
+  appId:
+    "YOUR_APP_ID"
+};
+/* ======================================================
+   INITIALIZE
+====================================================== */
+const app =
+  initializeApp(firebaseConfig);
+const db =
+  getFirestore(app);
+/* ======================================================
+   VISITOR COUNTER
+====================================================== */
+async function countVisitor(){
+  try{
+    const visitorRef =
+      doc(
+        db,
+        "websiteStats",
+        "main"
+      );
+    await setDoc(
+      visitorRef,
+      {
+        visitors:
+          increment(1)
+      },
+      {
+        merge:true
+      }
+    );
+  }catch(error){
+    console.log(
+      "Visitor counter error:",
+      error
+    );
+  }
+}
+/* ======================================================
+   LOAD VISITOR COUNT
+====================================================== */
+function loadVisitorCount(){
+  const visitorRef =
+    doc(
+      db,
+      "websiteStats",
+      "main"
+    );
+  onSnapshot(
+    visitorRef,
+    snapshot => {
+      if(snapshot.exists()){
+        const data =
+          snapshot.data();
+        document
+          .getElementById(
+            "visitorCount"
+          )
+          .innerText =
+            data.visitors || 0;
+      }
+    }
+  );
+}
+/* ======================================================
+   ADD COMMENT
+====================================================== */
+window.addComment =
+async function(){
+  const name =
+    document
+      .getElementById(
+        "commentName"
+      )
+      .value
+      .trim();
+  const text =
+    document
+      .getElementById(
+        "commentText"
+      )
+      .value
+      .trim();
+  if(!name || !text){
+    alert(
+      "Please enter your name and comment."
+    );
+    return;
+  }
+  if(name.length > 40){
+    alert(
+      "Name is too long."
+    );
+    return;
+  }
+  if(text.length > 300){
+    alert(
+      "Comment is too long."
+    );
+    return;
+  }
+  try{
+    await addDoc(
+      collection(
+        db,
+        "comments"
+      ),
+      {
+        name:name,
+        text:text,
+        createdAt:
+          serverTimestamp()
+      }
+    );
+    document
+      .getElementById(
+        "commentName"
+      )
+      .value="";
+    document
+      .getElementById(
+        "commentText"
+      )
+      .value="";
+  }catch(error){
+    console.log(error);
+    alert(
+      "Could not post the comment. Please try again."
+    );
+  }
+};
+/* ======================================================
+   LOAD COMMENTS
+====================================================== */
+function loadComments(){
+  const commentsQuery =
+    query(
+      collection(
+        db,
+        "comments"
+      ),
+      orderBy(
+        "createdAt",
+        "desc"
+      )
+    );
+  onSnapshot(
+    commentsQuery,
+    snapshot => {
+      const list =
+        document
+          .getElementById(
+            "commentsList"
+          );
+      list.innerHTML="";
+      if(snapshot.empty){
+        list.innerHTML =
+          '<div class="no-comments">No comments yet. Be the first! 💬</div>';
+        return;
+      }
+      snapshot.forEach(
+        commentDoc => {
+          const data =
+            commentDoc.data();
+          const comment =
+            document.createElement(
+              "div"
+            );
+          comment.className =
+            "comment";
+          const name =
+            document.createElement(
+              "div"
+            );
+          name.className =
+            "comment-name";
+          name.innerText =
+            data.name ||
+            "Anonymous";
+          const text =
+            document.createElement(
+              "div"
+            );
+          text.className =
+            "comment-text";
+          text.innerText =
+            data.text ||
+            "";
+          const time =
+            document.createElement(
+              "div"
+            );
+          time.className =
+            "comment-time";
+          if(data.createdAt){
+            const date =
+              data.createdAt.toDate();
+            time.innerText =
+              date.toLocaleString();
+          }else{
+            time.innerText =
+              "Just now";
+          }
+          comment.appendChild(
+            name
+          );
+          comment.appendChild(
+            text
+          );
+          comment.appendChild(
+            time
+          );
+          list.appendChild(
+            comment
+          );
+        }
+      );
+    },
+    error => {
+      console.log(
+        "Comments error:",
+        error
+      );
+      document
+        .getElementById(
+          "commentsList"
+        )
+        .innerHTML =
+          '<div class="no-comments">Comments are temporarily unavailable.</div>';
+    }
+  );
+}
+/* ======================================================
+   START FIREBASE FUNCTIONS
+====================================================== */
+countVisitor();
+loadVisitorCount();
+loadComments();
+</script>
+<!-- =====================================================
+     NORMAL JAVASCRIPT
+===================================================== -->
 <script>
-/* ================= WELCOME ================= */
+/* =====================================================
+   ENTER WEBSITE
+===================================================== */
 function enterSite(){
-  document.getElementById("welcome")
-    .style.display="none";
+  document
+    .getElementById("welcome")
+    .classList
+    .add("hide");
 }
-/* ================= CLOCK ================= */
+/* =====================================================
+   CLOCK
+===================================================== */
 function updateClock(){
-  const now = new Date();
-  document.getElementById("clock").innerText =
-    now.toLocaleDateString("en-US") +
-    " • " +
-    now.toLocaleTimeString("en-US");
+  const now =
+    new Date();
+  document
+    .getElementById("clock")
+    .innerText =
+      now.toLocaleDateString(
+        "en-US"
+      )
+      +
+      " • "
+      +
+      now.toLocaleTimeString(
+        "en-US"
+      );
 }
-setInterval(updateClock,1000);
+setInterval(
+  updateClock,
+  1000
+);
 updateClock();
-/* ================= MENU ================= */
+/* =====================================================
+   MENU
+===================================================== */
 function toggleMenu(){
-  const menu =
-    document.getElementById("sideMenu");
-  const overlay =
-    document.getElementById("menuOverlay");
-  menu.classList.toggle("open");
-  overlay.classList.toggle("show");
+  document
+    .getElementById("sideMenu")
+    .classList
+    .toggle("open");
+  document
+    .getElementById("menuOverlay")
+    .classList
+    .toggle("show");
 }
-/* ================= CLOSE MENU ================= */
 function closeMenu(){
-  document.getElementById("sideMenu")
-    .classList.remove("open");
-  document.getElementById("menuOverlay")
-    .classList.remove("show");
+  document
+    .getElementById("sideMenu")
+    .classList
+    .remove("open");
+  document
+    .getElementById("menuOverlay")
+    .classList
+    .remove("show");
 }
-/* ================= SEARCH STUDENTS ================= */
+/* =====================================================
+   SEARCH
+===================================================== */
 function searchStudents(){
   const input =
-    document.getElementById("search")
-    .value
-    .toLowerCase();
+    document
+      .getElementById("search")
+      .value
+      .toLowerCase();
   const students =
-    document.querySelectorAll(".student");
-  students.forEach(student => {
-    student.style.display =
-      student.innerText
-      .toLowerCase()
-      .includes(input)
-      ? "block"
-      : "none";
-  });
+    document.querySelectorAll(
+      ".student"
+    );
+  students.forEach(
+    student => {
+      student.style.display =
+        student.innerText
+        .toLowerCase()
+        .includes(input)
+        ?
+        "block"
+        :
+        "none";
+    }
+  );
 }
-/* ================= STUDENT POPUP ================= */
+/* =====================================================
+   STUDENT POPUP
+===================================================== */
 function show(name,image){
-  document.getElementById("popup")
+  document
+    .getElementById("popup")
     .style.display="flex";
-  document.getElementById("popupName")
+  document
+    .getElementById("popupName")
     .innerText=name;
   const img =
-    document.getElementById("popupImage");
+    document.getElementById(
+      "popupImage"
+    );
   const noPhoto =
-    document.getElementById("noPhoto");
+    document.getElementById(
+      "noPhoto"
+    );
   if(image){
     img.src=image;
     img.style.display="block";
@@ -996,14 +1768,22 @@ function show(name,image){
       "No photo available for this student yet.";
   }
 }
-/* ================= CLOSE POPUP ================= */
+/* =====================================================
+   CLOSE POPUP
+===================================================== */
 function closePopup(){
-  document.getElementById("popup")
+  document
+    .getElementById("popup")
     .style.display="none";
 }
-/* ================= DARK MODE ================= */
+/* =====================================================
+   DARK MODE
+===================================================== */
 function darkMode(){
-  document.body.classList.toggle("dark");
+  document
+    .body
+    .classList
+    .toggle("dark");
 }
 </script>
 </body>
