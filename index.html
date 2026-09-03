@@ -21,7 +21,7 @@ body{
     color:#222;
     transition:.3s;
 }
-/* WELCOME */
+/* ================= WELCOME ================= */
 #welcome{
     position:fixed;
     inset:0;
@@ -81,7 +81,7 @@ body{
 #welcome.hide{
     display:none;
 }
-/* HEADER */
+/* ================= HEADER ================= */
 header{
     background:#111827;
     color:white;
@@ -102,7 +102,7 @@ header p{
     font-size:14px;
     opacity:.8;
 }
-/* MENU */
+/* ================= MENU ================= */
 .menu-btn{
     position:absolute;
     left:15px;
@@ -154,9 +154,9 @@ header p{
 .overlay.show{
     display:block;
 }
-/* MAIN */
+/* ================= MAIN ================= */
 main{
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
     padding:20px;
 }
@@ -171,7 +171,7 @@ section h2{
     margin-bottom:15px;
     color:#2563eb;
 }
-/* HOME */
+/* ================= HOME ================= */
 .hero{
     text-align:center;
     padding:40px 20px;
@@ -182,7 +182,7 @@ section h2{
 .hero p{
     line-height:1.7;
 }
-/* CARDS */
+/* ================= CARDS ================= */
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -194,7 +194,7 @@ section h2{
     border-radius:15px;
     text-align:center;
 }
-/* STUDENTS */
+/* ================= STUDENTS ================= */
 #studentSearch{
     width:100%;
     padding:13px;
@@ -221,7 +221,70 @@ section h2{
     background:#dbeafe;
     transform:translateY(-2px);
 }
-/* GALLERY */
+/* ================= TIMETABLE ================= */
+.timetable-wrapper{
+    overflow-x:auto;
+    margin-top:20px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+.timetable{
+    width:100%;
+    min-width:1100px;
+    border-collapse:collapse;
+    background:white;
+    text-align:center;
+}
+.timetable th,
+.timetable td{
+    border:1px solid #cbd5e1;
+    padding:12px 8px;
+    vertical-align:middle;
+}
+.timetable th{
+    background:#111827;
+    color:white;
+    font-size:14px;
+}
+.timetable .day{
+    background:#2563eb;
+    color:white;
+    font-weight:bold;
+    font-size:17px;
+    min-width:110px;
+}
+.timetable td{
+    font-size:13px;
+    line-height:1.4;
+    height:120px;
+    min-width:115px;
+}
+.timetable .break{
+    background:#f1f5f9;
+    font-weight:bold;
+    font-size:18px;
+    color:#111827;
+    min-width:110px;
+}
+.timetable .subject{
+    font-weight:bold;
+    display:block;
+    margin-bottom:12px;
+}
+.timetable .teacher{
+    display:block;
+    margin-top:8px;
+}
+.timetable-title{
+    text-align:center;
+    margin-bottom:8px;
+}
+.timetable-subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:20px;
+}
+/* ================= GALLERY ================= */
 .gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -238,7 +301,7 @@ section h2{
 .gallery img:hover{
     transform:scale(1.02);
 }
-/* COMMENTS */
+/* ================= COMMENTS ================= */
 .comment-box input,
 .comment-box textarea{
     width:100%;
@@ -274,7 +337,7 @@ section h2{
     font-weight:bold;
     margin-bottom:20px;
 }
-/* FOUNDER */
+/* ================= FOUNDER ================= */
 .founder{
     text-align:center;
 }
@@ -283,7 +346,7 @@ section h2{
     font-weight:bold;
     margin:10px 0;
 }
-/* SOCIAL */
+/* ================= SOCIAL ================= */
 .social{
     text-align:center;
 }
@@ -311,7 +374,7 @@ section h2{
     transform:scale(1.12);
     background:#2563eb;
 }
-/* DARK MODE */
+/* ================= DARK MODE ================= */
 .dark{
     background:#0f172a;
     color:white;
@@ -332,7 +395,22 @@ section h2{
     color:white;
     border-color:#475569;
 }
-/* POPUP */
+.dark .timetable{
+    background:#1e293b;
+    color:white;
+}
+.dark .timetable th{
+    background:#020617;
+}
+.dark .timetable .break{
+    background:#334155;
+    color:white;
+}
+.dark .timetable td,
+.dark .timetable th{
+    border-color:#475569;
+}
+/* ================= POPUPS ================= */
 .popup{
     display:none;
     position:fixed;
@@ -380,7 +458,7 @@ section h2{
     cursor:pointer;
     font-size:18px;
 }
-/* BACK TO TOP */
+/* ================= BACK TO TOP ================= */
 #backToTop{
     position:fixed;
     right:20px;
@@ -403,7 +481,7 @@ section h2{
 #backToTop:hover{
     transform:translateY(-5px) scale(1.05);
 }
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
     text-align:center;
     padding:25px;
@@ -411,7 +489,7 @@ footer{
     color:white;
     margin-top:30px;
 }
-/* MOBILE */
+/* ================= MOBILE ================= */
 @media(max-width:600px){
     header h1{
         font-size:24px;
@@ -422,203 +500,682 @@ footer{
     section{
         padding:20px;
     }
+    .timetable-wrapper{
+        margin-left:-5px;
+        margin-right:-5px;
+    }
 }
 </style>
 </head>
 <body>
-<!-- WELCOME -->
+<!-- ================= WELCOME ================= -->
 <div id="welcome">
     <div class="welcome-box">
-        <div class="logo">10B</div>
-        <h1>Welcome</h1>
-        <p>Success International School</p>
-        <button class="enter-btn" onclick="enterSite()">
+        <div class="logo">
+            10B
+        </div>
+        <h1>
+            Welcome
+        </h1>
+        <p>
+            Success International School
+        </p>
+        <button
+            class="enter-btn"
+            onclick="enterSite()">
             Enter Website 🚀
         </button>
     </div>
 </div>
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 <header>
-    <button class="menu-btn" onclick="toggleMenu()">
+    <button
+        class="menu-btn"
+        onclick="toggleMenu()">
         ☰
     </button>
-    <h1>10B</h1>
-    <p>Success International School</p>
+    <h1>
+        10B
+    </h1>
+    <p>
+        Success International School
+    </p>
     <div id="clock"></div>
 </header>
-<!-- OVERLAY -->
-<div class="overlay" id="overlay" onclick="closeMenu()"></div>
-<!-- SIDE MENU -->
-<nav class="side-menu" id="sideMenu">
-    <a href="#home" onclick="closeMenu()">🏠 Home</a>
-    <a href="#students" onclick="closeMenu()">🧑‍🎓 Students</a>
-    <a href="#teachers" onclick="closeMenu()">👨‍🏫 Teachers</a>
-    <a href="#exams" onclick="closeMenu()">📝 Exams</a>
-    <a href="#news" onclick="closeMenu()">📢 News</a>
-    <a href="#achievements" onclick="closeMenu()">🏆 Achievements</a>
-    <a href="#quotes" onclick="closeMenu()">💭 Quotes</a>
-    <a href="#gallery" onclick="closeMenu()">🖼️ Gallery</a>
-    <a href="#comments" onclick="closeMenu()">💬 Visitors & Comments</a>
-    <a href="#founder" onclick="closeMenu()">👨‍💻 Founder</a>
+<!-- ================= MENU ================= -->
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeMenu()">
+</div>
+<nav
+    class="side-menu"
+    id="sideMenu">
+    <a href="#home" onclick="closeMenu()">
+        🏠 Home
+    </a>
+    <a href="#students" onclick="closeMenu()">
+        🧑‍🎓 Students
+    </a>
+    <a href="#teachers" onclick="closeMenu()">
+        👨‍🏫 Teachers
+    </a>
+    <a href="#timetable" onclick="closeMenu()">
+        📅 Timetable
+    </a>
+    <a href="#exams" onclick="closeMenu()">
+        📝 Exams
+    </a>
+    <a href="#news" onclick="closeMenu()">
+        📢 News
+    </a>
+    <a href="#achievements" onclick="closeMenu()">
+        🏆 Achievements
+    </a>
+    <a href="#quotes" onclick="closeMenu()">
+        💭 Quotes
+    </a>
+    <a href="#gallery" onclick="closeMenu()">
+        🖼️ Gallery
+    </a>
+    <a href="#comments" onclick="closeMenu()">
+        💬 Visitors & Comments
+    </a>
+    <a href="#founder" onclick="closeMenu()">
+        👨‍💻 Founder
+    </a>
 </nav>
 <main>
-<!-- HOME -->
-<section id="home" class="hero">
-    <h2>Welcome to Class 10B 🎓</h2>
+<!-- ================= HOME ================= -->
+<section
+    id="home"
+    class="hero">
+    <h2>
+        Welcome to Class 10B 🎓
+    </h2>
     <p>
         Welcome to the official website of Class 10B
         at Success International School.
         Here you can discover our students, teachers,
-        announcements, achievements and memories.
+        timetable, announcements, achievements and memories.
     </p>
 </section>
-<!-- STUDENT OF THE MONTH -->
+<!-- ================= STUDENT OF THE MONTH ================= -->
 <section>
-    <h2>🌟 Student of the Month</h2>
+    <h2>
+        🌟 Student of the Month
+    </h2>
     <div class="card">
-        <h3>Coming Soon 🚀</h3>
+        <h3>
+            Coming Soon 🚀
+        </h3>
         <p>
             The Student of the Month will be announced here.
         </p>
     </div>
 </section>
-<!-- STUDENTS -->
+<!-- ================= STUDENTS ================= -->
 <section id="students">
-    <h2>🧑‍🎓 Students</h2>
+    <h2>
+        🧑‍🎓 Students
+    </h2>
     <input
         type="text"
         id="studentSearch"
         placeholder="Search for a student..."
         onkeyup="searchStudents()"
     >
-    <div class="student-list" id="studentList">
-        <button class="student-btn"
-        onclick="showStudent(
-        'Abdullah Anwar',
-        'images/IMG_5602.jpeg',
-        'Yemeni 🇾🇪',
-        '16'
-        )">
+    <div
+        class="student-list"
+        id="studentList">
+        <button
+            class="student-btn"
+            onclick="showStudent(
+            'Abdullah Anwar',
+            'images/IMG_5602.jpeg',
+            'Yemeni 🇾🇪',
+            '16'
+            )">
             Abdullah Anwar
         </button>
-        <button class="student-btn"
-        onclick="showStudent(
-        'Bashar Musa',
-        '',
-        'Sudanese 🇸🇩',
-        '15'
-        )">
+        <button
+            class="student-btn"
+            onclick="showStudent(
+            'Bashar Musa',
+            '',
+            'Sudanese 🇸🇩',
+            '15'
+            )">
             Bashar Musa
         </button>
-        <button class="student-btn"
-        onclick="showStudent(
-        'Yahya',
-        'images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg',
-        'Palestinian 🇵🇸',
-        '14'
-        )">
+        <button
+            class="student-btn"
+            onclick="showStudent(
+            'Yahya',
+            'images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg',
+            'Palestinian 🇵🇸',
+            '14'
+            )">
             Yahya
         </button>
-        <button class="student-btn"
-        onclick="showStudent(
-        'Hizam',
-        '',
-        'Yemeni 🇾🇪',
-        '15'
-        )">
+        <button
+            class="student-btn"
+            onclick="showStudent(
+            'Hizam',
+            '',
+            'Yemeni 🇾🇪',
+            '15'
+            )">
             Hizam
         </button>
-        <button class="student-btn"
-        onclick="showStudent(
-        'Abu Bakr Ibrahim',
-        '',
-        'Sudanese 🇸🇩',
-        '15'
-        )">
+        <button
+            class="student-btn"
+            onclick="showStudent(
+            'Abu Bakr Ibrahim',
+            '',
+            'Sudanese 🇸🇩',
+            '15'
+            )">
             Abu Bakr Ibrahim
         </button>
-        <button class="student-btn"
-        onclick="showStudent(
-        'Ahmed Faisal',
-        '',
-        'Sudanese 🇸🇩',
-        '15'
-        )">
+        <button
+            class="student-btn"
+            onclick="showStudent(
+            'Ahmed Faisal',
+            '',
+            'Sudanese 🇸🇩',
+            '15'
+            )">
             Ahmed Faisal
         </button>
-        <button class="student-btn"
-        onclick="showStudent(
-        'Wissam Abdul Salam',
-        '',
-        'Yemeni 🇾🇪',
-        '14'
-        )">
+        <button
+            class="student-btn"
+            onclick="showStudent(
+            'Wissam Abdul Salam',
+            '',
+            'Yemeni 🇾🇪',
+            '14'
+            )">
             Wissam Abdul Salam
         </button>
     </div>
 </section>
-<!-- TEACHERS -->
+<!-- ================= TEACHERS ================= -->
 <section id="teachers">
-    <h2>👨‍🏫 Teachers</h2>
+    <h2>
+        👨‍🏫 Teachers
+    </h2>
     <div class="cards">
         <div class="card">
-            <h3>Physics</h3>
-            <p>Mr. Mohammad Elhijazi</p>
+            <h3>
+                Physics
+            </h3>
+            <p>
+                Mr. Mohammad Elhijazi
+            </p>
         </div>
         <div class="card">
-            <h3>Mathematics</h3>
-            <p>Mr. Rafaqat Ali</p>
+            <h3>
+                Mathematics
+            </h3>
+            <p>
+                Mr. Rafaqat Ali
+            </p>
         </div>
         <div class="card">
-            <h3>Biology</h3>
-            <p>Mr. Fayyaz Jddin</p>
+            <h3>
+                Biology
+            </h3>
+            <p>
+                Mr. Fayyaz Jddin
+            </p>
         </div>
         <div class="card">
-            <h3>English</h3>
-            <p>Mr. Abdul Jaleel</p>
+            <h3>
+                English
+            </h3>
+            <p>
+                Mr. Abdul Jaleel
+            </p>
         </div>
         <div class="card">
-            <h3>Chemistry</h3>
-            <p>Mr. Nauman Ahmad</p>
+            <h3>
+                Chemistry
+            </h3>
+            <p>
+                Mr. Nauman Ahmad
+            </p>
         </div>
     </div>
 </section>
-<!-- EXAMS -->
+<!-- ================= TIMETABLE ================= -->
+<section id="timetable">
+    <h2 class="timetable-title">
+        📅 Class Timetable
+    </h2>
+    <p class="timetable-subtitle">
+        Success International School — 10 British
+    </p>
+    <div class="timetable-wrapper">
+        <table class="timetable">
+            <thead>
+                <tr>
+                    <th>
+                        Day
+                    </th>
+                    <th>
+                        1<br>
+                        7:00 - 7:30
+                    </th>
+                    <th>
+                        2<br>
+                        7:30 - 8:00
+                    </th>
+                    <th>
+                        3<br>
+                        8:00 - 8:30
+                    </th>
+                    <th class="break">
+                        Break<br>
+                        8:30 - 9:00
+                    </th>
+                    <th>
+                        4<br>
+                        9:00 - 9:30
+                    </th>
+                    <th>
+                        5<br>
+                        9:30 - 10:00
+                    </th>
+                    <th>
+                        6<br>
+                        10:00 - 10:30
+                    </th>
+                    <th>
+                        7<br>
+                        10:30 - 11:00
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- SUNDAY -->
+                <tr>
+                    <td class="day">
+                        Sunday
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Maths
+                        </span>
+                        <span class="teacher">
+                            Mr. Rafaqat Ali
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Saudi History<br>
+                            Geography
+                        </span>
+                        <span class="teacher">
+                            Mr. Faisal
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Biology
+                        </span>
+                        <span class="teacher">
+                            Mr. Fayyaz Uddin
+                        </span>
+                    </td>
+                    <td
+                        class="break"
+                        rowspan="5">
+                        Break / Recess
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Physics
+                        </span>
+                        <span class="teacher">
+                            Mr. Mohammad Elhijazi
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            English<br>
+                            Workbook
+                        </span>
+                        <span class="teacher">
+                            Mr. Abdul Jaleel
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Arabic
+                        </span>
+                        <span class="teacher">
+                            Mr. Anees
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Computer
+                        </span>
+                        <span class="teacher">
+                            Mr. Rashid Shafie
+                        </span>
+                    </td>
+                </tr>
+                <!-- MONDAY -->
+                <tr>
+                    <td class="day">
+                        Monday
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Islamic Studies (Arb)
+                        </span>
+                        <span class="teacher">
+                            Mr. Abdullah Tamimi
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Chemistry
+                        </span>
+                        <span class="teacher">
+                            Mr. Nauman Ahmad
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Maths
+                        </span>
+                        <span class="teacher">
+                            Mr. Rafaqat Ali
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Biology
+                        </span>
+                        <span class="teacher">
+                            Mr. Fayyaz Uddin
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Arabic
+                        </span>
+                        <span class="teacher">
+                            Mr. Anees
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Computer
+                        </span>
+                        <span class="teacher">
+                            Mr. Rashid Shafie
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Physics
+                        </span>
+                        <span class="teacher">
+                            Mr. Mohammad Elhijazi
+                        </span>
+                    </td>
+                </tr>
+                <!-- TUESDAY -->
+                <tr>
+                    <td class="day">
+                        Tuesday
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Saudi History<br>
+                            Geography
+                        </span>
+                        <span class="teacher">
+                            Mr. Faisal
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Islamic Studies (Arb)
+                        </span>
+                        <span class="teacher">
+                            Mr. Abdullah Tamimi
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            English<br>
+                            Course Book
+                        </span>
+                        <span class="teacher">
+                            Mr. Abdul Jaleel
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Chemistry
+                        </span>
+                        <span class="teacher">
+                            Mr. Nauman Ahmad
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Biology
+                        </span>
+                        <span class="teacher">
+                            Mr. Fayyaz Uddin
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Physics
+                        </span>
+                        <span class="teacher">
+                            Mr. Mohammad Elhijazi
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Computer
+                        </span>
+                        <span class="teacher">
+                            Mr. Rashid Shafie
+                        </span>
+                    </td>
+                </tr>
+                <!-- WEDNESDAY -->
+                <tr>
+                    <td class="day">
+                        Wednesday
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Biology
+                        </span>
+                        <span class="teacher">
+                            Mr. Fayyaz Uddin
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Chemistry
+                        </span>
+                        <span class="teacher">
+                            Mr. Nauman Ahmad
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Maths
+                        </span>
+                        <span class="teacher">
+                            Mr. Rafaqat Ali
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            English<br>
+                            Course Book
+                        </span>
+                        <span class="teacher">
+                            Mr. Abdul Jaleel
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            PE
+                        </span>
+                        <span class="teacher">
+                            10 British
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Islamic<br>
+                            (Quran)
+                        </span>
+                        <span class="teacher">
+                            Q
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Physics
+                        </span>
+                        <span class="teacher">
+                            Mr. Mohammad Elhijazi
+                        </span>
+                    </td>
+                </tr>
+                <!-- THURSDAY -->
+                <tr>
+                    <td class="day">
+                        Thursday
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Chemistry
+                        </span>
+                        <span class="teacher">
+                            Mr. Nauman Ahmad
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Maths
+                        </span>
+                        <span class="teacher">
+                            Mr. Rafaqat Ali
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            PE
+                        </span>
+                        <span class="teacher">
+                            10 British
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            English<br>
+                            Course Book
+                        </span>
+                        <span class="teacher">
+                            Mr. Abdul Jaleel
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Islamic<br>
+                            (Quran)
+                        </span>
+                        <span class="teacher">
+                            Q
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            Arabic
+                        </span>
+                        <span class="teacher">
+                            Mr. Anees
+                        </span>
+                    </td>
+                    <td>
+                        <span class="subject">
+                            English<br>
+                            Workbook
+                        </span>
+                        <span class="teacher">
+                            Mr. Abdul Jaleel
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<!-- ================= EXAMS ================= -->
 <section id="exams">
-    <h2>📝 Exam Schedule</h2>
+    <h2>
+        📝 Exam Schedule
+    </h2>
     <div class="card">
         <div style="font-size:50px;">
             📚
         </div>
-        <h3>Coming Soon 🚀</h3>
+        <h3>
+            Coming Soon 🚀
+        </h3>
         <p>
             Exam dates and times will be announced here soon.
         </p>
     </div>
 </section>
-<!-- NEWS -->
+<!-- ================= NEWS ================= -->
 <section id="news">
-    <h2>📢 News & Announcements</h2>
+    <h2>
+        📢 News & Announcements
+    </h2>
     <div class="card">
-        <h3>📣 Important Announcement</h3>
+        <h3>
+            📣 Important Announcement
+        </h3>
         <p>
             New announcements will appear here.
         </p>
     </div>
 </section>
-<!-- ACHIEVEMENTS -->
+<!-- ================= ACHIEVEMENTS ================= -->
 <section id="achievements">
-    <h2>🏆 Achievements</h2>
+    <h2>
+        🏆 Achievements
+    </h2>
     <div class="card">
-        <h3>Coming Soon 🚀</h3>
+        <h3>
+            Coming Soon 🚀
+        </h3>
         <p>
             Class achievements will be added here.
         </p>
     </div>
 </section>
-<!-- QUOTES -->
+<!-- ================= QUOTES ================= -->
 <section id="quotes">
-    <h2>💭 Class Quotes</h2>
+    <h2>
+        💭 Class Quotes
+    </h2>
     <div class="cards">
         <div class="card">
             Small steps every day lead to big achievements. 🚀
@@ -657,23 +1214,29 @@ footer{
         </div>
     </div>
 </section>
-<!-- GALLERY -->
+<!-- ================= GALLERY ================= -->
 <section id="gallery">
-    <h2>🖼️ Gallery</h2>
+    <h2>
+        🖼️ Gallery
+    </h2>
     <div class="gallery">
         <img
-        src="images/IMG_5602.jpeg"
-        onclick="openImage(this.src)"
-        alt="Abdullah Anwar">
+            src="images/IMG_5602.jpeg"
+            onclick="openImage(this.src)"
+            alt="Abdullah Anwar"
+        >
         <img
-        src="images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg"
-        onclick="openImage(this.src)"
-        alt="Yahya">
+            src="images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg"
+            onclick="openImage(this.src)"
+            alt="Yahya"
+        >
     </div>
 </section>
-<!-- COMMENTS -->
+<!-- ================= COMMENTS ================= -->
 <section id="comments">
-    <h2>👥 Visitors & Comments</h2>
+    <h2>
+        👥 Visitors & Comments
+    </h2>
     <div class="visitor-count">
         👀 Visitors:
         <span id="visitorCount">
@@ -690,17 +1253,21 @@ footer{
         <textarea
             id="commentText"
             placeholder="Write your comment..."
-            maxlength="300"
-        ></textarea>
+            maxlength="300">
+        </textarea>
         <button onclick="addComment()">
             Post Comment 💬
         </button>
     </div>
     <div id="commentsList"></div>
 </section>
-<!-- FOUNDER -->
-<section id="founder" class="founder">
-    <h2>👨‍💻 Founder</h2>
+<!-- ================= FOUNDER ================= -->
+<section
+    id="founder"
+    class="founder">
+    <h2>
+        👨‍💻 Founder
+    </h2>
     <div class="founder-name">
         Ahmed Jallab
     </div>
@@ -711,9 +1278,11 @@ footer{
         Alex
     </p>
 </section>
-<!-- SOCIAL MEDIA -->
+<!-- ================= SOCIAL MEDIA ================= -->
 <section class="social">
-    <h2>🏫 Success International School</h2>
+    <h2>
+        🏫 Success International School
+    </h2>
     <p>
         School Social Media & Platforms
     </p>
@@ -721,38 +1290,39 @@ footer{
         @sischls
     </p>
     <div class="social-icons">
-        <a href="https://www.classlight.com/"
-        target="_blank">
+        <a
+            href="https://www.classlight.com/"
+            target="_blank">
             <i class="fa-solid fa-globe"></i>
         </a>
         <a
-        href="https://www.tiktok.com/@sischls?_r=1&_t=ZS-99NWSo2HCV6"
-        target="_blank">
+            href="https://www.tiktok.com/@sischls?_r=1&_t=ZS-99NWSo2HCV6"
+            target="_blank">
             <i class="fa-brands fa-tiktok"></i>
         </a>
         <a
-        href="https://www.instagram.com/sischls?igsi=dm0zc2s4MHpuMjhi"
-        target="_blank">
+            href="https://www.instagram.com/sischls?igsi=dm0zc2s4MHpuMjhi"
+            target="_blank">
             <i class="fa-brands fa-instagram"></i>
         </a>
         <a
-        href="https://www.facebook.com/share/1EqhkVcozU/?mibextid=wwXIfr"
-        target="_blank">
+            href="https://www.facebook.com/share/1EqhkVcozU/?mibextid=wwXIfr"
+            target="_blank">
             <i class="fa-brands fa-facebook-f"></i>
         </a>
         <a
-        href="https://youtube.com/@sischls?si=3M0HkZMbFMBErEw_"
-        target="_blank">
+            href="https://youtube.com/@sischls?si=3M0HkZMbFMBErEw_"
+            target="_blank">
             <i class="fa-brands fa-youtube"></i>
         </a>
         <a
-        href="https://www.snapchat.com/add/sischls"
-        target="_blank">
+            href="https://www.snapchat.com/add/sischls"
+            target="_blank">
             <i class="fa-brands fa-snapchat"></i>
         </a>
     </div>
 </section>
-<!-- DARK MODE -->
+<!-- ================= DARK MODE ================= -->
 <section style="text-align:center;">
     <button
         onclick="darkMode()"
@@ -766,15 +1336,20 @@ footer{
     </button>
 </section>
 </main>
-<!-- BACK TO TOP -->
-<button id="backToTop" onclick="goTop()">
+<!-- ================= BACK TO TOP ================= -->
+<button
+    id="backToTop"
+    onclick="goTop()">
     ↑
 </button>
+<!-- ================= FOOTER ================= -->
 <footer>
     © 2026 Success International School - Class 10B
 </footer>
-<!-- STUDENT POPUP -->
-<div class="popup" id="studentPopup">
+<!-- ================= STUDENT POPUP ================= -->
+<div
+    class="popup"
+    id="studentPopup">
     <div class="popup-content">
         <button
             class="close-popup"
@@ -791,11 +1366,11 @@ footer{
         <p id="studentAge"></p>
     </div>
 </div>
-<!-- IMAGE POPUP -->
+<!-- ================= IMAGE POPUP ================= -->
 <div
-class="popup"
-id="imagePopup"
-onclick="closeImage()">
+    class="popup"
+    id="imagePopup"
+    onclick="closeImage()">
     <div class="popup-content">
         <button
             class="close-popup"
@@ -809,11 +1384,12 @@ onclick="closeImage()">
         >
     </div>
 </div>
-<!-- FIREBASE -->
+<!-- ================= FIREBASE ================= -->
 <script type="module">
 import {
     initializeApp
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
     getFirestore,
@@ -828,7 +1404,8 @@ import {
     onSnapshot,
     query,
     orderBy
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 const firebaseConfig = {
     apiKey:"YOUR_API_KEY",
@@ -843,29 +1420,41 @@ const firebaseConfig = {
     appId:
     "YOUR_APP_ID"
 };
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const app =
+initializeApp(firebaseConfig);
+const db =
+getFirestore(app);
 /* VISITOR COUNTER */
 async function countVisitor(){
     try{
         const statsRef =
-        doc(db,"websiteStats","main");
+        doc(
+            db,
+            "websiteStats",
+            "main"
+        );
         const statsSnap =
         await getDoc(statsRef);
         if(!statsSnap.exists()){
-            await setDoc(statsRef,{
-                visitors:1
-            });
-        }else{
+            await setDoc(
+                statsRef,
+                {
+                    visitors:1
+                }
+            );
+        }
+        else{
             await updateDoc(
                 statsRef,
                 {
-                    visitors:increment(1)
+                    visitors:
+                    increment(1)
                 }
             );
         }
         loadVisitorCount();
-    }catch(error){
+    }
+    catch(error){
         console.log(
             "Visitor counter error:",
             error
@@ -878,7 +1467,11 @@ async function countVisitor(){
 async function loadVisitorCount(){
     try{
         const statsRef =
-        doc(db,"websiteStats","main");
+        doc(
+            db,
+            "websiteStats",
+            "main"
+        );
         const snap =
         await getDoc(statsRef);
         if(snap.exists()){
@@ -887,12 +1480,14 @@ async function loadVisitorCount(){
             ).textContent =
             snap.data().visitors;
         }
-    }catch(error){
+    }
+    catch(error){
         console.log(error);
     }
 }
 /* COMMENTS */
-window.addComment = async function(){
+window.addComment =
+async function(){
     const name =
     document.getElementById(
         "commentName"
@@ -909,7 +1504,10 @@ window.addComment = async function(){
     }
     try{
         await addDoc(
-            collection(db,"comments"),
+            collection(
+                db,
+                "comments"
+            ),
             {
                 name:name,
                 text:text,
@@ -923,19 +1521,26 @@ window.addComment = async function(){
         document.getElementById(
             "commentText"
         ).value="";
-    }catch(error){
+    }
+    catch(error){
         console.log(error);
         alert(
             "Unable to post comment."
         );
     }
-}
+};
 /* LOAD COMMENTS */
 function loadComments(){
     const commentsQuery =
     query(
-        collection(db,"comments"),
-        orderBy("createdAt","desc")
+        collection(
+            db,
+            "comments"
+        ),
+        orderBy(
+            "createdAt",
+            "desc"
+        )
     );
     onSnapshot(
         commentsQuery,
@@ -968,6 +1573,7 @@ function loadComments(){
         }
     );
 }
+/* SECURITY */
 function escapeHtml(text){
     const div =
     document.createElement("div");
@@ -977,6 +1583,7 @@ function escapeHtml(text){
 countVisitor();
 loadComments();
 </script>
+<!-- ================= JAVASCRIPT ================= -->
 <script>
 /* ENTER WEBSITE */
 function enterSite(){
@@ -1056,12 +1663,14 @@ function showStudent(
     ).textContent=name;
     document.getElementById(
         "studentNationality"
-    ).textContent=
-    "Nationality: "+nationality;
+    ).textContent =
+    "Nationality: " +
+    nationality;
     document.getElementById(
         "studentAge"
-    ).textContent=
-    "Age: "+age;
+    ).textContent =
+    "Age: " +
+    age;
     const img =
     document.getElementById(
         "studentImage"
@@ -1069,17 +1678,22 @@ function showStudent(
     if(image){
         img.src=image;
         img.style.display="block";
-    }else{
+    }
+    else{
         img.src="";
         img.style.display="none";
     }
     document
-    .getElementById("studentPopup")
+    .getElementById(
+        "studentPopup"
+    )
     .classList.add("show");
 }
 function closePopup(){
     document
-    .getElementById("studentPopup")
+    .getElementById(
+        "studentPopup"
+    )
     .classList.remove("show");
 }
 /* GALLERY */
@@ -1088,12 +1702,16 @@ function openImage(src){
         "largeImage"
     ).src=src;
     document
-    .getElementById("imagePopup")
+    .getElementById(
+        "imagePopup"
+    )
     .classList.add("show");
 }
 function closeImage(){
     document
-    .getElementById("imagePopup")
+    .getElementById(
+        "imagePopup"
+    )
     .classList.remove("show");
 }
 /* DARK MODE */
@@ -1112,7 +1730,8 @@ window.addEventListener(
         );
         if(window.scrollY > 400){
             button.style.display="flex";
-        }else{
+        }
+        else{
             button.style.display="none";
         }
     }
