@@ -3,1787 +3,1080 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>10A | Success International School</title>
-<!-- Font Awesome -->
+<title>10B - Success International School</title>
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-/* =====================================================
-   RESET
-===================================================== */
 *{
-  box-sizing:border-box;
-  scroll-behavior:smooth;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f4f5f7;
-  color:#202124;
-  transition:.3s;
+    font-family:Arial,sans-serif;
+    background:#f4f6f8;
+    color:#222;
+    transition:.3s;
 }
-/* =====================================================
-   WELCOME SCREEN
-===================================================== */
+/* WELCOME */
 #welcome{
-  position:fixed;
-  inset:0;
-  z-index:99999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:
-  radial-gradient(circle at top,#ffffff,#e7e9ed);
-  transition:
-  opacity .7s,
-  visibility .7s;
-}
-#welcome.hide{
-  opacity:0;
-  visibility:hidden;
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#111827,#2563eb);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    z-index:9999;
 }
 .welcome-box{
-  padding:35px 25px;
-  animation:welcomeAppear 1s ease;
+    animation:welcomeAnimation 1.5s ease;
 }
-@keyframes welcomeAppear{
-  from{
-    opacity:0;
-    transform:translateY(30px) scale(.95);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-}
-.welcome-logo{
-  width:125px;
-  height:125px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:35px;
-  background:#222;
-  color:white;
-  font-size:45px;
-  font-weight:bold;
-  box-shadow:
-  0 20px 50px rgba(0,0,0,.2);
-  animation:logoFloat 3s ease-in-out infinite;
-}
-@keyframes logoFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-8px);
-  }
+.logo{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:white;
+    color:#2563eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:42px;
+    font-weight:bold;
+    margin:auto;
+    box-shadow:0 0 40px rgba(255,255,255,.4);
 }
 .welcome-box h1{
-  font-size:64px;
-  margin:25px 0 5px;
+    margin-top:25px;
+    font-size:38px;
 }
-.welcome-box h2{
-  color:#666;
-  font-weight:normal;
-  margin:0 0 30px;
+.welcome-box p{
+    margin:10px 0 25px;
+    font-size:18px;
 }
 .enter-btn{
-  border:0;
-  padding:16px 32px;
-  border-radius:30px;
-  background:#222;
-  color:white;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:
-  0 10px 25px rgba(0,0,0,.18);
-  transition:.25s;
+    border:0;
+    padding:14px 30px;
+    border-radius:30px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    background:white;
+    color:#2563eb;
 }
-.enter-btn:hover{
-  transform:translateY(-3px) scale(1.03);
+@keyframes welcomeAnimation{
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
-/* =====================================================
-   HEADER
-===================================================== */
+#welcome.hide{
+    display:none;
+}
+/* HEADER */
 header{
-  position:relative;
-  text-align:center;
-  padding:45px 20px 35px;
-  background:white;
-  box-shadow:
-  0 4px 20px rgba(0,0,0,.08);
+    background:#111827;
+    color:white;
+    padding:20px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 header h1{
-  margin:0;
-  font-size:48px;
+    font-size:30px;
 }
-header h2{
-  margin:8px 0 12px;
-  color:#666;
-  font-weight:normal;
+header p{
+    margin-top:5px;
 }
 #clock{
-  font-size:14px;
-  color:#888;
+    margin-top:8px;
+    font-size:14px;
+    opacity:.8;
 }
-/* =====================================================
-   MENU BUTTON
-===================================================== */
+/* MENU */
 .menu-btn{
-  position:absolute;
-  top:20px;
-  left:20px;
-  width:52px;
-  height:52px;
-  border:0;
-  border-radius:16px;
-  background:#222;
-  color:white;
-  font-size:23px;
-  cursor:pointer;
-  z-index:3000;
-  transition:.25s;
+    position:absolute;
+    left:15px;
+    top:20px;
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
 }
-.menu-btn:hover{
-  transform:scale(1.06);
-}
-/* =====================================================
-   SIDE MENU
-===================================================== */
 .side-menu{
-  position:fixed;
-  top:0;
-  left:-310px;
-  width:290px;
-  height:100vh;
-  padding:90px 20px 30px;
-  background:white;
-  box-shadow:
-  8px 0 35px rgba(0,0,0,.18);
-  z-index:2500;
-  transition:.4s;
-  overflow-y:auto;
+    position:fixed;
+    left:-290px;
+    top:0;
+    width:270px;
+    height:100%;
+    background:#111827;
+    color:white;
+    z-index:3000;
+    padding:80px 20px 20px;
+    transition:.3s;
+    overflow-y:auto;
 }
 .side-menu.open{
-  left:0;
-}
-.side-menu h3{
-  text-align:center;
-  margin:0 0 25px;
-  font-size:23px;
+    left:0;
 }
 .side-menu a{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:#222;
-  padding:15px;
-  margin:7px 0;
-  border-radius:15px;
-  font-size:16px;
-  transition:.2s;
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:14px;
+    margin:5px 0;
+    border-radius:10px;
+    transition:.2s;
 }
 .side-menu a:hover{
-  background:#f0f0f0;
-  transform:translateX(5px);
+    background:#2563eb;
 }
-.side-menu i{
-  width:25px;
-  text-align:center;
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    z-index:2500;
 }
-/* =====================================================
-   OVERLAY
-===================================================== */
-.menu-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.45);
-  z-index:2400;
-  display:none;
+.overlay.show{
+    display:block;
 }
-.menu-overlay.show{
-  display:block;
+/* MAIN */
+main{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
 }
-/* =====================================================
-   SECTIONS
-===================================================== */
 section{
-  max-width:1050px;
-  margin:45px auto;
-  padding:25px 20px;
+    background:white;
+    margin:20px 0;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
 }
 section h2{
-  text-align:center;
-  font-size:30px;
-  margin-bottom:30px;
+    margin-bottom:15px;
+    color:#2563eb;
 }
-/* =====================================================
-   HERO
-===================================================== */
+/* HOME */
 .hero{
-  text-align:center;
-  padding:55px 25px;
-  border-radius:30px;
-  background:white;
-  box-shadow:
-  0 10px 35px rgba(0,0,0,.08);
+    text-align:center;
+    padding:40px 20px;
 }
 .hero h2{
-  margin-bottom:15px;
+    font-size:32px;
 }
 .hero p{
-  color:#666;
-  font-size:17px;
-  line-height:1.7;
+    line-height:1.7;
 }
-/* =====================================================
-   CARDS
-===================================================== */
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
 .card{
-  background:white;
-  padding:28px;
-  border-radius:22px;
-  box-shadow:
-  0 7px 25px rgba(0,0,0,.07);
-  margin-bottom:20px;
+    background:#f8fafc;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
 }
-.info-grid{
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(200px,1fr));
-  gap:18px;
+.card h3{
+    margin-bottom:8px;
 }
-.info-card{
-  background:white;
-  padding:25px;
-  border-radius:22px;
-  text-align:center;
-  box-shadow:
-  0 7px 22px rgba(0,0,0,.07);
-  transition:.25s;
-}
-.info-card:hover{
-  transform:translateY(-5px);
-}
-/* =====================================================
-   COMING SOON
-===================================================== */
-.coming-soon{
-  text-align:center;
-  padding:45px 25px;
-  background:white;
-  border-radius:25px;
-  box-shadow:
-  0 7px 25px rgba(0,0,0,.07);
-}
-.coming-soon .icon{
-  font-size:60px;
-}
-.coming-soon h3{
-  font-size:28px;
-  margin:12px 0;
-}
-.coming-soon p{
-  color:#777;
-  font-size:17px;
-}
-/* =====================================================
-   STUDENTS
-===================================================== */
-.search{
-  width:100%;
-  padding:16px;
-  border:1px solid #ddd;
-  border-radius:16px;
-  margin-bottom:18px;
-  font-size:16px;
-  outline:none;
-}
-.search:focus{
-  border-color:#777;
+/* STUDENTS */
+#studentSearch{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    margin-bottom:15px;
+    font-size:16px;
 }
 .student-list{
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(220px,1fr));
-  gap:14px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:10px;
 }
-.student{
-  border:0;
-  padding:18px;
-  border-radius:18px;
-  background:white;
-  box-shadow:
-  0 6px 18px rgba(0,0,0,.07);
-  cursor:pointer;
-  font-size:16px;
-  transition:.25s;
+.student-btn{
+    border:none;
+    background:#eef2ff;
+    padding:15px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.2s;
 }
-.student:hover{
-  transform:translateY(-4px);
-  box-shadow:
-  0 12px 25px rgba(0,0,0,.12);
+.student-btn:hover{
+    background:#dbeafe;
+    transform:translateY(-2px);
 }
-/* =====================================================
-   TEACHERS
-===================================================== */
-.teacher-card{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  background:white;
-  padding:22px;
-  margin:13px 0;
-  border-radius:20px;
-  box-shadow:
-  0 6px 20px rgba(0,0,0,.07);
-  transition:.25s;
-}
-.teacher-card:hover{
-  transform:translateX(5px);
-}
-.teacher-icon{
-  width:50px;
-  height:50px;
-  border-radius:15px;
-  background:#f0f0f0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:23px;
-}
-.teacher-info strong{
-  font-size:18px;
-}
-.subject{
-  color:#777;
-  margin-top:5px;
-}
-/* =====================================================
-   NEWS
-===================================================== */
-.news{
-  background:white;
-  padding:23px;
-  border-radius:20px;
-  box-shadow:
-  0 6px 20px rgba(0,0,0,.07);
-  margin-bottom:15px;
-}
-/* =====================================================
-   ACHIEVEMENTS
-===================================================== */
-.achievement{
-  background:white;
-  padding:35px;
-  border-radius:23px;
-  box-shadow:
-  0 7px 25px rgba(0,0,0,.07);
-  text-align:center;
-}
-/* =====================================================
-   QUOTES
-===================================================== */
-.quotes-grid{
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
-}
-.quote-card{
-  background:white;
-  padding:28px;
-  border-radius:22px;
-  box-shadow:
-  0 7px 22px rgba(0,0,0,.07);
-  text-align:center;
-  transition:.25s;
-}
-.quote-card:hover{
-  transform:translateY(-5px);
-}
-.quote-number{
-  font-size:13px;
-  color:#999;
-  margin-bottom:14px;
-}
-.quote-text{
-  font-size:18px;
-  line-height:1.6;
-  font-weight:bold;
-}
-/* =====================================================
-   GALLERY
-===================================================== */
+/* GALLERY */
 .gallery{
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
 }
 .gallery img{
-  width:100%;
-  height:240px;
-  object-fit:cover;
-  border-radius:22px;
-  cursor:pointer;
-  box-shadow:
-  0 7px 22px rgba(0,0,0,.12);
-  transition:.3s;
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:15px;
+    cursor:pointer;
 }
-.gallery img:hover{
-  transform:scale(1.025);
+/* COMMENTS */
+.comment-box input,
+.comment-box textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
 }
-/* =====================================================
-   FOUNDER
-===================================================== */
-.founder{
-  text-align:center;
-  background:white;
-  padding:35px;
-  border-radius:25px;
-  box-shadow:
-  0 7px 25px rgba(0,0,0,.08);
+.comment-box textarea{
+    min-height:100px;
+    resize:vertical;
 }
-.founder h3{
-  font-size:30px;
-  margin:8px;
-}
-/* =====================================================
-   VISITORS
-===================================================== */
-.visitor-box{
-  text-align:center;
-  background:white;
-  padding:35px;
-  border-radius:25px;
-  box-shadow:
-  0 7px 25px rgba(0,0,0,.08);
-}
-.visitor-icon{
-  font-size:45px;
-}
-.visitor-number{
-  font-size:55px;
-  font-weight:bold;
-  margin:10px 0;
-}
-.visitor-label{
-  color:#777;
-  font-size:17px;
-}
-/* =====================================================
-   COMMENTS
-===================================================== */
-.comments-box{
-  background:white;
-  padding:30px;
-  border-radius:25px;
-  box-shadow:
-  0 7px 25px rgba(0,0,0,.08);
-}
-.comment-form{
-  display:grid;
-  gap:12px;
-  margin-bottom:30px;
-}
-.comment-input{
-  width:100%;
-  padding:15px;
-  border:1px solid #ddd;
-  border-radius:15px;
-  font-size:15px;
-  outline:none;
-  resize:vertical;
-}
-.comment-input:focus{
-  border-color:#777;
-}
-.comment-submit{
-  border:0;
-  padding:15px;
-  border-radius:15px;
-  background:#222;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.2s;
-}
-.comment-submit:hover{
-  transform:translateY(-2px);
+.comment-box button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
 }
 .comment{
-  padding:18px;
-  border-radius:17px;
-  background:#f5f5f5;
-  margin-bottom:12px;
+    background:#f8fafc;
+    padding:15px;
+    margin-top:12px;
+    border-radius:12px;
 }
-.comment-name{
-  font-weight:bold;
-  margin-bottom:7px;
+.comment strong{
+    color:#2563eb;
 }
-.comment-text{
-  color:#555;
-  line-height:1.5;
-  word-wrap:break-word;
+.visitor-count{
+    font-size:25px;
+    font-weight:bold;
+    margin-bottom:20px;
 }
-.comment-time{
-  color:#999;
-  font-size:12px;
-  margin-top:8px;
+/* FOUNDER */
+.founder{
+    text-align:center;
 }
-.no-comments{
-  text-align:center;
-  color:#888;
-  padding:20px;
+.founder-name{
+    font-size:27px;
+    font-weight:bold;
+    margin:10px 0;
 }
-/* =====================================================
-   SOCIAL MEDIA
-===================================================== */
-.social-section{
-  text-align:center;
-  max-width:1050px;
-  margin:50px auto;
-  padding:35px 20px;
-}
-.social-subtitle{
-  color:#777;
-  margin-bottom:28px;
+/* SOCIAL */
+.social{
+    text-align:center;
 }
 .social-icons{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:18px;
-  flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:20px;
 }
-.social-link{
-  width:65px;
-  height:65px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:19px;
-  background:white;
-  color:#222;
-  text-decoration:none;
-  font-size:30px;
-  box-shadow:
-  0 7px 22px rgba(0,0,0,.10);
-  transition:.25s;
+.social-icons a{
+    width:50px;
+    height:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:#111827;
+    color:white;
+    text-decoration:none;
+    font-size:22px;
+    transition:.2s;
 }
-.social-link:hover{
-  transform:
-  translateY(-7px)
-  scale(1.08);
+.social-icons a:hover{
+    transform:scale(1.12);
+    background:#2563eb;
 }
-.social-name{
-  color:#888;
-  margin-top:20px;
-  font-size:14px;
-}
-/* =====================================================
-   DARK MODE BUTTON
-===================================================== */
-.dark-button-area{
-  text-align:center;
-  margin:30px auto;
-}
-.dark-btn{
-  border:0;
-  padding:14px 22px;
-  border-radius:25px;
-  background:#222;
-  color:white;
-  cursor:pointer;
-  font-size:15px;
-}
-/* =====================================================
-   FOOTER
-===================================================== */
-footer{
-  text-align:center;
-  padding:35px 20px;
-  background:#202124;
-  color:white;
-  margin-top:50px;
-}
-/* =====================================================
-   POPUP
-===================================================== */
-#popup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.82);
-  justify-content:center;
-  align-items:center;
-  z-index:100000;
-  padding:20px;
-}
-.popup-box{
-  background:white;
-  padding:25px;
-  border-radius:25px;
-  max-width:550px;
-  width:100%;
-  text-align:center;
-  position:relative;
-}
-.popup-box img{
-  max-width:100%;
-  max-height:65vh;
-  border-radius:18px;
-}
-.close{
-  position:absolute;
-  right:18px;
-  top:12px;
-  font-size:30px;
-  cursor:pointer;
-}
-/* =====================================================
-   DARK MODE
-===================================================== */
+/* DARK MODE */
 .dark{
-  background:#101114;
-  color:#eee;
+    background:#0f172a;
+    color:white;
 }
-.dark header,
-.dark .hero,
+.dark section{
+    background:#1e293b;
+}
 .dark .card,
-.dark .info-card,
-.dark .student,
-.dark .teacher-card,
-.dark .news,
-.dark .coming-soon,
-.dark .achievement,
-.dark .quote-card,
-.dark .founder,
-.dark .visitor-box,
-.dark .comments-box,
-.dark .social-link,
-.dark .popup-box,
-.dark .side-menu{
-  background:#1b1d21;
-  color:#eee;
+.dark .comment,
+.dark .student-btn{
+    background:#334155;
+    color:white;
 }
-.dark header h2,
-.dark .subject,
-.dark .coming-soon p,
-.dark .social-subtitle,
-.dark .social-name,
-.dark .visitor-label{
-  color:#aaa;
+.dark #studentSearch,
+.dark .comment-box input,
+.dark .comment-box textarea{
+    background:#334155;
+    color:white;
+    border-color:#475569;
 }
-.dark .side-menu a{
-  color:#eee;
+/* POPUP */
+.popup{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    z-index:5000;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
-.dark .side-menu a:hover{
-  background:#303238;
+.popup.show{
+    display:flex;
 }
-.dark .comment{
-  background:#292c31;
+.popup-content{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    max-width:400px;
+    width:100%;
+    text-align:center;
+    position:relative;
 }
-.dark .comment-text{
-  color:#ccc;
+.popup-content img{
+    width:100%;
+    max-height:350px;
+    object-fit:contain;
+    border-radius:15px;
 }
-.dark .comment-input,
-.dark .search{
-  background:#25282d;
-  color:white;
-  border-color:#444;
+.popup-content h2{
+    margin:15px 0 5px;
 }
-.dark #welcome{
-  background:
-  radial-gradient(circle at top,#292c31,#101114 70%);
-  color:white;
+.popup-content p{
+    margin:5px;
 }
-.dark .enter-btn{
-  background:white;
-  color:#111;
+.close-popup{
+    position:absolute;
+    right:15px;
+    top:10px;
+    border:none;
+    background:#ef4444;
+    color:white;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
 }
-/* =====================================================
-   MOBILE
-===================================================== */
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:#111827;
+    color:white;
+    margin-top:30px;
+}
+/* MOBILE */
 @media(max-width:600px){
-  .welcome-box h1{
-    font-size:48px;
-  }
-  .welcome-logo{
-    width:105px;
-    height:105px;
-    font-size:40px;
-  }
-  header h1{
-    font-size:38px;
-  }
-  header{
-    padding-top:65px;
-  }
-  section{
-    padding:18px;
-  }
-  section h2{
-    font-size:26px;
-  }
-  .side-menu{
-    width:275px;
-  }
-  .social-link{
-    width:58px;
-    height:58px;
-    font-size:27px;
-  }
+    header h1{
+        font-size:24px;
+    }
+    .hero h2{
+        font-size:26px;
+    }
+    section{
+        padding:20px;
+    }
 }
 </style>
 </head>
 <body>
-<!-- =====================================================
-     WELCOME
-===================================================== -->
+<!-- WELCOME -->
 <div id="welcome">
-  <div class="welcome-box">
-    <div class="welcome-logo">
-      10A
+    <div class="welcome-box">
+        <div class="logo">10B</div>
+        <h1>Welcome</h1>
+        <p>Success International School</p>
+        <button class="enter-btn" onclick="enterSite()">
+            Enter Website 🚀
+        </button>
     </div>
-    <h1>
-      10A
-    </h1>
-    <h2>
-      Success International School
-    </h2>
-    <button
-      class="enter-btn"
-      onclick="enterSite()">
-      Enter Website 🚀
-    </button>
-  </div>
 </div>
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- HEADER -->
 <header>
-  <button
-    class="menu-btn"
-    onclick="toggleMenu()"
-    aria-label="Open Menu">
-    <i class="fa-solid fa-bars"></i>
-  </button>
-  <h1>
-    10A
-  </h1>
-  <h2>
-    Success International School
-  </h2>
-  <div id="clock"></div>
+    <button class="menu-btn" onclick="toggleMenu()">
+        ☰
+    </button>
+    <h1>10B</h1>
+    <p>Success International School</p>
+    <div id="clock"></div>
 </header>
-<!-- =====================================================
-     MENU OVERLAY
-===================================================== -->
-<div
-  class="menu-overlay"
-  id="menuOverlay"
-  onclick="closeMenu()">
-</div>
-<!-- =====================================================
-     SIDE MENU
-===================================================== -->
-<div
-  class="side-menu"
-  id="sideMenu">
-  <h3>
-    10A Menu
-  </h3>
-  <a href="#home" onclick="closeMenu()">
-    <i class="fa-solid fa-house"></i>
-    Home
-  </a>
-  <a href="#students" onclick="closeMenu()">
-    <i class="fa-solid fa-user-graduate"></i>
-    Students
-  </a>
-  <a href="#teachers" onclick="closeMenu()">
-    <i class="fa-solid fa-chalkboard-user"></i>
-    Teachers
-  </a>
-  <a href="#exams" onclick="closeMenu()">
-    <i class="fa-solid fa-file-pen"></i>
-    Exams
-  </a>
-  <a href="#news" onclick="closeMenu()">
-    <i class="fa-solid fa-bullhorn"></i>
-    News
-  </a>
-  <a href="#achievements" onclick="closeMenu()">
-    <i class="fa-solid fa-trophy"></i>
-    Achievements
-  </a>
-  <a href="#quotes" onclick="closeMenu()">
-    <i class="fa-solid fa-comment"></i>
-    Quotes
-  </a>
-  <a href="#gallery" onclick="closeMenu()">
-    <i class="fa-solid fa-images"></i>
-    Gallery
-  </a>
-  <a href="#visitors" onclick="closeMenu()">
-    <i class="fa-solid fa-earth-americas"></i>
-    Visitors & Comments
-  </a>
-  <a href="#founder" onclick="closeMenu()">
-    <i class="fa-solid fa-crown"></i>
-    Founder
-  </a>
-</div>
-<!-- =====================================================
-     HOME
-===================================================== -->
-<section id="home">
-  <div class="hero">
-    <h2>
-      🏫 Welcome to Class 10A
-    </h2>
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<!-- SIDE MENU -->
+<nav class="side-menu" id="sideMenu">
+    <a href="#home" onclick="closeMenu()">🏠 Home</a>
+    <a href="#students" onclick="closeMenu()">🧑‍🎓 Students</a>
+    <a href="#teachers" onclick="closeMenu()">👨‍🏫 Teachers</a>
+    <a href="#exams" onclick="closeMenu()">📝 Exams</a>
+    <a href="#news" onclick="closeMenu()">📢 News</a>
+    <a href="#achievements" onclick="closeMenu()">🏆 Achievements</a>
+    <a href="#quotes" onclick="closeMenu()">💭 Quotes</a>
+    <a href="#gallery" onclick="closeMenu()">🖼️ Gallery</a>
+    <a href="#comments" onclick="closeMenu()">💬 Visitors & Comments</a>
+    <a href="#founder" onclick="closeMenu()">👨‍💻 Founder</a>
+</nav>
+<main>
+<!-- HOME -->
+<section id="home" class="hero">
+    <h2>Welcome to Class 10B 🎓</h2>
     <p>
-      Welcome to the official website of Class 10A at
-      <strong>Success International School</strong>.
+        Welcome to the official website of Class 10B
+        at Success International School.
+        Here you can discover our students, teachers,
+        announcements, achievements and memories.
     </p>
-    <p>
-      A place for our students, teachers, memories,
-      achievements and everything related to Class 10A.
-    </p>
-  </div>
-  <br>
-  <div class="info-grid">
-    <div class="info-card">
-      <h3>
-        🎓 Class
-      </h3>
-      <p>
-        10A
-      </p>
-    </div>
-    <div class="info-card">
-      <h3>
-        🏫 School
-      </h3>
-      <p>
-        Success International School
-      </p>
-    </div>
-    <div class="info-card">
-      <h3>
-        👨‍🎓 Students
-      </h3>
-      <p>
-        7 Students
-      </p>
-    </div>
-  </div>
 </section>
-<!-- =====================================================
-     STUDENT OF THE MONTH
-===================================================== -->
+<!-- STUDENT OF THE MONTH -->
 <section>
-  <h2>
-    🏆 Student of the Month
-  </h2>
-  <div class="coming-soon">
-    <div class="icon">
-      ⭐
+    <h2>🌟 Student of the Month</h2>
+    <div class="card">
+        <h3>Coming Soon 🚀</h3>
+        <p>
+            The Student of the Month will be announced here.
+        </p>
     </div>
-    <h3>
-      Coming Soon
-    </h3>
-    <p>
-      The Student of the Month will be announced soon.
-    </p>
-  </div>
 </section>
-<!-- =====================================================
-     STUDENTS
-===================================================== -->
+<!-- STUDENTS -->
 <section id="students">
-  <h2>
-    👨‍🎓 Our Students
-  </h2>
-  <input
-    type="text"
-    id="search"
-    class="search"
-    placeholder="Search for a student..."
-    onkeyup="searchStudents()">
-  <div class="student-list">
-    <button
-      class="student"
-      onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')">
-      1. Abdullah Anwar
-    </button>
-    <button
-      class="student"
-      onclick="show('Abdullah Omar','images/IMG_5606.jpeg')">
-      2. Abdullah Omar
-    </button>
-    <button
-      class="student"
-      onclick="show('Bashar Musa','')">
-      3. Bashar Musa
-    </button>
-    <button
-      class="student"
-      onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
-      4. Yahya
-    </button>
-    <button
-      class="student"
-      onclick="show('Hizam','')">
-      5. Hizam
-    </button>
-    <button
-      class="student"
-      onclick="show('Abu Bakr Ibrahim','')">
-      6. Abu Bakr Ibrahim
-    </button>
-    <button
-      class="student"
-      onclick="show('Ahmed Faisal','')">
-      7. Ahmed Faisal
-    </button>
-  </div>
-</section>
-<!-- =====================================================
-     TEACHERS
-===================================================== -->
-<section id="teachers">
-  <h2>
-    👨‍🏫 Our Teachers
-  </h2>
-  <div class="teacher-card">
-    <div class="teacher-icon">
-      ⚛️
-    </div>
-    <div class="teacher-info">
-      <strong>
-        Physics
-      </strong>
-      <div class="subject">
-        Mr. Mohammad Elhijazi
-      </div>
-    </div>
-  </div>
-  <div class="teacher-card">
-    <div class="teacher-icon">
-      📐
-    </div>
-    <div class="teacher-info">
-      <strong>
-        Mathematics
-      </strong>
-      <div class="subject">
-        Mr. Rafaqat Ali
-      </div>
-    </div>
-  </div>
-  <div class="teacher-card">
-    <div class="teacher-icon">
-      🧬
-    </div>
-    <div class="teacher-info">
-      <strong>
-        Biology
-      </strong>
-      <div class="subject">
-        Mr. Fayyaz Jddin
-      </div>
-    </div>
-  </div>
-  <div class="teacher-card">
-    <div class="teacher-icon">
-      🇬🇧
-    </div>
-    <div class="teacher-info">
-      <strong>
-        English
-      </strong>
-      <div class="subject">
-        Mr. Abdul Jaleel
-      </div>
-    </div>
-  </div>
-  <div class="teacher-card">
-    <div class="teacher-icon">
-      ⚗️
-    </div>
-    <div class="teacher-info">
-      <strong>
-        Chemistry
-      </strong>
-      <div class="subject">
-        Mr. Nauman Ahmad
-      </div>
-    </div>
-  </div>
-</section>
-<!-- =====================================================
-     EXAMS
-===================================================== -->
-<section id="exams">
-  <h2>
-    📝 Exam Schedule
-  </h2>
-  <div class="coming-soon">
-    <div class="icon">
-      📚
-    </div>
-    <h3>
-      Coming Soon 🚀
-    </h3>
-    <p>
-      Exam dates and times will be announced here soon.
-    </p>
-  </div>
-</section>
-<!-- =====================================================
-     NEWS
-===================================================== -->
-<section id="news">
-  <h2>
-    📢 Announcements
-  </h2>
-  <div class="news">
-    <strong>
-      📌 Class News
-    </strong>
-    <p>
-      Coming Soon...
-    </p>
-  </div>
-  <div class="news">
-    <strong>
-      📌 Important Announcements
-    </strong>
-    <p>
-      Coming Soon...
-    </p>
-  </div>
-</section>
-<!-- =====================================================
-     ACHIEVEMENTS
-===================================================== -->
-<section id="achievements">
-  <h2>
-    🏆 Achievements
-  </h2>
-  <div class="achievement">
-    <div style="font-size:60px;">
-      🏆
-    </div>
-    <h3>
-      Coming Soon
-    </h3>
-    <p>
-      Class achievements will appear here.
-    </p>
-  </div>
-</section>
-<!-- =====================================================
-     QUOTES
-===================================================== -->
-<section id="quotes">
-  <h2>
-    💬 Class Quotes
-  </h2>
-  <div class="quotes-grid">
-    <div class="quote-card">
-      <div class="quote-number">Quote 01</div>
-      <div class="quote-text">
-        “Small steps every day lead to big achievements.” 🚀
-      </div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-number">Quote 02</div>
-      <div class="quote-text">
-        “High school is not just about grades, it’s about building your future.” 🎓
-      </div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-number">Quote 03</div>
-      <div class="quote-text">
-        “Dream big, work hard, and never give up.” 💪
-      </div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-number">Quote 04</div>
-      <div class="quote-text">
-        “The best memories are made with the people who make school special.” ❤️
-      </div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-number">Quote 05</div>
-      <div class="quote-text">
-        “Every challenge is another chance to grow.” 🌟
-      </div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-number">Quote 06</div>
-      <div class="quote-text">
-        “Believe in yourself and keep moving forward.” 🔥
-      </div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-number">Quote 07</div>
-      <div class="quote-text">
-        “One class, one team, many dreams.” 🤝
-      </div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-number">Quote 08</div>
-      <div class="quote-text">
-        “Today’s effort is tomorrow’s success.” 🏆
-      </div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-number">Quote 09</div>
-      <div class="quote-text">
-        “Make your school years something worth remembering.” 📸
-      </div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-number">Quote 10</div>
-      <div class="quote-text">
-        “Learn together, laugh together, succeed together.” 😎
-      </div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-number">Quote 11</div>
-      <div class="quote-text">
-        “The journey through high school is just the beginning.” 🚀
-      </div>
-    </div>
-  </div>
-</section>
-<!-- =====================================================
-     GALLERY
-===================================================== -->
-<section id="gallery">
-  <h2>
-    📸 Class Gallery
-  </h2>
-  <div class="gallery">
-    <img
-      src="images/IMG_5602.jpeg"
-      alt="Abdullah Anwar"
-      onclick="show('Abdullah Anwar','images/IMG_5602.jpeg')">
-    <img
-      src="images/IMG_5606.jpeg"
-      alt="Abdullah Omar"
-      onclick="show('Abdullah Omar','images/IMG_5606.jpeg')">
-    <img
-      src="images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg"
-      alt="Yahya"
-      onclick="show('Yahya','images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg')">
-  </div>
-</section>
-<!-- =====================================================
-     VISITORS & COMMENTS
-===================================================== -->
-<section id="visitors">
-  <h2>
-    🌎 Visitors & Comments
-  </h2>
-  <div class="visitor-box">
-    <div class="visitor-icon">
-      👀
-    </div>
-    <div
-      class="visitor-number"
-      id="visitorCount">
-      0
-    </div>
-    <div class="visitor-label">
-      Website Visitors
-    </div>
-  </div>
-  <br>
-  <div class="comments-box">
-    <h3>
-      💬 Leave a Comment
-    </h3>
-    <p style="color:#777;">
-      Tell us what you think about the 10A website!
-    </p>
-    <div class="comment-form">
-      <input
-        id="commentName"
-        class="comment-input"
+    <h2>🧑‍🎓 Students</h2>
+    <input
         type="text"
-        maxlength="40"
-        placeholder="Your name">
-      <textarea
-        id="commentText"
-        class="comment-input"
-        maxlength="300"
-        rows="4"
-        placeholder="Write your comment..."></textarea>
-      <button
-        class="comment-submit"
-        onclick="addComment()">
-        Post Comment 💬
-      </button>
+        id="studentSearch"
+        placeholder="Search for a student..."
+        onkeyup="searchStudents()"
+    >
+    <div class="student-list" id="studentList">
+        <button class="student-btn"
+        onclick="showStudent(
+        'Abdullah Anwar',
+        'images/IMG_5602.jpeg',
+        'Not specified',
+        'Not specified'
+        )">
+            Abdullah Anwar
+        </button>
+        <button class="student-btn"
+        onclick="showStudent(
+        'Bashar Musa',
+        '',
+        'Not specified',
+        'Not specified'
+        )">
+            Bashar Musa
+        </button>
+        <button class="student-btn"
+        onclick="showStudent(
+        'Yahya',
+        'images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg',
+        'Not specified',
+        'Not specified'
+        )">
+            Yahya
+        </button>
+        <button class="student-btn"
+        onclick="showStudent(
+        'Hizam',
+        '',
+        'Not specified',
+        'Not specified'
+        )">
+            Hizam
+        </button>
+        <button class="student-btn"
+        onclick="showStudent(
+        'Abu Bakr Ibrahim',
+        '',
+        'Not specified',
+        'Not specified'
+        )">
+            Abu Bakr Ibrahim
+        </button>
+        <button class="student-btn"
+        onclick="showStudent(
+        'Ahmed Faisal',
+        '',
+        'Not specified',
+        'Not specified'
+        )">
+            Ahmed Faisal
+        </button>
+        <!-- WISSAM -->
+        <button class="student-btn"
+        onclick="showStudent(
+        'Wissam Abdul Salam',
+        '',
+        'Yemeni 🇾🇪',
+        '14'
+        )">
+            Wissam Abdul Salam
+        </button>
     </div>
-    <h3>
-      Recent Comments
-    </h3>
-    <div id="commentsList">
-      <div class="no-comments">
-        Loading comments...
-      </div>
+</section>
+<!-- TEACHERS -->
+<section id="teachers">
+    <h2>👨‍🏫 Teachers</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Physics</h3>
+            <p>Mr. Mohammad Elhijazi</p>
+        </div>
+        <div class="card">
+            <h3>Mathematics</h3>
+            <p>Mr. Rafaqat Ali</p>
+        </div>
+        <div class="card">
+            <h3>Biology</h3>
+            <p>Mr. Fayyaz Jddin</p>
+        </div>
+        <div class="card">
+            <h3>English</h3>
+            <p>Mr. Abdul Jaleel</p>
+        </div>
+        <div class="card">
+            <h3>Chemistry</h3>
+            <p>Mr. Nauman Ahmad</p>
+        </div>
     </div>
-  </div>
 </section>
-<!-- =====================================================
-     FOUNDER
-===================================================== -->
-<section id="founder">
-  <h2>
-    👑 Website Founder
-  </h2>
-  <div class="founder">
-    <h3>
-      Ahmed Jallab
-    </h3>
+<!-- EXAMS -->
+<section id="exams">
+    <h2>📝 Exam Schedule</h2>
+    <div class="card">
+        <div style="font-size:50px;">
+            📚
+        </div>
+        <h3>Coming Soon 🚀</h3>
+        <p>
+            Exam dates and times will be announced here soon.
+        </p>
+    </div>
+</section>
+<!-- NEWS -->
+<section id="news">
+    <h2>📢 News & Announcements</h2>
+    <div class="card">
+        <h3>📣 Important Announcement</h3>
+        <p>
+            New announcements will appear here.
+        </p>
+    </div>
+</section>
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+    <h2>🏆 Achievements</h2>
+    <div class="card">
+        <h3>Coming Soon 🚀</h3>
+        <p>
+            Class achievements will be added here.
+        </p>
+    </div>
+</section>
+<!-- QUOTES -->
+<section id="quotes">
+    <h2>💭 Class Quotes</h2>
+    <div class="cards">
+        <div class="card">
+            Small steps every day lead to big achievements. 🚀
+        </div>
+        <div class="card">
+            High school is not just about grades,
+            it’s about building your future. 🎓
+        </div>
+        <div class="card">
+            Dream big, work hard, and never give up. 💪
+        </div>
+        <div class="card">
+            The best memories are made with the people
+            who make school special. ❤️
+        </div>
+        <div class="card">
+            Every challenge is another chance to grow. 🌟
+        </div>
+        <div class="card">
+            Believe in yourself and keep moving forward. 🔥
+        </div>
+        <div class="card">
+            One class, one team, many dreams. 🤝
+        </div>
+        <div class="card">
+            Today’s effort is tomorrow’s success. 🏆
+        </div>
+        <div class="card">
+            Make your school years something worth remembering. 📸
+        </div>
+        <div class="card">
+            Learn together, laugh together, succeed together. 😎
+        </div>
+        <div class="card">
+            The journey through high school is just the beginning. 🚀
+        </div>
+    </div>
+</section>
+<!-- GALLERY -->
+<section id="gallery">
+    <h2>🖼️ Gallery</h2>
+    <div class="gallery">
+        <img
+        src="images/IMG_5602.jpeg"
+        onclick="openImage(this.src)"
+        alt="Abdullah Anwar">
+        <img
+        src="images/d6123e4c-24b7-4226-bc4f-ebb2e859296a.jpeg"
+        onclick="openImage(this.src)"
+        alt="Yahya">
+    </div>
+</section>
+<!-- COMMENTS -->
+<section id="comments">
+    <h2>👥 Visitors & Comments</h2>
+    <div class="visitor-count">
+        👀 Visitors:
+        <span id="visitorCount">
+            Loading...
+        </span>
+    </div>
+    <div class="comment-box">
+        <input
+            type="text"
+            id="commentName"
+            placeholder="Your name"
+            maxlength="30"
+        >
+        <textarea
+            id="commentText"
+            placeholder="Write your comment..."
+            maxlength="300"
+        ></textarea>
+        <button onclick="addComment()">
+            Post Comment 💬
+        </button>
+    </div>
+    <div id="commentsList"></div>
+</section>
+<!-- FOUNDER -->
+<section id="founder" class="founder">
+    <h2>👨‍💻 Founder</h2>
+    <div class="founder-name">
+        Ahmed Jallab
+    </div>
     <p>
-      Alex
+        Website Founder
     </p>
+    <p style="margin-top:10px;">
+        Alex
+    </p>
+</section>
+<!-- SOCIAL MEDIA -->
+<section class="social">
+    <h2>🏫 Success International School</h2>
     <p>
-      Founder of the 10A Website 🚀
+        School Social Media & Platforms
     </p>
-  </div>
+    <p style="margin-top:8px;">
+        @sischls
+    </p>
+    <div class="social-icons">
+        <a href="https://www.classlight.com/"
+        target="_blank">
+            <i class="fa-solid fa-globe"></i>
+        </a>
+        <a
+        href="https://www.tiktok.com/@sischls?_r=1&_t=ZS-99NWSo2HCV6"
+        target="_blank">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+        <a
+        href="https://www.instagram.com/sischls?igsi=dm0zc2s4MHpuMjhi"
+        target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a
+        href="https://www.facebook.com/share/1EqhkVcozU/?mibextid=wwXIfr"
+        target="_blank">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a
+        href="https://youtube.com/@sischls?si=3M0HkZMbFMBErEw_"
+        target="_blank">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a
+        href="https://www.snapchat.com/add/sischls"
+        target="_blank">
+            <i class="fa-brands fa-snapchat"></i>
+        </a>
+    </div>
 </section>
-<!-- =====================================================
-     SOCIAL MEDIA
-===================================================== -->
-<section class="social-section">
-  <h2>
-    🏫 Success International School
-  </h2>
-  <p class="social-subtitle">
-    School Social Media & Platforms
-  </p>
-  <div class="social-icons">
-    <!-- Classlight -->
-    <a
-      href="https://www.classlight.com/"
-      target="_blank"
-      class="social-link"
-      title="Classlight">
-      <i class="fa-solid fa-globe"></i>
-    </a>
-    <!-- TikTok -->
-    <a
-      href="https://www.tiktok.com/@sischls?_r=1&_t=ZS-99NWSo2HCV6"
-      target="_blank"
-      class="social-link"
-      title="TikTok">
-      <i class="fa-brands fa-tiktok"></i>
-    </a>
-    <!-- Instagram -->
-    <a
-      href="https://www.instagram.com/sischls?igsi=dm0zc2s4MHpuMjhi"
-      target="_blank"
-      class="social-link"
-      title="Instagram">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-    <!-- Facebook -->
-    <a
-      href="https://www.facebook.com/share/1EqhkVcozU/?mibextid=wwXIfr"
-      target="_blank"
-      class="social-link"
-      title="Facebook">
-      <i class="fa-brands fa-facebook-f"></i>
-    </a>
-    <!-- YouTube -->
-    <a
-      href="https://youtube.com/@sischls?si=3M0HkZMbFMBErEw_"
-      target="_blank"
-      class="social-link"
-      title="YouTube">
-      <i class="fa-brands fa-youtube"></i>
-    </a>
-    <!-- Snapchat -->
-    <a
-      href="https://www.snapchat.com/add/sischls"
-      target="_blank"
-      class="social-link"
-      title="Snapchat">
-      <i class="fa-brands fa-snapchat"></i>
-    </a>
-  </div>
-  <p class="social-name">
-    @sischls
-  </p>
+<!-- DARK MODE -->
+<section style="text-align:center;">
+    <button
+        onclick="darkMode()"
+        style="
+        padding:12px 20px;
+        border:0;
+        border-radius:10px;
+        cursor:pointer;
+        ">
+        🌙 Dark Mode
+    </button>
 </section>
-<!-- =====================================================
-     DARK MODE
-===================================================== -->
-<div class="dark-button-area">
-  <button
-    class="dark-btn"
-    onclick="darkMode()">
-    🌙 Dark Mode
-  </button>
-</div>
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+</main>
 <footer>
-  <p>
-    © 2026 10A | Success International School
-  </p>
-  <p>
-    Made by Ahmed Jallab — Alex 🚀
-  </p>
+    © 2026 Success International School - Class 10B
 </footer>
-<!-- =====================================================
-     STUDENT POPUP
-===================================================== -->
-<div
-  id="popup"
-  onclick="closePopup()">
-  <div
-    class="popup-box"
-    onclick="event.stopPropagation()">
-    <span
-      class="close"
-      onclick="closePopup()">
-      ×
-    </span>
-    <h2 id="popupName"></h2>
-    <img
-      id="popupImage"
-      src=""
-      alt="Student Photo">
-    <p id="noPhoto"></p>
-  </div>
+<!-- STUDENT POPUP -->
+<div class="popup" id="studentPopup">
+    <div class="popup-content">
+        <button
+            class="close-popup"
+            onclick="closePopup()">
+            ×
+        </button>
+        <img
+            id="studentImage"
+            src=""
+            alt="Student"
+        >
+        <h2 id="studentName"></h2>
+        <p id="studentNationality"></p>
+        <p id="studentAge"></p>
+    </div>
 </div>
-<!-- =====================================================
-     FIREBASE
-===================================================== -->
+<!-- IMAGE POPUP -->
+<div
+class="popup"
+id="imagePopup"
+onclick="closeImage()">
+    <div class="popup-content">
+        <button
+            class="close-popup"
+            onclick="closeImage()">
+            ×
+        </button>
+        <img
+            id="largeImage"
+            src=""
+            alt="Gallery Image"
+        >
+    </div>
+</div>
+<!-- FIREBASE -->
 <script type="module">
+import {
+    initializeApp
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    updateDoc,
+    increment,
+    collection,
+    addDoc,
+    serverTimestamp,
+    onSnapshot,
+    query,
+    orderBy
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 /*
-==========================================================
-FIREBASE SETUP
-Replace the values below with your Firebase project data.
-==========================================================
+IMPORTANT:
+Replace the information below
+with your Firebase project configuration.
 */
-import {
-  initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  onSnapshot,
-  query,
-  orderBy,
-  serverTimestamp,
-  increment,
-  doc,
-  setDoc
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-/* ======================================================
-   FIREBASE CONFIG
-====================================================== */
 const firebaseConfig = {
-  apiKey:
-    "YOUR_API_KEY",
-  authDomain:
+    apiKey:"YOUR_API_KEY",
+    authDomain:
     "YOUR_PROJECT.firebaseapp.com",
-  projectId:
+    projectId:
     "YOUR_PROJECT_ID",
-  storageBucket:
+    storageBucket:
     "YOUR_PROJECT.firebasestorage.app",
-  messagingSenderId:
+    messagingSenderId:
     "YOUR_MESSAGING_SENDER_ID",
-  appId:
+    appId:
     "YOUR_APP_ID"
 };
-/* ======================================================
-   INITIALIZE
-====================================================== */
-const app =
-  initializeApp(firebaseConfig);
-const db =
-  getFirestore(app);
-/* ======================================================
-   VISITOR COUNTER
-====================================================== */
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+/* VISITOR COUNTER */
 async function countVisitor(){
-  try{
-    const visitorRef =
-      doc(
-        db,
-        "websiteStats",
-        "main"
-      );
-    await setDoc(
-      visitorRef,
-      {
-        visitors:
-          increment(1)
-      },
-      {
-        merge:true
-      }
-    );
-  }catch(error){
-    console.log(
-      "Visitor counter error:",
-      error
-    );
-  }
-}
-/* ======================================================
-   LOAD VISITOR COUNT
-====================================================== */
-function loadVisitorCount(){
-  const visitorRef =
-    doc(
-      db,
-      "websiteStats",
-      "main"
-    );
-  onSnapshot(
-    visitorRef,
-    snapshot => {
-      if(snapshot.exists()){
-        const data =
-          snapshot.data();
-        document
-          .getElementById(
-            "visitorCount"
-          )
-          .innerText =
-            data.visitors || 0;
-      }
-    }
-  );
-}
-/* ======================================================
-   ADD COMMENT
-====================================================== */
-window.addComment =
-async function(){
-  const name =
-    document
-      .getElementById(
-        "commentName"
-      )
-      .value
-      .trim();
-  const text =
-    document
-      .getElementById(
-        "commentText"
-      )
-      .value
-      .trim();
-  if(!name || !text){
-    alert(
-      "Please enter your name and comment."
-    );
-    return;
-  }
-  if(name.length > 40){
-    alert(
-      "Name is too long."
-    );
-    return;
-  }
-  if(text.length > 300){
-    alert(
-      "Comment is too long."
-    );
-    return;
-  }
-  try{
-    await addDoc(
-      collection(
-        db,
-        "comments"
-      ),
-      {
-        name:name,
-        text:text,
-        createdAt:
-          serverTimestamp()
-      }
-    );
-    document
-      .getElementById(
-        "commentName"
-      )
-      .value="";
-    document
-      .getElementById(
-        "commentText"
-      )
-      .value="";
-  }catch(error){
-    console.log(error);
-    alert(
-      "Could not post the comment. Please try again."
-    );
-  }
-};
-/* ======================================================
-   LOAD COMMENTS
-====================================================== */
-function loadComments(){
-  const commentsQuery =
-    query(
-      collection(
-        db,
-        "comments"
-      ),
-      orderBy(
-        "createdAt",
-        "desc"
-      )
-    );
-  onSnapshot(
-    commentsQuery,
-    snapshot => {
-      const list =
-        document
-          .getElementById(
-            "commentsList"
-          );
-      list.innerHTML="";
-      if(snapshot.empty){
-        list.innerHTML =
-          '<div class="no-comments">No comments yet. Be the first! 💬</div>';
-        return;
-      }
-      snapshot.forEach(
-        commentDoc => {
-          const data =
-            commentDoc.data();
-          const comment =
-            document.createElement(
-              "div"
+    try{
+        const statsRef =
+        doc(db,"websiteStats","main");
+        const statsSnap =
+        await getDoc(statsRef);
+        if(!statsSnap.exists()){
+            await setDoc(statsRef,{
+                visitors:1
+            });
+        }else{
+            await updateDoc(
+                statsRef,
+                {
+                    visitors:increment(1)
+                }
             );
-          comment.className =
-            "comment";
-          const name =
-            document.createElement(
-              "div"
-            );
-          name.className =
-            "comment-name";
-          name.innerText =
-            data.name ||
-            "Anonymous";
-          const text =
-            document.createElement(
-              "div"
-            );
-          text.className =
-            "comment-text";
-          text.innerText =
-            data.text ||
-            "";
-          const time =
-            document.createElement(
-              "div"
-            );
-          time.className =
-            "comment-time";
-          if(data.createdAt){
-            const date =
-              data.createdAt.toDate();
-            time.innerText =
-              date.toLocaleString();
-          }else{
-            time.innerText =
-              "Just now";
-          }
-          comment.appendChild(
-            name
-          );
-          comment.appendChild(
-            text
-          );
-          comment.appendChild(
-            time
-          );
-          list.appendChild(
-            comment
-          );
         }
-      );
-    },
-    error => {
-      console.log(
-        "Comments error:",
-        error
-      );
-      document
-        .getElementById(
-          "commentsList"
-        )
-        .innerHTML =
-          '<div class="no-comments">Comments are temporarily unavailable.</div>';
+        loadVisitorCount();
+    }catch(error){
+        console.log(
+            "Visitor counter error:",
+            error
+        );
+        document.getElementById(
+            "visitorCount"
+        ).textContent="Unavailable";
     }
-  );
 }
-/* ======================================================
-   START FIREBASE FUNCTIONS
-====================================================== */
+async function loadVisitorCount(){
+    try{
+        const statsRef =
+        doc(db,"websiteStats","main");
+        const snap =
+        await getDoc(statsRef);
+        if(snap.exists()){
+            document.getElementById(
+                "visitorCount"
+            ).textContent =
+            snap.data().visitors;
+        }
+    }catch(error){
+        console.log(error);
+    }
+}
+/* COMMENTS */
+window.addComment = async function(){
+    const name =
+    document.getElementById(
+        "commentName"
+    ).value.trim();
+    const text =
+    document.getElementById(
+        "commentText"
+    ).value.trim();
+    if(!name || !text){
+        alert(
+            "Please enter your name and comment."
+        );
+        return;
+    }
+    try{
+        await addDoc(
+            collection(db,"comments"),
+            {
+                name:name,
+                text:text,
+                createdAt:
+                serverTimestamp()
+            }
+        );
+        document.getElementById(
+            "commentName"
+        ).value="";
+        document.getElementById(
+            "commentText"
+        ).value="";
+    }catch(error){
+        console.log(error);
+        alert(
+            "Unable to post comment."
+        );
+    }
+}
+/* LOAD COMMENTS */
+function loadComments(){
+    const commentsQuery =
+    query(
+        collection(db,"comments"),
+        orderBy("createdAt","desc")
+    );
+    onSnapshot(
+        commentsQuery,
+        (snapshot)=>{
+            const list =
+            document.getElementById(
+                "commentsList"
+            );
+            list.innerHTML="";
+            snapshot.forEach(
+                (doc)=>{
+                    const data =
+                    doc.data();
+                    const div =
+                    document.createElement(
+                        "div"
+                    );
+                    div.className="comment";
+                    div.innerHTML=`
+                        <strong>
+                            ${escapeHtml(data.name)}
+                        </strong>
+                        <p style="margin-top:7px;">
+                            ${escapeHtml(data.text)}
+                        </p>
+                    `;
+                    list.appendChild(div);
+                }
+            );
+        }
+    );
+}
+/* SECURITY FOR DISPLAYING COMMENTS */
+function escapeHtml(text){
+    const div =
+    document.createElement("div");
+    div.textContent=text;
+    return div.innerHTML;
+}
 countVisitor();
-loadVisitorCount();
 loadComments();
 </script>
-<!-- =====================================================
-     NORMAL JAVASCRIPT
-===================================================== -->
 <script>
-/* =====================================================
-   ENTER WEBSITE
-===================================================== */
+/* ENTER WEBSITE */
 function enterSite(){
-  document
+    document
     .getElementById("welcome")
-    .classList
-    .add("hide");
+    .classList.add("hide");
 }
-/* =====================================================
-   CLOCK
-===================================================== */
+/* CLOCK */
 function updateClock(){
-  const now =
+    const now =
     new Date();
-  document
-    .getElementById("clock")
-    .innerText =
-      now.toLocaleDateString(
-        "en-US"
-      )
-      +
-      " • "
-      +
-      now.toLocaleTimeString(
-        "en-US"
-      );
+    document.getElementById(
+        "clock"
+    ).textContent =
+    now.toLocaleString(
+        "en-US",
+        {
+            dateStyle:"full",
+            timeStyle:"medium"
+        }
+    );
 }
 setInterval(
-  updateClock,
-  1000
+    updateClock,
+    1000
 );
 updateClock();
-/* =====================================================
-   MENU
-===================================================== */
+/* MENU */
 function toggleMenu(){
-  document
+    document
     .getElementById("sideMenu")
-    .classList
-    .toggle("open");
-  document
-    .getElementById("menuOverlay")
-    .classList
-    .toggle("show");
+    .classList.toggle("open");
+    document
+    .getElementById("overlay")
+    .classList.toggle("show");
 }
 function closeMenu(){
-  document
-    .getElementById("sideMenu")
-    .classList
-    .remove("open");
-  document
-    .getElementById("menuOverlay")
-    .classList
-    .remove("show");
-}
-/* =====================================================
-   SEARCH
-===================================================== */
-function searchStudents(){
-  const input =
     document
-      .getElementById("search")
-      .value
-      .toLowerCase();
-  const students =
+    .getElementById("sideMenu")
+    .classList.remove("open");
+    document
+    .getElementById("overlay")
+    .classList.remove("show");
+}
+/* STUDENT SEARCH */
+function searchStudents(){
+    const input =
+    document
+    .getElementById("studentSearch")
+    .value
+    .toLowerCase();
+    const students =
     document.querySelectorAll(
-      ".student"
+        ".student-btn"
     );
-  students.forEach(
-    student => {
-      student.style.display =
-        student.innerText
-        .toLowerCase()
-        .includes(input)
-        ?
-        "block"
-        :
-        "none";
+    students.forEach(
+        student=>{
+            const name =
+            student.textContent
+            .toLowerCase();
+            student.style.display =
+            name.includes(input)
+            ? "block"
+            : "none";
+        }
+    );
+}
+/* STUDENT POPUP */
+function showStudent(
+    name,
+    image,
+    nationality,
+    age
+){
+    document.getElementById(
+        "studentName"
+    ).textContent=name;
+    document.getElementById(
+        "studentNationality"
+    ).textContent=
+    "Nationality: "+nationality;
+    document.getElementById(
+        "studentAge"
+    ).textContent=
+    "Age: "+age;
+    const img =
+    document.getElementById(
+        "studentImage"
+    );
+    if(image){
+        img.src=image;
+        img.style.display="block";
+    }else{
+        img.src="";
+        img.style.display="none";
     }
-  );
+    document
+    .getElementById("studentPopup")
+    .classList.add("show");
 }
-/* =====================================================
-   STUDENT POPUP
-===================================================== */
-function show(name,image){
-  document
-    .getElementById("popup")
-    .style.display="flex";
-  document
-    .getElementById("popupName")
-    .innerText=name;
-  const img =
-    document.getElementById(
-      "popupImage"
-    );
-  const noPhoto =
-    document.getElementById(
-      "noPhoto"
-    );
-  if(image){
-    img.src=image;
-    img.style.display="block";
-    noPhoto.innerText="";
-  }else{
-    img.style.display="none";
-    noPhoto.innerText =
-      "No photo available for this student yet.";
-  }
-}
-/* =====================================================
-   CLOSE POPUP
-===================================================== */
 function closePopup(){
-  document
-    .getElementById("popup")
-    .style.display="none";
+    document
+    .getElementById("studentPopup")
+    .classList.remove("show");
 }
-/* =====================================================
-   DARK MODE
-===================================================== */
+/* GALLERY IMAGE */
+function openImage(src){
+    document.getElementById(
+        "largeImage"
+    ).src=src;
+    document
+    .getElementById("imagePopup")
+    .classList.add("show");
+}
+function closeImage(){
+    document
+    .getElementById("imagePopup")
+    .classList.remove("show");
+}
+/* DARK MODE */
 function darkMode(){
-  document
+    document
     .body
-    .classList
-    .toggle("dark");
+    .classList.toggle("dark");
 }
 </script>
 </body>
